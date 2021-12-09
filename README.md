@@ -44,4 +44,5 @@ Currently, our web application product is not deployed yet and our database is s
 ### 2. Integrate API
 To ease communication between users without heavily depending on third party applications outside of web application, we would like to integrate API, specifically Zoom API in find session page and Whatsapp API in find friends page. We would also like to add Google Calendar API to automatically synch
 
-
+## Youtube
+Round 1: https://youtu.be/ZifimOcPcsQ 
