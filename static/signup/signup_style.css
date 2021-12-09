@@ -1,0 +1,130 @@
+.background {
+    background: url('SignUp\ and\ Login\ BG.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    height:100%;
+}
+
+h1{
+    position :absolute;
+    left : 700px;
+    top: 330px;
+    width: 413px;
+    height :158px;
+    overflow: visible;
+    white-space: pre;
+    font-weight: 700;
+    font-family: "Inter-Bold", "Inter", sans-serif;
+    color: #333;
+    font-size: 144px;
+    letter-spacing: -2px;
+    line-height: 1.1;
+  }
+
+  #fname{
+    position: absolute;
+    left :480px;
+    top :700px;
+    width :900px;
+    height : 100px;
+   border-radius: 70px;
+    background-color:#F2ECE6;
+    border:#000000;
+    font-size: 50px;
+}
+#lname{
+    position: absolute;
+    left :480px;
+    top :850px;
+    width :900px;
+    height : 100px;
+   border-radius: 70px;
+    background-color:#F2ECE6;
+    border:#000000;
+    font-size: 50px;
+}
+#email{
+    position: absolute;
+    left :480px;
+    top :1000px;
+    width :900px;
+    height : 100px;
+   border-radius: 70px;
+    background-color:#F2ECE6;
+    border:#000000;
+    font-size: 50px;
+}
+#phone{
+    position: absolute;
+    left :480px;
+    top :1150px;
+    width :900px;
+    height : 100px;
+   border-radius: 70px;
+    background-color:#F2ECE6;
+    border:#000000;
+    font-size: 50px;
+}
+
+#ig{
+    position: absolute;
+    left :480px;
+    top :1300px;
+    width :900px;
+    height : 100px;
+   border-radius: 70px;
+    background-color:#F2ECE6;
+    border:#000000;
+    font-size: 50px;
+}
+
+#faculty{
+    position: absolute;
+    left :480px;
+    top :1450px;
+    width :900px;
+    height : 100px;
+   border-radius: 70px;
+    background-color:#F2ECE6;
+    border:#000000;
+    font-size: 50px;
+}
+
+#password{
+    position: absolute;
+    left :480px;
+    top :1600px;
+    width :900px;
+    height : 100px;
+    border-radius: 70px;
+    background-color:#F2ECE6;
+    border:#000000;
+    font-size: 50px;
+}
+
+::placeholder{
+    font-size:50px;
+    color: #AAAAAA;
+    text-align:center;
+}
+
+#signup{
+    position: absolute;
+    width: 316px;
+    height: 93px;
+    left:750px;
+    top : 1800px;
+    background-color: #FABB01;
+    border-radius: 60px;
+    border:#000000;
+    font-size: 50px;
+    color: white;
+
+}
+

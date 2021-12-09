@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link href="signup_style.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='signup/signup_style.css') }}">
+    <!-- <script type="text/javascript" src="signup.js"></script> -->
+    <title>Sign Up Form</title>
+</head>
+
+
+<body>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+        // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+    
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        // const firebaseConfig = {
+        // apiKey: "AIzaSyBbKqKjSu5wGIaxJLyjR7GYE6RLKOb4_JI",
+        // authDomain: "livinhd-60b60.firebaseapp.com",
+        // projectId: "livinhd-60b60",
+        // storageBucket: "livinhd-60b60.appspot.com",
+        // messagingSenderId: "298674850635",
+        // appId: "1:298674850635:web:0ef3088c10daed897bf6ce",
+        // measurementId: "${config.measurementId}"
+        // };
+    
+        // Initialize Firebase
+        // const app = initializeApp(firebaseConfig);
+        // const analytics = getAnalytics(app);
+        
+        function sign_up(){
+            app.database().ref("user").set({
+                fname : document.getElementById("fname").value,
+                lname : document.getElementById("lname").value
+            });
+            console.log("bangsat");
+        }
+    </script>
+
+    <div class="background"></div>
+    <div><h1>Sign Up</h1></div>
+    <form action="{{url_for('signup') }}" method="POST">
+    <!-- <form action="{{ url_for('sign_up_details') }}" method="POST"> -->
+    <div><input type="text" id="fname" name="fname" placeholder="given name"></div>
+    <div><input type="text" id="lname" name="lname" placeholder="family name"></div>
+    <div><input type="text" id="email" name="email" placeholder="email"></div>
+    <div><input type="text" id="phone" name="phone" placeholder="phone number"></div>
+    <div><input type="text" id="ig" name="ig" placeholder="instagram"></div>
+    <div><input type="text" id="faculty" name="faculty" placeholder="faculty"></div>
+    <div><input type="text" id="password" name="password" placeholder="password"></div>
+    <div>
+        <!-- <a href="../sign_up_details/sign_up_details.html"> -->
+        <button name="signup" type="submit" id="signup" value="Sign Up">Sign Up</button>
+    </div>
+    </form>
+</body>
+
+</html>
