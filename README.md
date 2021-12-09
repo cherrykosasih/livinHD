@@ -18,7 +18,7 @@ In an online learning situation, finding a group of friends is pretty difficult,
  
 Having automation can be beneficial for different aspects of learning in the perspective of productivity and social life. Our app, Livin HD, is built to help students automate and tackle these issues.
 
-## Solutions (1m 45s)
+## Solutions 
 Features implemented and brief explaination
  
 [Log in and sign in page, profile, and questionnaire]
@@ -27,15 +27,15 @@ Students will create an account and fill out data to complete their profile acco
 After signing in, we have a main home page to handle scheduling.
 [Home page]
 1) Scheduling
-Timetable: google calendar is integrated into a student's timetable, in addition students can manually schedule task
+Timetable: calendar is integrated into a student's timetable, students can manually schedule task into the timetable
 Reminder: built in reminder inside app to notify student to next schedule to encourage engagement and attendance 
 To do list: personal to do list for student
 
 [Find friend/study session page]
 2) Social interaction
- Find a friend and study session: dedicated page to connect students.
+Find a friend and study session: dedicated page to connect students.
 Allow students to search and find new friends to socialize by using our previous customised questions to filter people with similar interests. 
-Aside from finding friends, we can join or arrange a study session according to units or preferences. Chatting and video conference are built in to connect students and avoid the need of having communication through personal platform (whatsapp, etc).
+Aside from finding friends, we can join or arrange a study session according to units or preferences. 
 
 
 ## Future Implementation
@@ -46,3 +46,11 @@ To ease communication between users without heavily depending on third party app
 
 ## Youtube
 Round 1: https://youtu.be/ZifimOcPcsQ 
+
+## How to run in terminal
+- pip3 install virtualenv
+- virtualenv flask
+- cd flask
+- source bin/activate
+- pip3 install flask
+- python3 main.py
