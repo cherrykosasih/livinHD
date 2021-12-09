@@ -42,7 +42,7 @@ Aside from finding friends, we can join or arrange a study session according to 
 ### 1. Server deployment and saving database in server
 Currently, our web application product is not deployed yet and our database is still stored locally. We hope to expand by deploying a server to save databases and enable multiple users to connect with one another.
 ### 2. Integrate API
-To ease communication between users without heavily depending on third party applications outside of web application, we would like to integrate API, specifically Zoom API in find session page and Whatsapp API in find friends page. We would also like to add Google Calendar API to automatically synch
+To ease communication between users without heavily depending on third party applications outside of web application, we would like to integrate API, specifically Zoom API in find session page and Whatsapp API in find friends page. We would also like to add Google Calendar API to automatically sync schedule in user's google calendar.
 
 ## Youtube
 Round 1: https://youtu.be/ZifimOcPcsQ 
