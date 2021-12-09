@@ -45,8 +45,8 @@ Currently, our web application product is not deployed yet and our database is s
 To ease communication between users without heavily depending on third party applications outside of web application, we would like to integrate API, specifically Zoom API in find session page and Whatsapp API in find friends page. We would also like to add Google Calendar API to automatically sync schedule in user's google calendar.
 
 ## Youtube
-Round 1: https://youtu.be/ZifimOcPcsQ 
-Round 2: https://youtu.be/sxWLLEDvG2M
+# Round 1: https://youtu.be/ZifimOcPcsQ 
+# Round 2: https://youtu.be/sxWLLEDvG2M
 
 ## How to run in terminal
 - pip3 install virtualenv
