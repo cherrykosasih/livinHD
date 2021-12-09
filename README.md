@@ -46,6 +46,7 @@ To ease communication between users without heavily depending on third party app
 
 ## Youtube
 Round 1: https://youtu.be/ZifimOcPcsQ 
+Round 2: https://youtu.be/sxWLLEDvG2M
 
 ## How to run in terminal
 - pip3 install virtualenv
