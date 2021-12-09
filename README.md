@@ -26,13 +26,13 @@ Students will create an account and fill out data to complete their profile acco
 
 After signing in, we have a main home page to handle scheduling.
 [Home page]
-1) Scheduling
+- Scheduling
 Timetable: calendar is integrated into a student's timetable, students can manually schedule task into the timetable
 Reminder: built in reminder inside app to notify student to next schedule to encourage engagement and attendance 
 To do list: personal to do list for student
 
 [Find friend/study session page]
-2) Social interaction
+- Social interaction
 Find a friend and study session: dedicated page to connect students.
 Allow students to search and find new friends to socialize by using our previous customised questions to filter people with similar interests. 
 Aside from finding friends, we can join or arrange a study session according to units or preferences. 
