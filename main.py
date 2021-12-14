@@ -23,7 +23,9 @@ def login():
         password = request.form['password']
         if db.login_validator(email,password):
             return redirect(url_for('home')) #this is supposed to be home, but no home.html yet
-        return render_template("login_fix.html")
+        else:
+            msg="invalid email/password"
+        return render_template("login_fix.html",message=msg)
 
 @app.route('/home',methods=["POST","GET"])
 def home():
@@ -49,12 +51,14 @@ def signup():
         faculty = request.form['faculty']
         password = request.form['password']
         if su.email_validator(email)==False:
-            return render_template('signup_fix.html')
+            msg="not a valid email"
+            return render_template('signup_fix.html',message=msg)
         else:
             try:
                 db.insert_user(fname,lname,email,phone,ig,faculty,password,None,None,None)
             except sqlite3.IntegrityError:
-                return render_template('signup_fix.html')
+                msg="email has been used before"
+                return render_template('signup_fix.html',message=msg)
         return render_template('sign_up_details.html')
 
 @app.route('/signup_details',methods=["POST","GET"])

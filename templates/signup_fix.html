@@ -21,41 +21,6 @@
     </head>
 
     <body>
-        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
-        <script type="module">
-            // Import the functions you need from the SDKs you need
-            // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
-            // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics.js";
-            // TODO: Add SDKs for Firebase products that you want to use
-            // https://firebase.google.com/docs/web/setup#available-libraries
-
-            // Your web app's Firebase configuration
-            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-            // const firebaseConfig = {
-            // apiKey: "AIzaSyBbKqKjSu5wGIaxJLyjR7GYE6RLKOb4_JI",
-            // authDomain: "livinhd-60b60.firebaseapp.com",
-            // projectId: "livinhd-60b60",
-            // storageBucket: "livinhd-60b60.appspot.com",
-            // messagingSenderId: "298674850635",
-            // appId: "1:298674850635:web:0ef3088c10daed897bf6ce",
-            // measurementId: "${config.measurementId}"
-            // };
-
-            // Initialize Firebase
-            // const app = initializeApp(firebaseConfig);
-            // const analytics = getAnalytics(app);
-
-            function sign_up() {
-                app.database()
-                    .ref("user")
-                    .set({
-                        fname: document.getElementById("fname").value,
-                        lname: document.getElementById("lname").value,
-                    });
-                console.log("bangsat");
-            }
-        </script>
-
         <div class="frame">
             <div class="content">
                 <div class="signup">
@@ -68,6 +33,7 @@
                             name="fname"
                             placeholder="given name"
                             class="signup-input"
+                            value="{{ request.form['fname'] }}"
                         />
 
                         <input
@@ -76,6 +42,7 @@
                             name="lname"
                             placeholder="family name"
                             class="signup-input"
+                            value="{{ request.form['lname'] }}"
                         />
 
                         <input
@@ -84,6 +51,7 @@
                             name="email"
                             placeholder="email"
                             class="signup-input"
+                            value="{{ request.form['email'] }}"
                         />
 
                         <input
@@ -92,6 +60,7 @@
                             name="phone"
                             placeholder="phone number"
                             class="signup-input"
+                            value="{{ request.form['phone'] }}"
                         />
 
                         <input
@@ -100,6 +69,7 @@
                             name="ig"
                             placeholder="instagram"
                             class="signup-input"
+                            value="{{ request.form['ig'] }}"
                         />
 
                         <input
@@ -108,6 +78,7 @@
                             name="faculty"
                             placeholder="faculty"
                             class="signup-input"
+                            value="{{ request.form['faculty'] }}"
                         />
 
                         <input
@@ -116,6 +87,7 @@
                             name="password"
                             placeholder="password"
                             class="signup-input"
+                            value="{{ request.form['password'] }}"
                         />
 
                         <!-- <a href="../sign_up_details/sign_up_details.html"> -->
@@ -135,6 +107,9 @@
                     <img src="{{url_for('static',filename='signup_fix/img-bottom.png')}}" alt="" />
                 </div>
             </div>
+        </div>
+        <div>
+            <strong id="errormsg">{{ message }}</strong>
         </div>
     </body>
 </html>
