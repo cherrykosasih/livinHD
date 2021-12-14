@@ -118,7 +118,6 @@ body {
     width: 750px;
     height: 575px;
     overflow: scroll;
-    display: table-cell;
     padding: 10px;
     padding-top: 0;
 }

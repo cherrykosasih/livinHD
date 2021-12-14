@@ -8,7 +8,7 @@ from flask import Flask,render_template,url_for,request,flash,redirect
 import database_new.database as db
 import sqlite3
 import functions.signup as su
-import webbrowser
+from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
 
 current_user_email = None
 app = Flask(__name__,template_folder='templates',static_folder='static')
@@ -41,7 +41,7 @@ def profile():
 @app.route('/signup/',methods=["POST","GET"])
 def signup():
     if request.method=="GET":
-        return render_template("signup.html")
+        return render_template("signup_fix.html")
     elif request.method=="POST":
         fname=request.form['fname']
         lname=request.form['lname']
@@ -95,5 +95,6 @@ def create_study_session():
         except sqlite3.IntegrityError:
             return render_template('create_session.html')
         return redirect(url_for('find_study_sessions'))
+
 if __name__ == '__main__':
     app.run(debug=True)
