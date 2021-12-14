@@ -30,9 +30,9 @@ def login():
 @app.route('/home',methods=["POST","GET"])
 def home():
     if request.method=="POST":
-        return render_template("home_fix.html")
+        return render_template("home_fix_2.html")
     elif request.method=="GET":
-        return render_template("home_fix.html")
+        return render_template("home_fix_2.html")
 
 @app.route('/profile',methods=["POST","GET"])
 def profile():
