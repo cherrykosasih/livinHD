@@ -8,7 +8,7 @@ from flask import Flask,render_template,url_for,request,flash,redirect
 import database_new.database as db
 import sqlite3
 import functions.signup as su
-from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
+#from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
 
 current_user_email = None
 app = Flask(__name__,template_folder='templates',static_folder='static')

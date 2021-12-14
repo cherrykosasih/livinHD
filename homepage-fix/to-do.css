@@ -1,0 +1,613 @@
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter-Bold", "Inter", sans-serif;
+}
+
+#social-btn{
+  border-radius: 50px;
+  width: 30%;
+  height: 70%;
+  text-align: center;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 1%;
+  background-color: #685145;
+  color: #f2ece6;
+  font-family: "Andika New Basic", serif;
+  font-size: larger;
+  border: none;
+}
+
+#social-btn:hover{
+  background-color: #f2ece6;
+  color: #685145;
+}
+
+.content {
+  width: 1500px;
+  height: 1000px;
+  box-shadow: 5px 5px 4px 6px rgba(0, 0, 0, 0.55);
+  background-color: #f2ece6;
+  overflow: visible;
+  border-radius: 89px;
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content {
+  height: 1000px;
+  width: 800px;
+  margin: auto;
+  background-color: #dbcfc5;
+}
+
+.side-content {
+  height: 1000px;
+  width: 500px;
+}
+
+#logo {
+  width: 80%;
+  padding: 10px;
+  float: right;
+}
+
+#logo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Remove margins and padding from the list */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: "";
+  position: absolute;
+  border-color: #c39983;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+/* Style the header */
+.header {
+  background-color: #c39983;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  border-radius: 25px;
+  height: 400px;
+  width: 300px;
+  left: 950px;
+  top: 310px;
+  margin-left: 20px;
+  margin-top: 50px;
+}
+
+.header h1 {
+  font-family: "Andika New Basic", serif;
+  color: #f2ece6;
+}
+
+.eachlist {
+  background-color: #c39983;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  border-radius: 25px;
+  height: 56px;
+  width: 280px;
+}
+
+/* Style the input */
+input {
+  margin: 0;
+  border: none;
+  border-radius: 70px;
+  width: 80%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+  background-color: #f2ece6;
+}
+
+/* Style the "Add" button */
+.doneBtn {
+  padding: 10px;
+  width: 35px;
+  height: 35px;
+  margin-top: 2px;
+  margin-left: 10px;
+  background: #685145;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 70px;
+}
+
+.doneBtn:hover {
+  background-color: #f2ece6;
+}
+
+.frame {
+  margin-left: 5%;
+  z-index: 4;
+  margin-right: 5%;
+  margin-top: 1%;
+  height: 95%;
+  width: 90%;
+  overflow-y: scroll;
+  position: relative;
+  top: 0%;
+}
+.frame::-webkit-scrollbar {
+  display: none;
+}
+.scroll {
+  background-color: white;
+  padding: 10px 10px 10px 10px;
+  border-radius: 50px;
+  height: 55%;
+  width: 90%;
+  position: relative;
+  justify-content: center;
+  left: 5%;
+  top: 10%;
+}
+.timetable {
+  width: auto; /* 523px */
+  height: auto; /* 120px */
+  overflow: visible;
+  white-space: pre;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Andika New Basic", serif;
+  color: #ffffff;
+  font-size: 50px;
+  letter-spacing: 0px;
+  line-height: 1.2;
+  text-align: center;
+}
+.unit {
+  width: auto; /* 699px */
+  height: auto; /* 94px */
+  overflow: visible;
+  white-space: pre;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Andika New Basic", serif;
+  color: #000000;
+  font-size: 40px;
+  letter-spacing: 0px;
+  line-height: 1.2;
+}
+.teacher {
+  width: auto; /* 298px */
+  height: auto; /* 76px */
+  overflow: visible;
+  white-space: pre;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Andika New Basic", serif;
+  color: #7b6f6f;
+  font-size: 25px;
+  letter-spacing: 0px;
+  line-height: 1.2;
+}
+.zoom-link {
+  width: auto; /* 233px */
+  height: auto; /* 58px */
+  overflow: visible;
+  white-space: pre;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Andika New Basic", serif;
+  color: #bfb0b0;
+  font-size: 20px;
+  letter-spacing: 0px;
+  line-height: 1.2;
+}
+.time {
+  width: auto; /* 223px */
+  height: auto; /* 120px */
+  overflow: visible;
+  white-space: pre;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Andika New Basic", serif;
+  color: #dbcfc5;
+  font-size: 100px;
+  letter-spacing: 0px;
+  line-height: 1.2;
+}
+
+.timetable-frame {
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 3%;
+  height: 50px;
+  background-color: #dbcfc5;
+  overflow: visible;
+  border-radius: 70px;
+  padding-bottom: 3%;
+}
+.unit-frame {
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 5%;
+  margin-bottom: 1%;
+  height: 150px;
+  background-color: #ffdf6f;
+  overflow: visible;
+  border-radius: 25px;
+  padding-top: 4%;
+  padding-left: 10%;
+  z-index: 9;
+}
+.time-frame {
+  width: 332px;
+  height: 332px;
+  background-color: #ffffff;
+  overflow: visible;
+}
+
+.clock-frame {
+  background-color: #685145;
+  padding: 20px;
+  text-align: center;
+  border-radius: 25px;
+  height: 75px;
+  width: 300px;
+  margin: 10px;
+  margin-left: 20px;
+  margin-top: 50px;
+}
+.clock {
+  color: #f2ece6;
+  font-size: 25px;
+  font-family: "Righteous", cursive;
+  letter-spacing: 7px;
+}
+
+.date-frame {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 25px;
+  font-size: 20px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.date {
+  color: #685145;
+  background-color: #f2ece6;
+  border-radius: 25px;
+  width: 325px;
+  text-align: center;
+  align-self: center;
+  padding: 10px;
+}
+
+.frame-calender {
+  z-index: 4;
+  height: 100%;
+  width: 90%;
+  overflow-x: scroll;
+  position: relative;
+  justify-content: space-between;
+  top: 3%;
+  left: 7%;
+}
+.frame-calender::-webkit-scrollbar {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.scroll-calender {
+  background-color: white;
+  border-radius: 50px;
+  height: 6%;
+  width: 90%;
+  position: relative;
+  left: 5%;
+  top: 2%;
+  margin-bottom: -7%;
+}
+.grid {
+  display: grid;
+  grid-template-rows: repeat(var(--bs-rows, 1), 1fr);
+  grid-template-columns: repeat(var(--bs-columns, 14), 1fr);
+  gap: var(--bs-gap, 0.1rem);
+}
+.calender {
+  width: 160px;
+  height: 100px;
+  font-style: normal;
+  font-family: "Andika New Basic", serif;
+  color: #c39983;
+  font-size: 55px;
+  text-align: center;
+  position: relative;
+  top: 25%
+}
+#slideLeft {
+  position: relative;
+  top: 0%;
+  left: 0%;
+  background-color: #c39983;
+  border-radius: 70px;
+  border: none;
+  width: 5%;
+  padding: 10px;
+  float: center;
+  font-size: 30px;
+  color: White;
+  transition: 0.2s;
+}
+
+#slideRight {
+  position: relative;
+  top: 0%;
+  left: 90%;
+  background-color: #c39983;
+  border-radius: 70px;
+  border: none;
+  width: 5%;
+  padding: 10px;
+  float: center;
+  font-size: 30px;
+  color: White;
+  transition: 0.2s;
+}
+#slideRight:hover {
+  background: lightblue;
+}
+#slideLeft:hover {
+  background: lightblue;
+}
+
+.navigation {
+  text-align: center;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px 0;
+  float: right;
+}
+.eachbutton {
+  text-align: center;
+  border-radius: 25px;
+}
+.nav-button,
+.nav-button-other {
+  border: none;
+  border-top-left-radius: 70px;
+  border-bottom-left-radius: 70px;
+  background-color: #dbcfc5;
+  color: white;
+  transition: 0.2s;
+  font-size: 35px;
+  margin: 5px 0;
+  padding: 10px;
+  width: 300px;
+}
+.nav-button-other {
+  color: #dbcfc5;
+  background-color: white;
+}
+.nav-button-other:hover {
+  background: lightblue;
+}
+.nav-button:hover {
+  background: lightblue;
+}
+
+.profile {
+  padding: 10px;
+  margin: 10px;
+  margin-top: 50px;
+}
+
+.profile img {
+  height: 125px;
+  width: 125px;
+  background-color: #c39983;
+  border-radius: 25px;
+}
+
+.profile .profile-content {
+  float: right;
+  position: relative;
+  right: 30px;
+  bottom: 25px;
+}
+
+.profile h1 {
+  font-family: "Andika New Basic", serif;
+  color: #c39983;
+  font-size: 2em;
+}
+
+.profile h2 {
+  font-family: "Andika New Basic", serif;
+  color: #dbcfc5;
+  font-size: 1.5em;
+}
+
+.profile button {
+  background-color: #c39983;
+  border-radius: 70px;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 10px;
+  border: none;
+}
+
+.profile button:hover {
+  background: lightblue;
+}
+
+.task {
+  margin: 30px;
+}
+
+.task h1 {
+  font-family: "Andika New Basic", serif;
+  color: #b38a75;
+  font-weight: 800;
+}
+
+.task-title {
+  margin: 0;
+  border: none;
+  padding: 10px;
+  border-radius: 70px;
+  width: 100%;
+  padding: 10px;
+  font-size: 30px;
+  color: White;
+  background-color: #c39983;
+  margin-bottom: 5%;
+}
+.task select {
+  margin-bottom: 5%;
+  border: none;
+  padding: 10px;
+  border-radius: 70px;
+  width: 100%;
+  padding: 10px;
+  font-size: 25px;
+  color: White;
+  background-color: #c39983;
+}
+
+.datetime {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.littles {
+  border: none;
+  border-radius: 70px;
+  width: 45%;
+  padding: 5px;
+  margin: 2%;
+  font-size: 20px;
+  color: White;
+  background-color: #c39983;
+}
+
+.task-type {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.radio-title {
+  padding: 5px;
+  margin-right: 10px;
+  font-size: 30px;
+  color: #c39983;
+}
+
+.radio {
+  font-size: 20px;
+  color: #c39983;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.radio input {
+  margin-right: 20px;
+}
+
+.task-desc {
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  width: 100%;
+  padding: 15px;
+  font-size: 30px;
+  color: White;
+  background-color: #c39983;
+}
+
+.save-cancel {
+  padding: 5px 0;
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.save-button {
+  border: none;
+  border-radius: 70px;
+  width: 45%;
+  padding: 10px;
+  font-size: 30px;
+  color: White;
+  background-color: #c39983;
+  transition: 0.2s;
+}
+.cancel-button {
+  border: none;
+  border-radius: 70px;
+  width: 45%;
+  padding: 10px;
+  font-size: 30px;
+  color: #c39983;
+  background-color: white;
+  transition: 0.2s;
+}
+
+.save-button:hover,
+.cancel-button:hover {
+  background: #ddd;
+}
