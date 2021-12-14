@@ -26,14 +26,37 @@
             href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&family=Just+Me+Again+Down+Here&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="home_fix.css" />
+        
+        <link rel="stylesheet" href="{{ url_for('static', filename='home_fix/home_fix.css') }}"/>
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.print.min.css' rel='stylesheet' media='print' /><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css'>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css'>
+
     </head>
     <body>
         <div class="content">
             <div class="side-content">
-                <div id="logo"><img src="IMG_1986.png" alt="logo" /></div>
+                <div id="logo"><img src="{{ url_for('static', filename='logo/IMG_1986.png') }}" alt="logo" /></div>
+                <!-- <div id="logo"><img src="../logo/IMG_1986.png" alt="logo" /></div> -->
                 <!-- NAVIGATION -->
+
                 <div class="navigation">
+                    <form action="{{url_for('home')}}" method="GET">
+                    <div class="eachbutton">
+                    <button class="nav-button" type="submit">HOME</button>
+                    </div>
+                    </form>
+                    <form action="{{url_for('find_friends_new')}}" method="GET">
+                    <div class="eachbutton">
+                    <button class="nav-button-other">EXPLORE</button>
+                    </div>
+                    </form>
+                    <form action="{{url_for('find_study_sessions')}}" method="GET">
+                    <div class="eachbutton">
+                    <button class="nav-button-other">STUDY</button>
+                    </form>
+                </div>
+
+                <!-- <div class="navigation">
                     <div class="eachbutton">
                         <button class="nav-button">HOME</button>
                     </div>
@@ -53,9 +76,11 @@
                             STUDY
                         </button>
                     </div>
-                </div>
+                </div> -->
+
                 <!-- ADD TASK -->
                 <div class="task">
+                    <form>
                     <h1>Add New Task</h1>
                     <input
                         type="text"
@@ -72,24 +97,28 @@
 
                     <div class="datetime">
                         <input
-                            type="text"
+                            type="date"
                             class="littles"
-                            placeholder="Start Date"
+                            id="startdate"
+                            placeholder="Start Date"          
                         />
                         <input
-                            type="text"
+                            type="time"
                             class="littles"
+                            id="starttime"
                             placeholder="Start Time"
                         />
 
                         <input
-                            type="text"
+                            type="date"
                             class="littles"
+                            id="enddate"
                             placeholder="End Date"
                         />
                         <input
-                            type="text"
+                            type="time"
                             class="littles"
+                            id="endtime"
                             placeholder="End Time"
                         />
                     </div>
@@ -120,13 +149,15 @@
                     <input
                         type="text"
                         class="task-desc"
-                        placeholder="Add note..."
+                        id="url-note"
+                        placeholder="Add url..."
                     />
 
                     <div class="save-cancel">
-                        <button class="save-button">Save</button>
-                        <button class="cancel-button">Cancel</button>
+                        <button class="save-button" id="save-btn">Save</button>
+                        <button class="cancel-button" id="cancel-btn">Cancel</button>
                     </div>
+                </form>
                 </div>
             </div>
             <div class="main-content">
@@ -139,107 +170,44 @@
                         onload="showDate()"
                     ></div>
                 </div>
-                <!-- CALENDER -->
+
+                <!--ANNOUNCEMENT-->
+                <div style="background-color: #FFFDDE; height:30px; border:thin solid #EDDD00">
+                </ul> 
+                    <li style='padding-top:5px;text-align:center;font-family:Verdana'>I M P O R T A N T: SERVER IS STILL IN PROGRESS</li> 
+                </ul> 
+                </div>
+               
+                <!--SOCIAL BUTTONS-->
                 <div class="scroll-calender">
                     <div class="frame-calender" id="scrolls">
-                        <div class="grid">
-                            <div class="calender">
-                                TUE<br />
-                                7
-                            </div>
-                            <div class="calender">
-                                WED<br />
-                                8
-                            </div>
-                            <div class="calender">
-                                THU<br />
-                                9
-                            </div>
-                            <div class="calender">
-                                FRI<br />
-                                10
-                            </div>
-                            <div class="calender">
-                                SAT<br />
-                                11
-                            </div>
-                            <div class="calender">
-                                SUN<br />
-                                12
-                            </div>
-                            <div class="calender">
-                                MON<br />
-                                13
-                            </div>
-                            <div class="calender">
-                                TUE<br />
-                                14
-                            </div>
-                            <div class="calender">
-                                WED<br />
-                                15
-                            </div>
-                            <div class="calender">
-                                THU<br />
-                                16
-                            </div>
-                            <div class="calender">
-                                FRI<br />
-                                17
-                            </div>
-                            <div class="calender">
-                                SAT<br />
-                                18
-                            </div>
-                        </div>
+                        <button 
+                        id="social-btn"
+                        onclick="window.location.href=' https://mail.google.com/'"
+                         >Open Your Mail</button>
+                        <button id="social-btn"
+                        onclick="window.location.href='https://www.instagram.com/'"
+                        >Open Instagram</button>
+                        <button id="social-btn"
+                        onclick="window.location.href='https://lms.monash.edu/my/'"
+                        >Open Moodle</button>
                     </div>
                 </div>
+            
+                
                 <!-- TIMETABLE -->
                 <div class="scroll">
                     <div class="frame">
-                        <div class="timetable-frame">
-                            <div class="timetable">TIMETABLE</div>
-                        </div>
+                        <div class="ui container">
+                            <div class="ui grid">
+                              <div class="ui sixteen column">
+                                <div id="calendar"></div>
+                              </div>
+                            </div>
+                          </div>
 
-                        <div class="unit-frame">
-                            <div class="unit">Unit Code</div>
-                            <div class="teacher">Teacher's Name</div>
-                            <div class="zoom-link">Zoom Link</div>
-                        </div>
-
-                        <div class="unit-frame">
-                            <div class="unit">Unit Code</div>
-                            <div class="teacher">Teacher's Name</div>
-                            <div class="zoom-link">Zoom Link</div>
-                        </div>
-
-                        <div class="unit-frame">
-                            <div class="unit">Unit Code</div>
-                            <div class="teacher">Teacher's Name</div>
-                            <div class="zoom-link">Zoom Link</div>
-                        </div>
-
-                        <div class="unit-frame">
-                            <div class="unit">Unit Code</div>
-                            <div class="teacher">Teacher's Name</div>
-                            <div class="zoom-link">Zoom Link</div>
-                        </div>
-
-                        <div class="unit-frame">
-                            <div class="unit">Unit Code</div>
-                            <div class="teacher">Teacher's Name</div>
-                            <div class="zoom-link">Zoom Link</div>
-                        </div>
-
-                        <div class="unit-frame">
-                            <div class="unit">Unit Code</div>
-                            <div class="teacher">Teacher's Name</div>
-                            <div class="zoom-link">Zoom Link</div>
-                        </div>
                     </div>
                 </div>
-                <button id="slideLeft" type="button"><</button>
-                <button id="slideRight" type="button">></button>
             </div>
             <div class="side-content">
                 <!-- PROFILE -->
@@ -401,11 +369,47 @@
             const buttonLeft = document.getElementById("slideLeft");
 
             buttonRight.onclick = function () {
-                document.getElementById("scrolls").scrollLeft += 100;
+                document.getElementById("scrolls").scrollLeft += 160;
             };
             buttonLeft.onclick = function () {
-                document.getElementById("scrolls").scrollLeft -= 100;
+                document.getElementById("scrolls").scrollLeft -= 160;
             };
+
+            //show simple dates for calender
+            function showSimpleDate() {
+                var date = new Date();
+                const days = [
+                    "MON",
+                    "TUE",
+                    "WED",
+                    "THU",
+                    "FRI",
+                    "SAT",
+                    "SUN",
+                ];
+                var d = date.getDate();
+                var day = days[date.getDay()];
+
+                //for (let i = 0; i < 14; i++) {
+                //    var d = date.getDate() + i;
+                //    var day = days[date.getDay() + i];
+                //}
+
+                var time = day + ' '  + d;
+                document.getElementById("DigitalSimpleDate").innerText = time;
+                document.getElementById("DigitalSimpleDate").textContent = time;
+
+                setTimeout(showSimpleDate, 1000);
+            }
+
+            showSimpleDate();
+
         </script>
+
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
+        <script src="{{ url_for('static', filename='home_fix/script.js') }}"></script>
     </body>
 </html>
