@@ -96,10 +96,6 @@ def signup():
 def sign_up_details():
     return render_template("sign_up_details.html")
 
-@app.route('/find_friends',methods=["POST ","GET"])
-def find_friend():
-    return render_template("find-friend.html")
-
 @app.route('/find_friends_new',methods=["POST","GET"])
 def find_friends_new():
     current_email = session.get("session_email",None)
