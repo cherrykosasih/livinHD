@@ -1,5 +1,7 @@
 import sqlite3
 
+from functions.signup import email_validator
+
 conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
 
 # conn.execute('CREATE TABLE IF NOT EXISTS user(user_id INTEGER PRIMARY KEY AUTOINCREMENT,user_fname TEXT,user_lname TEXT, user_email TEXT,user_phone TEXT, user_ig TEXT, user_faculty TEXT,user_pwd TEXT, user_gender TEXT,user_relationship TEXT,user_language TEXT)')
@@ -39,6 +41,14 @@ def get_study_session():
     data = c.fetchall()
     return data
 
+def retrieve_user_data(email):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    c= conn.cursor()
+    c.execute('SELECT user_fname,user_lname,user_email,user_phone,user_ig,user_faculty FROM user WHERE user_email=?',(email,))
+    a = c.fetchall()
+    conn.close()
+    return a
+    
 # insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
 # insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
 # print("jancok")
@@ -56,3 +66,11 @@ def get_study_session():
 # conn.execute("UPDATE user SET user_pwd= 'user' WHERE user_fname='jane'")
 # conn.commit()
 # conn.close()
+
+# print(retrieve_user_data('ckos0005@student.monash.edu'))
+# [0][0] fname
+# [0][1] lname
+# [0][2] email
+# [0][3] phone
+# [0][4] ig
+# [0][5] faculty

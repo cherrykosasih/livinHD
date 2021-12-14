@@ -4,7 +4,7 @@
 #source bin/activate
 #pip3 install flask
 #python3 main.py
-from flask import Flask,render_template,url_for,request,flash,redirect
+from flask import Flask,render_template,url_for,request,flash,redirect,session
 import database_new.database as db
 import sqlite3
 import functions.signup as su
@@ -12,7 +12,7 @@ import functions.signup as su
 
 current_user_email = None
 app = Flask(__name__,template_folder='templates',static_folder='static')
-
+app.secret_key='lmao'
 @app.route('/',methods=["POST","GET"])
 @app.route('/login',methods=["POST","GET"])
 def login():
@@ -21,18 +21,35 @@ def login():
     elif request.method=="POST":
         email = request.form['email']
         password = request.form['password']
+        session["session_email"]=email
         if db.login_validator(email,password):
-            return redirect(url_for('home')) #this is supposed to be home, but no home.html yet
+            return redirect(url_for('home',home_email=str(email))) #this is supposed to be home, but no home.html yet
         else:
             msg="Invalid email/password"
         return render_template("login_fix.html",message=msg)
+    else : 
+        return render_template("login_fix.html")
 
-@app.route('/home',methods=["POST","GET"])
-def home():
-    if request.method=="POST":
-        return render_template("home_fix_2.html")
-    elif request.method=="GET":
-        return render_template("home_fix_2.html")
+@app.route('/home/<home_email>',methods=["GET"])
+def home(home_email):
+    # if request.method=="POST":
+    #     return render_template("home_fix_2.html")
+    # elif request.method=="GET":
+        current_email=session.get("session_email",None)
+        # [0][0] fname
+        # [0][1] lname
+        # [0][2] email
+        # [0][3] phone
+        # [0][4] ig
+        # [0][5] faculty
+        current_data=db.retrieve_user_data(current_email)
+        fname = current_data[0][0]
+        lname = current_data[0][1]
+        user_email = current_data[0][2]
+        phone = current_data[0][3]
+        ig = current_data[0][4]
+        faculty = current_data[0][5]
+        return render_template("home_fix_2.html",fname=fname,lname=lname,user_email=current_email,phone=phone,ig=ig,faculty=faculty)
 
 @app.route('/profile',methods=["POST","GET"])
 def profile():

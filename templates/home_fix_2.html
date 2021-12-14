@@ -38,7 +38,8 @@
                 <div id="logo"><img src="{{ url_for('static', filename='logo/IMG_1986.png') }}" alt="logo" /></div>
                 <!-- NAVIGATION -->
                 <div class="navigation">
-                    <form action="{{url_for('home')}}" method="GET">
+                    em={{user_email}}
+                    <form action="{{url_for('home',home_email=em)}}" method="GET">
                     <div class="eachbutton">
                     <button class="nav-button" type="submit">HOME</button>
                     </div>
@@ -211,8 +212,8 @@
                 <div class="profile">
                     <img />
                     <div class="profile-content">
-                        <h1>Name</h1>
-                        <h2>School of IT</h2>
+                        <h1>{{fname}}</h1>
+                        <h2>{{faculty}}</h2>
                         <form action="{{url_for('profile')}}" method="POST">
                             <button type="submit">Show More</button>
                         </form>
