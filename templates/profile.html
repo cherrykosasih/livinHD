@@ -159,20 +159,21 @@
                                     </div>
                                 </div>
                             </div>
+                            <form action="{{url_for('home',home_email=user_email)}}" method="GET">  
                             <div class="row">
                                 <div class="part col text-center">
                                     <h4>How are you feeling today?</h4>
                                     <div class="input-group">
                                         <textarea
+                                            name ="status"
                                             class="form-control"
                                             aria-label="With textarea"
                                             placeholder="Add status..."
-                                        ></textarea>
+                                        >{{stats}}</textarea>
                                     </div>
                                     <div class="mood"></div>
                                 </div>
                             </div>
-                            <form action="{{url_for('home',home_email=user_email)}}" method="GET">  
                             <button
                                 type="submit"
                                 class="btn btn-lg btn-primary"

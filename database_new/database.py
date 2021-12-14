@@ -44,11 +44,16 @@ def get_study_session():
 def retrieve_user_data(email):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c= conn.cursor()
-    c.execute('SELECT user_fname,user_lname,user_email,user_phone,user_ig,user_faculty FROM user WHERE user_email=?',(email,))
+    c.execute('SELECT user_fname,user_lname,user_email,user_phone,user_ig,user_faculty,status FROM user WHERE user_email=?',(email,))
     a = c.fetchall()
     conn.close()
     return a
-    
+
+def update_status(email,new_stat):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    conn.execute('UPDATE user SET status=? WHERE user_email=?',(new_stat,email))
+    conn.commit()
+    conn.close()
 # insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
 # insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
 # print("jancok")
@@ -66,3 +71,8 @@ def retrieve_user_data(email):
 # conn.execute("UPDATE user SET user_pwd= 'user' WHERE user_fname='jane'")
 # conn.commit()
 # conn.close()
+
+# conn.execute("ALTER TABLE user ADD status TEXT DEFAULT ' ' ")
+# conn.close()
+
+# update_status('ckos0005@student.monash.edu','3.30 alr wanna sleep :(')

@@ -4,6 +4,7 @@
 #source bin/activate
 #pip3 install flask
 #python3 main.py
+from os import stat
 from flask import Flask,render_template,url_for,request,flash,redirect,session
 import database_new.database as db
 import sqlite3
@@ -60,9 +61,14 @@ def profile(profile_email):
     phone = current_data[0][3]
     ig = current_data[0][4]
     faculty = current_data[0][5]
+    status = current_data[0][6]
     fullname= fname+" "+lname
-    return render_template("profile.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty)
-
+    if request.method=="GET":
+        return render_template("profile.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,stats=status)
+    elif request.method=="POST":
+        status = str(request.form['status'])
+        db.update_status(current_email,status)
+        return render_template("profile.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,stats=status)
 @app.route('/signup/',methods=["POST","GET"])
 def signup():
     if request.method=="GET":
