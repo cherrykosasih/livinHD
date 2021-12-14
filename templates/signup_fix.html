@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous"
+        />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <link href="{{ url_for('static', filename='signup_fix/signup_fix.css') }}"rel="stylesheet" />
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='signup/signup_style.css') }}"> -->
+        <!-- <script type="text/javascript" src="signup.js"></script> -->
+        <title>Sign Up Form</title>
+    </head>
+
+    <body>
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+            // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            // const firebaseConfig = {
+            // apiKey: "AIzaSyBbKqKjSu5wGIaxJLyjR7GYE6RLKOb4_JI",
+            // authDomain: "livinhd-60b60.firebaseapp.com",
+            // projectId: "livinhd-60b60",
+            // storageBucket: "livinhd-60b60.appspot.com",
+            // messagingSenderId: "298674850635",
+            // appId: "1:298674850635:web:0ef3088c10daed897bf6ce",
+            // measurementId: "${config.measurementId}"
+            // };
+
+            // Initialize Firebase
+            // const app = initializeApp(firebaseConfig);
+            // const analytics = getAnalytics(app);
+
+            function sign_up() {
+                app.database()
+                    .ref("user")
+                    .set({
+                        fname: document.getElementById("fname").value,
+                        lname: document.getElementById("lname").value,
+                    });
+                console.log("bangsat");
+            }
+        </script>
+
+        <div class="frame">
+            <div class="content">
+                <div class="signup">
+                    <div><h1>Sign Up</h1></div>
+                    <form action="{{url_for('signup') }}" method="POST">
+                        <!-- <form action="{{ url_for('sign_up_details') }}" method="POST"> -->
+                        <input
+                            type="text"
+                            id="fname"
+                            name="fname"
+                            placeholder="given name"
+                            class="signup-input"
+                        />
+
+                        <input
+                            type="text"
+                            id="lname"
+                            name="lname"
+                            placeholder="family name"
+                            class="signup-input"
+                        />
+
+                        <input
+                            type="text"
+                            id="email"
+                            name="email"
+                            placeholder="email"
+                            class="signup-input"
+                        />
+
+                        <input
+                            type="text"
+                            id="phone"
+                            name="phone"
+                            placeholder="phone number"
+                            class="signup-input"
+                        />
+
+                        <input
+                            type="text"
+                            id="ig"
+                            name="ig"
+                            placeholder="instagram"
+                            class="signup-input"
+                        />
+
+                        <input
+                            type="text"
+                            id="faculty"
+                            name="faculty"
+                            placeholder="faculty"
+                            class="signup-input"
+                        />
+
+                        <input
+                            type="text"
+                            id="password"
+                            name="password"
+                            placeholder="password"
+                            class="signup-input"
+                        />
+
+                        <!-- <a href="../sign_up_details/sign_up_details.html"> -->
+                        <button
+                            name="signup"
+                            type="submit"
+                            id="signup"
+                            value="Sign Up"
+                        >
+                            Sign Up
+                        </button>
+                    </form>
+                </div>
+                <div class="signup-pic">
+                    <img src="{{url_for('static',filename='signup_fix/img-top.png')}}" alt="" />
+                    <img src="{{url_for('static',filename='logo/IMG_1983.png')}}" alt="" />
+                    <img src="{{url_for('static',filename='signup_fix/img-bottom.png')}}" alt="" />
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
