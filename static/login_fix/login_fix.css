@@ -1,0 +1,86 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter-Bold", "Inter", sans-serif;
+}
+
+.frame {
+    width: 1400px;
+    height: 800px;
+    box-shadow: 5px 5px 4px 6px rgba(0, 0, 0, 0.55);
+    background-color: #ffdf6f;
+    overflow: visible;
+    border-radius: 89px;
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.frame .content {
+    width: 1250px;
+    height: 700px;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.51);
+    background-color: #ffffff;
+    overflow: hidden;
+    border-radius: 50px;
+    display: flex;
+}
+
+.login {
+    width: 550px;
+    height: 700px;
+}
+
+.login-pic {
+    width: 700px;
+    height: 700px;
+    background-color: rgba(255, 187, 0, 0.1);
+}
+
+.login,
+.login-pic,
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    height: 230px;
+}
+
+h1 {
+    font-weight: 700;
+    font-family: "Inter-Bold", "Inter", sans-serif;
+    color: #333;
+    font-size: 75px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.login-input {
+    border-radius: 70px;
+    background-color: #f2ece6;
+    border: #000000;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+}
+
+::placeholder {
+    color: #aaaaaa;
+    text-align: center;
+}
+
+#login {
+    background-color: #fabb01;
+    border-radius: 60px;
+    border: #000000;
+    color: white;
+    margin: 10px;
+    width: 200px;
+    padding: 15px 10px;
+}

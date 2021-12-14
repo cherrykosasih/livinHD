@@ -17,13 +17,13 @@ app = Flask(__name__,template_folder='templates',static_folder='static')
 @app.route('/login',methods=["POST","GET"])
 def login():
     if request.method=="GET":
-        return render_template("login.html")
+        return render_template("login_fix.html")
     elif request.method=="POST":
         email = request.form['email']
         password = request.form['password']
         if db.login_validator(email,password):
             return redirect(url_for('home')) #this is supposed to be home, but no home.html yet
-        return render_template("login.html")
+        return render_template("login_fix.html")
 
 @app.route('/home',methods=["POST","GET"])
 def home():
@@ -49,12 +49,12 @@ def signup():
         faculty = request.form['faculty']
         password = request.form['password']
         if su.email_validator(email)==False:
-            return render_template('signup.html')
+            return render_template('signup_fix.html')
         else:
             try:
                 db.insert_user(fname,lname,email,phone,ig,faculty,password,None,None,None)
             except sqlite3.IntegrityError:
-                return render_template('signup.html')
+                return render_template('signup_fix.html')
         return render_template('sign_up_details.html')
 
 @app.route('/signup_details',methods=["POST","GET"])
