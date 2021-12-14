@@ -13,12 +13,20 @@
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&family=Just+Me+Again+Down+Here&family=Poppins:wght@200&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="{{ url_for('static', filename='study/style_find_study_session.css') }}" />
-        <link href="{{ url_for('static',filename='nav/nav.css') }}" rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='study/style_find_study_session.css') }}"
+        />
+        <link
+            href="{{ url_for('static',filename='nav/nav.css') }}"
+            rel="stylesheet"
+        />
     </head>
     <body>
         <div id="myNav" class="overlay">
@@ -26,10 +34,12 @@
                 ×
             </a>
             <div class="overlay-content">
-                <img src="{{url_for('static',filename='logo/white.png')}}">
+                <img src="{{url_for('static',filename='logo/white.png')}}" />
                 <a href="{{ url_for('find_friends_new') }}">Find Friend</a>
                 <a href="{{ url_for('find_study_sessions') }}">Find Session</a>
-                <a href="{{ url_for ('create_study_session')}}">Create Session</a>
+                <a href="{{ url_for ('create_study_session')}}"
+                    >Create Session</a
+                >
                 <a href="{{ url_for('home') }}">Home</a>
             </div>
         </div>
@@ -55,11 +65,28 @@
                             </div>
 
                             <div class="sessions">
-                                <div class="session-card"></div>
-                                <div class="session-card"></div>
-                                <div class="session-card"></div>
-                                <div class="session-card"></div>
-                                <div class="session-card"></div>
+                                {% for session in sessions %}
+                                <div class="session-card">
+                                    <div class="row">
+                                        <div class="session-info col-6">
+                                            <h1>{{session[0]}}</h1>
+                                            <p>{{session[1]}}</p>
+                                        </div>
+
+                                        <div class="session-join col-6">
+                                            <p>Meeting id: {{session[3]}}</p>
+                                            <p>
+                                                Meeting password: {{session[4]}}
+                                            </p>
+                                            <a
+                                                href="{{session[2]}}"
+                                                class="btn btn-primary"
+                                                >Join Session</a
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -78,15 +105,20 @@
                                 <div class="col-6">
                                     <div class="hours">
                                         <h4>Total Hours</h4>
-                                        <div class="hour">?</div>
+                                        <div class="hour">0</div>
                                     </div>
                                 </div>
                             </div>
-                            <form action="{{url_for('create_study_session')}}" method="GET">
-                            <div class="create-session text-center">
-                                Create your own session
-                                <button type="submit" id="create-btn">+</button>
-                            </div>
+                            <form
+                                action="{{url_for('create_study_session')}}"
+                                method="GET"
+                            >
+                                <div class="create-session text-center">
+                                    Create your own session
+                                    <button type="submit" id="create-btn">
+                                        +
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -100,13 +132,11 @@
         ></script>
         <script>
             function openNav() {
-                document.getElementById(
-                    "myNav").style.height = "100%";
+                document.getElementById("myNav").style.height = "100%";
             }
 
             function closeNav() {
-                document.getElementById(
-                    "myNav").style.height = "0%";
+                document.getElementById("myNav").style.height = "0%";
             }
         </script>
     </body>

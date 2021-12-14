@@ -18,97 +18,117 @@
             rel="stylesheet"
         />
 
-        <link rel="stylesheet" href="{{ url_for('static',filename='create_session/create_session_style.css') }}" />
-        <link href="{{ url_for('static',filename='nav/nav.css') }}" rel="stylesheet">
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static',filename='create_session/create_session_style.css') }}"
+        />
+        <link
+            href="{{ url_for('static',filename='nav/nav.css') }}"
+            rel="stylesheet"
+        />
     </head>
     <body>
         <header></header>
 
         <div id="myNav" class="overlay">
-            <a href="javascript:void(0)"
-                class="closebtn" onclick="closeNav()">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
                 ×
             </a>
             <div class="overlay-content">
-                <img src="{{url_for('static',filename='logo/white.png')}}">
+                <img src="{{url_for('static',filename='logo/white.png')}}" />
                 <a href="{{ url_for('find_friends_new') }}">Find Friend</a>
                 <a href="{{ url_for('find_study_sessions') }}">Find Session</a>
-                <a href="{{ url_for ('create_study_session')}}">Create Session</a>
+                <a href="{{ url_for ('create_study_session')}}"
+                    >Create Session</a
+                >
                 <a href="{{ url_for('home') }}">Home</a>
             </div>
         </div>
 
         <div class="frame">
-            <span style="font-size:35px;cursor:pointer" 
-            onclick="openNav()" class="menu-nav">
-            ≡
+            <span
+                style="font-size: 35px; cursor: pointer"
+                onclick="openNav()"
+                class="menu-nav"
+            >
+                ≡
             </span>
             <div class="content">
                 <h1 class="title">Create Your Own Session</h1>
                 <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <div class="row">
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    aria-label="lang"
-                                    aria-describedby="addon-wrapping"
-                                    placeholder="Session name"
-                                />
+                    <form
+                        action="{{url_for('create_study_session')}}"
+                        method="POST"
+                    >
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        aria-label="lang"
+                                        aria-describedby="addon-wrapping"
+                                        placeholder="Session name"
+                                        name="session_name"
+                                    />
+                                </div>
+                                <div class="row">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        aria-label="lang"
+                                        aria-describedby="addon-wrapping"
+                                        placeholder="Session description"
+                                        name="session_description"
+                                    />
+                                </div>
+                                <div class="row">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        aria-label="lang"
+                                        aria-describedby="addon-wrapping"
+                                        placeholder="Meeting link"
+                                        name="meeting_link"
+                                    />
+                                </div>
+                                <div class="row">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        aria-label="lang"
+                                        aria-describedby="addon-wrapping"
+                                        placeholder="Meeting ID"
+                                        name="meeting_id"
+                                    />
+                                </div>
+                                <div class="row">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        aria-label="lang"
+                                        aria-describedby="addon-wrapping"
+                                        placeholder="Meeting password"
+                                        name="meeting_password"
+                                    />
+                                </div>
+                                <div class="row">
+                                    <button
+                                        type="submit"
+                                        class="btn btn-primary btn-lg"
+                                    >
+                                        Create session
+                                    </button>
+                                </div>
                             </div>
-                            <div class="row">
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    aria-label="lang"
-                                    aria-describedby="addon-wrapping"
-                                    placeholder="Session description"
-                                />
-                            </div>
-                            <div class="row">
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    aria-label="lang"
-                                    aria-describedby="addon-wrapping"
-                                    placeholder="Zoom link"
-                                />
-                            </div>
-                            <div class="row">
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    aria-label="lang"
-                                    aria-describedby="addon-wrapping"
-                                    placeholder="Zoom meeting ID"
-                                />
-                            </div>
-                            <div class="row">
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    aria-label="lang"
-                                    aria-describedby="addon-wrapping"
-                                    placeholder="Zoom meeting password"
-                                />
-                            </div>
-                            <div class="row">
-                                <button
-                                    type="submit"
-                                    class="btn btn-primary btn-lg"
-                                >
-                                    Create session
-                                </button>
+                            <div class="col">
+                                <div class="invite text-center">
+                                    Invite Friends
+                                    <div class="friends"></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="invite text-center">
-                                Invite Friends
-                                <div class="friends"></div>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -119,13 +139,11 @@
         ></script>
         <script>
             function openNav() {
-                document.getElementById(
-                    "myNav").style.height = "100%";
+                document.getElementById("myNav").style.height = "100%";
             }
 
             function closeNav() {
-                document.getElementById(
-                    "myNav").style.height = "0%";
+                document.getElementById("myNav").style.height = "0%";
             }
         </script>
     </body>

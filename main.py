@@ -72,12 +72,24 @@ def find_friends_new():
 @app.route('/find_study_sessions',methods=["POST","GET"])
 def find_study_sessions():
     if request.method=="GET":
-        return render_template("find_study_sessions.html")
+        return render_template("find_study_sessions.html", sessions = db.get_study_session())
     elif request.method=="POST":
         return render_template("find_study_sessions.html")
 
 @app.route('/create_study_session',methods=["POST","GET"])
 def create_study_session():
-    return render_template("create_session.html")
+    if request.method=="GET":
+        return render_template("create_session.html")
+    elif request.method=="POST":
+        session_name=request.form['session_name']
+        session_description=request.form['session_description']
+        meeting_link=request.form['meeting_link']
+        meeting_id=request.form['meeting_id']
+        meeting_password   =request.form['meeting_password']
+        try:
+            db.insert_study_session(session_name,session_description,meeting_link,meeting_id,meeting_password)
+        except sqlite3.IntegrityError:
+            return render_template('create_session.html')
+        return redirect(url_for('find_study_sessions'))
 if __name__ == '__main__':
     app.run(debug=True)
