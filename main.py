@@ -24,7 +24,7 @@ def login():
         if db.login_validator(email,password):
             return redirect(url_for('home')) #this is supposed to be home, but no home.html yet
         else:
-            msg="invalid email/password"
+            msg="Invalid email/password"
         return render_template("login_fix.html",message=msg)
 
 @app.route('/home',methods=["POST","GET"])
@@ -51,7 +51,7 @@ def signup():
         faculty = request.form['faculty']
         password = request.form['password']
         if su.email_validator(email)==False:
-            msg="not a valid email"
+            msg="Not a valid email"
             return render_template('signup_fix.html',message=msg)
         else:
             try:

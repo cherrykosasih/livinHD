@@ -14,7 +14,10 @@
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"
         />
-        <link href="{{ url_for('static', filename='login_fix/login_fix.css') }}"rel="stylesheet" />
+        <link
+            href="{{ url_for('static', filename='login_fix/login_fix.css') }}"
+            rel="stylesheet"
+        />
         <!-- <link rel="stylesheet" href="{{ url_for('static', filename='login/login_style.css') }}"> -->
         <script type="text/javascript" src="login.js"></script>
         <title>Login form</title>
@@ -47,6 +50,10 @@
                         <button name="login" id="login" type="submit">
                             Log In
                         </button>
+
+                        {% block content %}
+                        <strong id="errormsg">{{message}}</strong>
+                        {% endblock %}
                     </form>
 
                     Don't have an account?
@@ -63,14 +70,20 @@
                 </div> -->
                 </div>
                 <div class="login-pic">
-                    <img src="{{url_for('static',filename='login_fix/img-top.png')}}" alt="" />
-                    <img src="{{url_for('static',filename='logo/IMG_1983.png')}}" alt="" />
-                    <img src="{{url_for('static',filename='login_fix/img-bottom.png')}}" alt="" />
+                    <img
+                        src="{{url_for('static',filename='login_fix/img-top.png')}}"
+                        alt=""
+                    />
+                    <img
+                        src="{{url_for('static',filename='logo/IMG_1983.png')}}"
+                        alt=""
+                    />
+                    <img
+                        src="{{url_for('static',filename='login_fix/img-bottom.png')}}"
+                        alt=""
+                    />
                 </div>
             </div>
-        </div>
-        <div>
-            <strong id="errormsg">{{ message }}</strong>
         </div>
     </body>
 </html>
