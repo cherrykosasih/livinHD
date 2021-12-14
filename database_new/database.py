@@ -1,6 +1,6 @@
 import sqlite3
 
-from functions.signup import email_validator
+# from functions.signup import email_validator
 
 conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
 
@@ -66,11 +66,3 @@ def retrieve_user_data(email):
 # conn.execute("UPDATE user SET user_pwd= 'user' WHERE user_fname='jane'")
 # conn.commit()
 # conn.close()
-
-# print(retrieve_user_data('ckos0005@student.monash.edu'))
-# [0][0] fname
-# [0][1] lname
-# [0][2] email
-# [0][3] phone
-# [0][4] ig
-# [0][5] faculty

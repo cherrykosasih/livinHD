@@ -30,6 +30,7 @@
                                         placeholder="Enter phone number"
                                         aria-label="lang"
                                         aria-describedby="addon-wrapping"
+                                        value = {{phone}}
                                     />
                                 </div>
                                 <div class="part col-4">
@@ -40,6 +41,7 @@
                                         placeholder="Enter instagram handle"
                                         aria-label="lang"
                                         aria-describedby="addon-wrapping"
+                                        value = {{ig}}
                                     />
                                 </div>
                                 <div class="part col-4">
@@ -83,6 +85,7 @@
                                                         aria-label="lang"
                                                         aria-describedby="addon-wrapping"
                                                         placeholder="Name"
+                                                        value={{fullname}}
                                                     />
                                                 </div>
                                             </div>
@@ -97,6 +100,7 @@
                                                         aria-label="lang"
                                                         aria-describedby="addon-wrapping"
                                                         placeholder="School of"
+                                                        value={{faculty}}
                                                     />
                                                 </div>
                                             </div>
@@ -168,7 +172,7 @@
                                     <div class="mood"></div>
                                 </div>
                             </div>
-                            <form action="{{url_for('home')}}" method="POST">
+                            <form action="{{url_for('home',home_email=user_email)}}" method="GET">  
                             <button
                                 type="submit"
                                 class="btn btn-lg btn-primary"

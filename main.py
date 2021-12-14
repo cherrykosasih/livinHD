@@ -30,12 +30,12 @@ def login():
     else : 
         return render_template("login_fix.html")
 
-@app.route('/home/<home_email>',methods=["GET"])
+@app.route('/home/<home_email>',methods=["GET","POST"])
 def home(home_email):
-    # if request.method=="POST":
-    #     return render_template("home_fix_2.html")
-    # elif request.method=="GET":
-        current_email=session.get("session_email",None)
+    current_email=session.get("session_email",None)
+    if request.method=="POST":
+        return redirect(url_for('profile',profile_email=current_email))
+    elif request.method=="GET":
         # [0][0] fname
         # [0][1] lname
         # [0][2] email
@@ -45,15 +45,23 @@ def home(home_email):
         current_data=db.retrieve_user_data(current_email)
         fname = current_data[0][0]
         lname = current_data[0][1]
-        user_email = current_data[0][2]
         phone = current_data[0][3]
         ig = current_data[0][4]
         faculty = current_data[0][5]
-        return render_template("home_fix_2.html",fname=fname,lname=lname,user_email=current_email,phone=phone,ig=ig,faculty=faculty)
+        fullname= fname+" "+lname
+        return render_template("home_fix_2.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty)
 
-@app.route('/profile',methods=["POST","GET"])
-def profile():
-    return render_template("profile.html")
+@app.route('/profile/<profile_email>',methods=["POST","GET"])
+def profile(profile_email):
+    current_email = session.get("session_email",None)
+    current_data=db.retrieve_user_data(current_email)
+    fname = current_data[0][0]
+    lname = current_data[0][1]
+    phone = current_data[0][3]
+    ig = current_data[0][4]
+    faculty = current_data[0][5]
+    fullname= fname+" "+lname
+    return render_template("profile.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty)
 
 @app.route('/signup/',methods=["POST","GET"])
 def signup():
@@ -88,19 +96,22 @@ def find_friend():
 
 @app.route('/find_friends_new',methods=["POST","GET"])
 def find_friends_new():
-    return render_template("find_friend_new.html")
+    current_email = session.get("session_email",None)
+    return render_template("find_friend_new.html",user_email=current_email)
 
 @app.route('/find_study_sessions',methods=["POST","GET"])
 def find_study_sessions():
+    current_email = session.get("session_email",None)
     if request.method=="GET":
-        return render_template("find_study_sessions.html", sessions = db.get_study_session())
+        return render_template("find_study_sessions.html", sessions = db.get_study_session(),user_email=current_email)
     elif request.method=="POST":
-        return render_template("find_study_sessions.html")
+        return render_template("find_study_sessions.html",user_email=current_email)
 
 @app.route('/create_study_session',methods=["POST","GET"])
 def create_study_session():
+    current_email=session.get("session_email",None)
     if request.method=="GET":
-        return render_template("create_session.html")
+        return render_template("create_session.html",user_email=current_email)
     elif request.method=="POST":
         session_name=request.form['session_name']
         session_description=request.form['session_description']
@@ -110,7 +121,7 @@ def create_study_session():
         try:
             db.insert_study_session(session_name,session_description,meeting_link,meeting_id,meeting_password)
         except sqlite3.IntegrityError:
-            return render_template('create_session.html')
+            return render_template('create_session.html',user_email=current_email)
         return redirect(url_for('find_study_sessions'))
 
 if __name__ == '__main__':

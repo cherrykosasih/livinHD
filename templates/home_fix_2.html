@@ -38,8 +38,7 @@
                 <div id="logo"><img src="{{ url_for('static', filename='logo/IMG_1986.png') }}" alt="logo" /></div>
                 <!-- NAVIGATION -->
                 <div class="navigation">
-                    em={{user_email}}
-                    <form action="{{url_for('home',home_email=em)}}" method="GET">
+                    <form action="{{url_for('home',home_email= user_email)}}" method="GET">
                     <div class="eachbutton">
                     <button class="nav-button" type="submit">HOME</button>
                     </div>
@@ -55,27 +54,7 @@
                     </div>
                     </form>
                 </div>
-                <!-- <div class="navigation">
-                    <div class="eachbutton">
-                        <button class="nav-button">HOME</button>
-                    </div>
-                    <div class="eachbutton">
-                        <button
-                            onclick="window.location.href='../find-friend/find-friend.html'"
-                            class="nav-button-other"
-                        >
-                            EXPLORE
-                        </button>
-                    </div>
-                    <div class="eachbutton">
-                        <button
-                            onclick="window.location.href='../find-session/find-session.html'"
-                            class="nav-button-other"
-                        >
-                            STUDY
-                        </button>
-                    </div>
-                </div> -->
+
                 <!-- ADD TASK -->
                 <div class="task">
                     <form>
@@ -212,11 +191,14 @@
                 <div class="profile">
                     <img />
                     <div class="profile-content">
-                        <h1>{{fname}}</h1>
+                        <h1>{{name}}</h1>
                         <h2>{{faculty}}</h2>
-                        <form action="{{url_for('profile')}}" method="POST">
-                            <button type="submit">Show More</button>
-                        </form>
+                        <!-- em={{user_email}}
+                        <form action="{{url_for('profile',profile_email=em)}}" method="GET"> -->
+                            <form action="{{url_for('home',home_email=user_email)}}" method="POST">
+                            <button name="show_profile" type="submit">Show More</button>
+                            </form>
+                        <!-- </form> -->
                     </div>
                 </div>
                 <!-- CLOCK -->
