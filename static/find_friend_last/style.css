@@ -1,6 +1,7 @@
 body {
     display: flex;
     justify-content: center;
+    justify-items: center;
     align-items: center;
     font-family: "Inter-Bold", "Inter", sans-serif;
 }
@@ -20,9 +21,8 @@ body {
 
 .menu-nav {
     z-index: 20;
-    position: absolute;
-    margin-left: 45%;
-    margin-top: 0%;
+    position: relative;
+    margin-left: 5%;
     color: rgb(29, 126, 139);
     font-size: 300px;
     border-radius: 100%;
@@ -32,7 +32,7 @@ body {
 
 .frame .content {
     width: 98%;
-    min-height: 800px;
+    height: 800px;
     background-color: #dbcfc5;
     overflow: hidden;
     border-radius: 50px;
@@ -54,6 +54,7 @@ body {
     line-height: 1.2;
     padding: 1rem;
     text-align: center;
+    z-index: 100;
 }
 
 .title {
@@ -104,8 +105,8 @@ body {
     text-align: center;
     text-size-adjust: 100px;
     font-size: large;
-    margin: 10px;
     margin-bottom: 20px;
+    margin-left: 5%;
 }
 
 .interests {
@@ -120,6 +121,7 @@ body {
     overflow: scroll;
     padding: 10px;
     padding-top: 0;
+    margin-left: 5%;
 }
 
 .friend-card {
@@ -145,6 +147,15 @@ body {
     padding: 5px;
     margin-bottom: 10px;
     border-bottom: 1px solid #1d7e8b;
+}
+
+.title-find-friend{
+    text-align: center;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Just Me Again Down Here", cursive, serif;
+    color: #1d7e8b;
+    font-size: 90px;
 }
 
 .faculty,
