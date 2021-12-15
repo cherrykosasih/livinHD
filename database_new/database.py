@@ -96,9 +96,11 @@ def insert_unit(email,unit):
 def get_units(email):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c = conn.cursor()
-    c.execute('SELECT * FROM enrolment WHERE user_email==?',(email,))
+    c.execute('SELECT unit_id FROM enrolment WHERE user_email==?',(email,))
     data = c.fetchall()
     return data
+
+print(get_units("potter@gmail.com"))
 
 def insert_movie(email,genre):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
