@@ -79,15 +79,26 @@ def signup_details(signup_email):
 def profile(profile_email):
     current_email = session.get("session_email",None)
     current_data=db.retrieve_user_data(current_email)
+    # user_fname,user_lname,user_email,user_phone,user_ig,user_faculty,status
     fname = current_data[0][0]
     lname = current_data[0][1]
     phone = current_data[0][3]
     ig = current_data[0][4]
     faculty = current_data[0][5]
     status = current_data[0][6]
+    language = current_data[0][7]
+    gender =current_data[0][8]
+    relationship=current_data[0][9]
     fullname= fname+" "+lname
+
+    units = db.retrieve_unit_of_user(current_email)
+    user_units=",".join(units)
+    movies = db.retrieve_movie_of_user(current_email)
+    musics = db.retrieve_music_of_user(current_email)
+    interest = movies+musics
+    user_interest = ",".join(interest)
     if request.method=="GET":
-        return render_template("profile.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,stats=status)
+        return render_template("profile.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,stats=status,lang=language,gender=gender,relationship=relationship,interest=user_interest,units=user_units)
     elif request.method=="POST":
         status = str(request.form['status'])
         db.update_status(current_email,status)
@@ -96,6 +107,7 @@ def profile(profile_email):
 
 @app.route('/signup/',methods=["POST","GET"])
 def signup():
+    # (fname,lname,email,phone,ig,faculty,password,gender,relation,language)
     if request.method=="GET":
         return render_template("signup_fix.html")
     elif request.method=="POST":

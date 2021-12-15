@@ -10,9 +10,10 @@ conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
 # conn.execute('CREATE TABLE IF NOT EXISTS enrolment(user_email TEXT, unit_id TEXT, PRIMARY KEY(user_email,unit_id))')
 # conn.close()
 
-def insert_user(fname,lname,email,phone,faculty,ig,password,gender,relation,language):
+def insert_user(fname,lname,email,phone,ig,faculty,password,gender,relation,language):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
-    conn.execute('INSERT INTO user(user_fname,user_lname,user_email,user_phone,user_ig,user_faculty,user_pwd,user_gender,user_relationship,user_language) VALUES (?,?,?,?,?,?,?,?,?,?)' ,(fname,lname,email,phone,ig,faculty,password,gender,relation,language))
+    conn.execute('INSERT INTO user(user_fname,user_lname,user_email,user_phone,user_ig,user_faculty,user_pwd,user_gender,user_relationship,user_language) VALUES (?,?,?,?,?,?,?,?,?,?)' ,
+    (fname,lname,email,phone,ig,faculty,password,gender,relation,language))
     conn.commit()
     conn.close()
 
@@ -44,10 +45,43 @@ def get_study_session():
 def retrieve_user_data(email):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c= conn.cursor()
-    c.execute('SELECT user_fname,user_lname,user_email,user_phone,user_ig,user_faculty,status FROM user WHERE user_email=?',(email,))
+    c.execute('SELECT user_fname,user_lname,user_email,user_phone,user_ig,user_faculty,status,user_language,user_gender,user_relationship FROM user WHERE user_email=?',(email,))
     a = c.fetchall()
     conn.close()
     return a
+
+def retrieve_unit_of_user(email):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    c= conn.cursor()
+    c.execute('SELECT unit_id FROM enrolment WHERE user_email=?',(email,))
+    a = c.fetchall()
+    conn.close()
+    res=[]
+    for i in a:
+        res.append(i[0])
+    return res
+
+def retrieve_movie_of_user(email):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    c= conn.cursor()
+    c.execute('SELECT genre FROM movie WHERE user_email=?',(email,))
+    a = c.fetchall()
+    conn.close()
+    res=[]
+    for i in a:
+        res.append(i[0])
+    return res
+
+def retrieve_music_of_user(email):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    c= conn.cursor()
+    c.execute('SELECT genre FROM music WHERE user_email=?',(email,))
+    a = c.fetchall()
+    conn.close()
+    res=[]
+    for i in a:
+        res.append(i[0])
+    return res
 
 def update_status(email,new_stat):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
@@ -73,18 +107,6 @@ def update_language(email,new_language):
     conn.commit()
     conn.close()
 
-def update_unit(email,new_unit):
-    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
-    conn.execute('UPDATE user SET unit=? WHERE user_email=?',(new_unit,email))
-    conn.commit()
-    conn.close()
-
-def update_interest(email,new_interest):
-    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
-    conn.execute('UPDATE user SET interest=? WHERE user_email=?',(new_interest,email))
-    conn.commit()
-    conn.close()
-
 def insert_unit(email,unit):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     units=unit.strip().lower().split(",")
@@ -99,8 +121,6 @@ def get_units(email):
     c.execute('SELECT unit_id FROM enrolment WHERE user_email==?',(email,))
     data = c.fetchall()
     return data
-
-print(get_units("potter@gmail.com"))
 
 def insert_movie(email,genre):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
