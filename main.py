@@ -9,11 +9,11 @@ from flask import Flask,render_template,url_for,request,flash,redirect,session
 import database_new.database as db
 import sqlite3
 import functions.signup as su
-#from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
 
 current_user_email = None
 app = Flask(__name__,template_folder='templates',static_folder='static')
 app.secret_key='lmao'
+
 @app.route('/',methods=["POST","GET"])
 @app.route('/login',methods=["POST","GET"])
 def login():
@@ -51,6 +51,31 @@ def home(home_email):
         faculty = current_data[0][5]
         fullname= fname+" "+lname
         return render_template("home_fix_2.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty)
+
+@app.route('/signup_details/<signup_email>',methods=["POST","GET"])
+def signup_details(signup_email):
+    current_email = session.get("session_email",None)
+    if request.method=="GET":
+        return render_template("sign_up_details.html")
+    elif request.method=="POST":
+        gender = request.form['gender']
+        relationship = request.form['relationship']
+        language = request.form['language']
+        # unit = request.form['unit'].split(',')
+        # club_and_org = request.form['club_and_org'].split(',')
+        # movie = request.form.getlist('movie')
+        # music = request.form.getlist('music')
+        # celebrity =  request.form['celebrity'].split(',')
+        # fandom =  request.form['fandom'].split(',')
+        # game =  request.form['game'].split(',')
+        # hobby =  request.form['hobby'].split(',')
+        # interest = club_and_org + movie + music + celebrity + fandom + game + hobby
+        db.update_gender(current_email,gender)
+        db.update_relationship(current_email,relationship)
+        db.update_language(current_email,language)
+        # db.update_unit(current_email,unit)
+        # db.update_interest(current_email,interest)
+        return redirect(url_for('login'))
 
 @app.route('/profile/<profile_email>',methods=["POST","GET"])
 def profile(profile_email):
@@ -90,11 +115,7 @@ def signup():
             except sqlite3.IntegrityError:
                 msg="email has been used before"
                 return render_template('signup_fix.html',message=msg)
-        return render_template('sign_up_details.html')
-
-@app.route('/signup_details',methods=["POST","GET"])
-def sign_up_details():
-    return render_template("sign_up_details.html")
+        return redirect(url_for('signup_details',signup_email=email))
 
 @app.route('/find_friends_new',methods=["POST","GET"])
 def find_friends_new():
