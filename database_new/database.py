@@ -93,6 +93,20 @@ def insert_unit(email,unit):
         conn.commit()
     conn.close()
 
+def insert_movie(email,genre):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    for i in genre:
+        conn.execute('INSERT into movie(user_email,genre) VALUES (?,?)',(email,i))
+        conn.commit()
+    conn.close()
+
+def insert_music(email,genre):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    for i in genre:
+        conn.execute('INSERT into music(user_email,genre) VALUES (?,?)',(email,i))
+        conn.commit()
+    conn.close()
+
 def data_for_explore():
     # [('cherry', 'kosasih', '09138013', 'ck', 'soit', 'f', 'jones'), 
     # ('lisa', 'lala', '1231233', 'soit', 'jkdjald', None, None), 
