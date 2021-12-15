@@ -37,12 +37,6 @@ def home(home_email):
     if request.method=="POST":
         return redirect(url_for('profile',profile_email=current_email))
     elif request.method=="GET":
-        # [0][0] fname
-        # [0][1] lname
-        # [0][2] email
-        # [0][3] phone
-        # [0][4] ig
-        # [0][5] faculty
         current_data=db.retrieve_user_data(current_email)
         fname = current_data[0][0]
         lname = current_data[0][1]
@@ -76,6 +70,7 @@ def signup_details(signup_email):
         # db.update_unit(current_email,unit)
         # db.update_interest(current_email,interest)
         return redirect(url_for('login'))
+<<<<<<< HEAD
 
 @app.route('/profile/<profile_email>',methods=["POST","GET"])
 def profile(profile_email):
@@ -96,6 +91,9 @@ def profile(profile_email):
         return redirect(url_for('home',home_email=current_email))
         # return render_template("profile.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,stats=status)
 
+=======
+        
+>>>>>>> 3a292229c049e1063bb6601b85fdea04c63116df
 @app.route('/signup/',methods=["POST","GET"])
 def signup():
     if request.method=="GET":
@@ -108,6 +106,7 @@ def signup():
         ig   =request.form['ig']
         faculty = request.form['faculty']
         password = request.form['password']
+        session["session_email"]=email
         if su.email_validator(email)==False:
             msg="Not a valid email"
             return render_template('signup_fix.html',message=msg)
@@ -118,6 +117,25 @@ def signup():
                 msg="email has been used before"
                 return render_template('signup_fix.html',message=msg)
         return redirect(url_for('signup_details',signup_email=email))
+
+@app.route('/profile/<profile_email>',methods=["POST","GET"])
+def profile(profile_email):
+    current_email = session.get("session_email",None)
+    current_data=db.retrieve_user_data(current_email)
+    fname = current_data[0][0]
+    lname = current_data[0][1]
+    phone = current_data[0][3]
+    ig = current_data[0][4]
+    faculty = current_data[0][5]
+    status = current_data[0][6]
+    fullname= fname+" "+lname
+    if request.method=="GET":
+        return render_template("profile.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,stats=status)
+    elif request.method=="POST":
+        status = str(request.form['status'])
+        db.update_status(current_email,status)
+        return redirect(url_for('home',home_email=current_email))
+        
 
 @app.route('/find_friends_new',methods=["POST","GET"])
 def find_friends_new():

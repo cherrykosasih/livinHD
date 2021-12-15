@@ -12,657 +12,657 @@
             crossorigin="anonymous"
         />
         <!-- <link rel="stylesheet" href="style_sign_up_details.css" /> -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='sign_up_detail/sign_up_details.css') }}">
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='sign_up_detail/sign_up_details.css') }}"
+        />
     </head>
     <body>
-        <form action="{{url_for('login') }}" method="GET">
-        <header></header>
         <div class="frame">
             <div class="content">
                 <h1 class="title">Describe Yourself</h1>
-                <div class="container">
-                    <div class="row">
-                        <div class="question col-3">
-                            <h2>Gender</h2>
-                            <input
-                                type="radio"
-                                class="btn-check"
-                                name="gender"
-                                id="girl"
-                                value="girl"
-                                autocomplete="off"
-                            />
-                            <label class="btn btn-primary" for="girl"
-                                >Girl</label
-                            >
-                            <input
-                                type="radio"
-                                class="btn-check"
-                                name="gender"
-                                id="boy"
-                                value="boy"
-                                autocomplete="off"
-                            />
-                            <label class="btn btn-primary" for="boy"
-                                >Boy</label
-                            >
-                            <input
-                                type="radio"
-                                class="btn-check"
-                                name="gender"
-                                id="notSayin"
-                                value="notSayin"
-                                autocomplete="off"
-                            />
-                            <label class="btn btn-primary" for="notSayin"
-                                >Not Sayin'</label
-                            >
+                <form
+                    action="{{url_for('signup_details',signup_email=signup_email) }}"
+                    method="POST"
+                >
+                    <div class="container">
+                        <div class="row">
+                            <div class="question col-3">
+                                <h2>Gender</h2>
+                                <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="gender"
+                                    id="girl"
+                                    value="girl"
+                                    autocomplete="off"
+                                />
+                                <label class="btn btn-primary" for="girl"
+                                    >Girl</label
+                                >
+                                <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="gender"
+                                    id="boy"
+                                    value="boy"
+                                    autocomplete="off"
+                                />
+                                <label class="btn btn-primary" for="boy"
+                                    >Boy</label
+                                >
+                                <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="gender"
+                                    id="notSayin"
+                                    value="notSayin"
+                                    autocomplete="off"
+                                />
+                                <label class="btn btn-primary" for="notSayin"
+                                    >Not Sayin'</label
+                                >
+                            </div>
+                            <div class="question col-6">
+                                <h2>Relationship Status</h2>
+                                <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="relationship"
+                                    id="single"
+                                    value="single"
+                                    autocomplete="off"
+                                />
+                                <label class="btn btn-primary" for="single"
+                                    >Single</label
+                                >
+                                <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="relationship"
+                                    id="taken"
+                                    value="taken"
+                                    autocomplete="off"
+                                />
+                                <label class="btn btn-primary" for="taken"
+                                    >Sorry Boys and Girls</label
+                                >
+                                <input
+                                    type="radio"
+                                    class="btn-check"
+                                    name="relationship"
+                                    id="noLife"
+                                    value="noLife"
+                                    autocomplete="off"
+                                />
+                                <label class="btn btn-primary" for="noLife"
+                                    >Married to Monash</label
+                                >
+                            </div>
+                            <div class="question col-3">
+                                <h2>First Language</h2>
+                                <div class="input-group flex-nowrap">
+                                    <input
+                                        type="text"
+                                        class="form-control input-cst"
+                                        placeholder="Most comfortable language?"
+                                        aria-label="lang"
+                                        aria-describedby="addon-wrapping"
+                                    />
+                                </div>
+                            </div>
                         </div>
-                        <div class="question col-6">
-                            <h2>Relationship Status</h2>
-                            <input
-                                type="radio"
-                                class="btn-check"
-                                name="relationship"
-                                id="single"
-                                value="single"
-                                autocomplete="off"
-                            />
-                            <label class="btn btn-primary" for="single"
-                                >Single</label
-                            >
-                            <input
-                                type="radio"
-                                class="btn-check"
-                                name="relationship"
-                                id="taken"
-                                value="taken"
-                                autocomplete="off"
-                            />
-                            <label class="btn btn-primary" for="taken"
-                                >Sorry Boys and Girls</label
-                            >
-                            <input
-                                type="radio"
-                                class="btn-check"
-                                name="relationship"
-                                id="noLife"
-                                value="noLife"
-                                autocomplete="off"
-                            />
-                            <label class="btn btn-primary" for="noLife"
-                                >Married to Monash</label
-                            >
+                        <div class="row">
+                            <div class="question">
+                                <h2>Units</h2>
+                                <div class="input-group flex-nowrap">
+                                    <input
+                                        type="text"
+                                        class="form-control input-cst"
+                                        placeholder="What units are you taking this semester?"
+                                        aria-label="units"
+                                        aria-describedby="addon-wrapping"
+                                    />
+                                </div>
+                            </div>
                         </div>
-                        <div class="question col-3">
-                            <h2>First Language</h2>
-                            <div class="input-group flex-nowrap">
+                        <div class="row">
+                            <div class="question">
+                                <h2>Clubs and Organizations</h2>
+                                <div class="input-group flex-nowrap">
+                                    <input
+                                        type="text"
+                                        class="form-control input-cst"
+                                        placeholder="What clubs and organizations are you part of?"
+                                        aria-label="lang"
+                                        aria-describedby="addon-wrapping"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="question">
+                                <h2>Sports</h2>
                                 <input
                                     type="text"
                                     class="form-control input-cst"
-                                    placeholder="Most comfortable language?"
+                                    placeholder="What sports do you like?"
                                     aria-label="lang"
                                     aria-describedby="addon-wrapping"
-                                    name="language"
                                 />
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="question">
-                            <h2>Units</h2>
-                            <div class="input-group flex-nowrap">
-                                <input
-                                    type="text"
-                                    class="form-control input-cst"
-                                    placeholder="What units are you taking this semester?"
-                                    aria-label="units"
-                                    aria-describedby="addon-wrapping"
-                                    name="unit"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="question">
-                            <h2>Clubs and Organizations</h2>
-                            <div class="input-group flex-nowrap">
-                                <input
-                                    type="text"
-                                    class="form-control input-cst"
-                                    placeholder="What clubs and organizations are you part of?"
-                                    aria-label="lang"
-                                    aria-describedby="addon-wrapping"
-                                    name="club_and_org"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="question">
-                            <h2>Sports</h2>
-                            <input
-                                type="text"
-                                class="form-control input-cst"
-                                placeholder="What sports do you like?"
-                                aria-label="lang"
-                                aria-describedby="addon-wrapping"
-                                name="sport"
-                            />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="question col-5">
-                            <h2>Movies Genres</h2>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="horror"
-                                            value="horror"
-                                            name="movie"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="horror"
-                                            >Horror</label
-                                        >
+                        <div class="row">
+                            <div class="question col-5">
+                                <h2>Movies Genres</h2>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="horror"
+                                                value="horror"
+                                                name="movie"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="horror"
+                                                >Horror</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="comedy"
+                                                value="comedy"
+                                                name="movie"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="comedy"
+                                                >Comedy</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="romance"
+                                                value="romance"
+                                                name="movie"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="romance"
+                                                >Romance</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="fantasy"
+                                                value="fantasy"
+                                                name="movie"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="fantasy"
+                                                >Fantasy</label
+                                            >
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="comedy"
-                                            value="comedy"
-                                            name="movie"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="comedy"
-                                            >Comedy</label
-                                        >
+                                    <div class="row">
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="action"
+                                                value="action"
+                                                name="movie"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="action"
+                                                >Action</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="documenter"
+                                                value="documenter"
+                                                name="movie"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="documenter"
+                                                >Documenter</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="disney"
+                                                value="disney"
+                                                name="movie"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="disney"
+                                                >Disney</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="marvel"
+                                                value="marvel"
+                                                name="movie"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="marvel"
+                                                >Marvel</label
+                                            >
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="romance"
-                                            value="romance"
-                                            name="movie"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="romance"
-                                            >Romance</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="fantasy"
-                                            value="fantasy"
-                                            name="movie"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="fantasy"
-                                            >Fantasy</label
-                                        >
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="action"
-                                            value="action"
-                                            name="movie"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="action"
-                                            >Action</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="documenter"
-                                            value="documenter"
-                                            name="movie"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="documenter"
-                                            >Documenter</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="disney"
-                                            value="disney"
-                                            name="movie"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="disney"
-                                            >Disney</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="marvel"
-                                            value="marvel"
-                                            name="movie"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="marvel"
-                                            >Marvel</label
-                                        >
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="kdrama"
-                                            value="kdrama"
-                                            name="movie"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="kdrama"
-                                            >K-Drama</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="anime"
-                                            value="anime"
-                                            name="movie"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="anime"
-                                            >Anime</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="medical"
-                                            value="medical"
-                                            name="movie"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="medical"
-                                            >Medical</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="cdrama"
-                                            value="cdrama"
-                                            name="movie"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="cdrama"
-                                            >C-Drama</label
-                                        >
+                                    <div class="row">
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="kdrama"
+                                                value="kdrama"
+                                                name="movie"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="kdrama"
+                                                >K-Drama</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="anime"
+                                                value="anime"
+                                                name="movie"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="anime"
+                                                >Anime</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="medical"
+                                                value="medical"
+                                                name="movie"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="medical"
+                                                >Medical</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="cdrama"
+                                                value="cdrama"
+                                                name="movie"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="cdrama"
+                                                >C-Drama</label
+                                            >
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="question col-7">
-                            <h2>Music Genres</h2>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="pop"
-                                            value="pop"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="pop"
-                                            >Pop</label
-                                        >
+                            <div class="question col-7">
+                                <h2>Music Genres</h2>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="pop"
+                                                value="pop"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="pop"
+                                                >Pop</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="classic"
+                                                value="classic"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="classic"
+                                                >Classic</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="jazz"
+                                                value="jazz"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="jazz"
+                                                >Jazz</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="rock"
+                                                value="rock"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="rock"
+                                                >Rock</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="acoustic"
+                                                value="acoustic"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="acoustic"
+                                                >Acoustic</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="edm"
+                                                value="edm"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="edm"
+                                                >EDM</label
+                                            >
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="classic"
-                                            value="classic"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="classic"
-                                            >Classic</label
-                                        >
+                                    <div class="row">
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="country"
+                                                value="country"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="country"
+                                                >Country</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="soul"
+                                                value="soul"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="soul"
+                                                >Soul</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="rnb"
+                                                value="rnb"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="rnb"
+                                                >RnB</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="disco"
+                                                value="disco"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="disco"
+                                                >Disco</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="dance"
+                                                value="dance"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="dance"
+                                                >Dance</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="kpop"
+                                                value="kpop"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="kpop"
+                                                >K-Pop</label
+                                            >
+                                        </div>
                                     </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="jazz"
-                                            value="jazz"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="jazz"
-                                            >Jazz</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="rock"
-                                            value="rock"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="rock"
-                                            >Rock</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="acoustic"
-                                            value="acoustic"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="acoustic"
-                                            >Acoustic</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="edm"
-                                            value="edm"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="edm"
-                                            >EDM</label
-                                        >
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="country"
-                                            value="country"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="country"
-                                            >Country</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="soul"
-                                            value="soul"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="soul"
-                                            >Soul</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="rnb"
-                                            value="rnb"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="rnb"
-                                            >RnB</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="disco"
-                                            value="disco"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="disco"
-                                            >Disco</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="dance"
-                                            value="dance"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="dance"
-                                            >Dance</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="kpop"
-                                            value="kpop"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="kpop"
-                                            >K-Pop</label
-                                        >
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="jpop"
-                                            value="jpop"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="jpop"
-                                            >J-Pop</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="cpop"
-                                            value="cpop"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="cpop"
-                                            >C-Pop</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="ballad"
-                                            value="ballad"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="ballad"
-                                            >Ballad</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="hiphoprap"
-                                            value="hiphoprap"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="hiphoprap"
-                                            >Hip-hop / Rap</label
-                                        >
-                                    </div>
-                                    <div class="col">
-                                        <input
-                                            type="checkbox"
-                                            class="btn-check"
-                                            id="latin"
-                                            value="latin"
-                                            name="music"
-                                            autocomplete="off"
-                                        />
-                                        <label
-                                            class="btn btn-primary"
-                                            for="latin"
-                                            >Latin</label
-                                        >
+                                    <div class="row">
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="jpop"
+                                                value="jpop"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="jpop"
+                                                >J-Pop</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="cpop"
+                                                value="cpop"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="cpop"
+                                                >C-Pop</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="ballad"
+                                                value="ballad"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="ballad"
+                                                >Ballad</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="hiphoprap"
+                                                value="hiphoprap"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="hiphoprap"
+                                                >Hip-hop / Rap</label
+                                            >
+                                        </div>
+                                        <div class="col">
+                                            <input
+                                                type="checkbox"
+                                                class="btn-check"
+                                                id="latin"
+                                                value="latin"
+                                                name="music"
+                                                autocomplete="off"
+                                            />
+                                            <label
+                                                class="btn btn-primary"
+                                                for="latin"
+                                                >Latin</label
+                                            >
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="question col-6">
-                            <h2>Favorite Celebrities</h2>
-                            <input
-                                type="text"
-                                class="form-control input-cst"
-                                placeholder="Someone you obsessed with?"
-                                aria-label="lang"
-                                aria-describedby="addon-wrapping"
-                                name="celebrity"
-                            />
-                        </div>
-                        <div class="question col-6">
-                            <h2>Fandoms</h2>
-                            <input
-                                type="text"
-                                class="form-control input-cst"
-                                placeholder="What fandom are you in?"
-                                aria-label="lang"
-                                aria-describedby="addon-wrapping"
-                                name="fandom"
-                            />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="question col-6">
-                            <h2>
-                                Games </h2>
+                        <div class="row">
+                            <div class="question col-6">
+                                <h2>Favorite Celebrities</h2>
                                 <input
                                     type="text"
                                     class="form-control input-cst"
                                     placeholder="Someone you obsessed with?"
                                     aria-label="lang"
                                     aria-describedby="addon-wrapping"
-                                    name="game"
                                 />
-                            </h2>
+                            </div>
+                            <div class="question col-6">
+                                <h2>Fandoms</h2>
+                                <input
+                                    type="text"
+                                    class="form-control input-cst"
+                                    placeholder="What fandom are you in?"
+                                    aria-label="lang"
+                                    aria-describedby="addon-wrapping"
+                                />
+                            </div>
                         </div>
-                        <div class="question col-6">
-                            <h2>Hobbies</h2>
-                            <input
-                                type="text"
-                                class="form-control input-cst"
-                                placeholder="How do you kill your freetime?"
-                                aria-label="lang"
-                                aria-describedby="addon-wrapping"
-                                name="hobby"
-                            />
+                        <div class="row">
+                            <div class="question col-6">
+                                <h2>Games</h2>
+                                <input
+                                    type="text"
+                                    class="form-control input-cst"
+                                    placeholder="Someone you obsessed with?"
+                                    aria-label="lang"
+                                    aria-describedby="addon-wrapping"
+                                />
+                            </div>
+                            <div class="question col-6">
+                                <h2>Hobbies</h2>
+                                <input
+                                    type="text"
+                                    class="form-control input-cst"
+                                    placeholder="How do you kill your freetime?"
+                                    aria-label="lang"
+                                    aria-describedby="addon-wrapping"
+                                />
+                            </div>
                         </div>
+                        <button
+                            type="submit"
+                            class="btn btn-lg btn-primary btn-primary-non"
+                        >
+                            Finish
+                        </button>
                     </div>
-                    <button type="submit" class="btn btn-lg btn-primary btn-primary-non">Finish</button>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
         <script
