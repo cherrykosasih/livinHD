@@ -93,7 +93,8 @@ def profile(profile_email):
     elif request.method=="POST":
         status = str(request.form['status'])
         db.update_status(current_email,status)
-        return render_template("profile.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,stats=status)
+        return redirect(url_for('home',home_email=current_email))
+        # return render_template("profile.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,stats=status)
 @app.route('/signup/',methods=["POST","GET"])
 def signup():
     if request.method=="GET":
