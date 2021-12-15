@@ -20,8 +20,8 @@ body {
 
 .menu-nav {
     z-index: 20;
-    position: absolute;
-    margin-left: 45%;
+    position: relative;
+    margin-left: 5%;
     margin-top: 0%;
     color: rgb(29, 126, 139);
     font-size: 300px;
@@ -32,7 +32,7 @@ body {
 
 .frame .content {
     width: 100%;
-    min-height: 800px;
+    height: 800px;
     background-color: #dbcfc5;
     overflow: hidden;
     border-radius: 50px;
@@ -62,8 +62,6 @@ body {
     overflow: visible;
     border-radius: 45px;
     margin: 5px;
-    overflow: visible;
-    white-space: pre;
     font-weight: 400;
     font-style: normal;
     font-family: "Just Me Again Down Here", cursive, serif;
@@ -80,6 +78,7 @@ body {
 
 .units {
     height: 400px;
+    overflow: scroll;
 }
 
 .hours {
@@ -197,4 +196,10 @@ body {
 
 .session-join a:hover {
     background-color: #4d6d17;
+}
+
+.sessions::-webkit-scrollbar {
+    display: none;
+    justify-content: center;
+    align-items: center;
 }

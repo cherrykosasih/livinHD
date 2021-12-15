@@ -40,7 +40,11 @@
                 <a href="{{ url_for ('create_study_session')}}"
                     >Create Session</a
                 >
-                <a href="{{url_for('home',home_email= user_email)}}" method="GET">Home</a>
+                <a
+                    href="{{url_for('home',home_email= user_email)}}"
+                    method="GET"
+                    >Home</a
+                >
             </div>
         </div>
 
@@ -96,10 +100,9 @@
                                 <div class="col-6">
                                     <div class="units">
                                         <h4>Your Units</h4>
-                                        <div class="unit">1</div>
-                                        <div class="unit">2</div>
-                                        <div class="unit">3</div>
-                                        <div class="unit">4</div>
+                                        {% for unit in units %}
+                                        <div class="unit">{{unit[0]}}</div>
+                                        {% endfor %}
                                     </div>
                                 </div>
                                 <div class="col-6">

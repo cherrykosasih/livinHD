@@ -168,7 +168,7 @@ def find_friends_last(find_friend_email):
 def find_study_sessions():
     current_email = session.get("session_email",None)
     if request.method=="GET":
-        return render_template("find_study_sessions.html", sessions = db.get_study_session(),user_email=current_email)
+        return render_template("find_study_sessions.html", sessions = db.get_study_session(),units=db.get_units(current_email),user_email=current_email)
     elif request.method=="POST":
         return render_template("find_study_sessions.html",user_email=current_email)
 
