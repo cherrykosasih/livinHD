@@ -37,12 +37,6 @@ def home(home_email):
     if request.method=="POST":
         return redirect(url_for('profile',profile_email=current_email))
     elif request.method=="GET":
-        # [0][0] fname
-        # [0][1] lname
-        # [0][2] email
-        # [0][3] phone
-        # [0][4] ig
-        # [0][5] faculty
         current_data=db.retrieve_user_data(current_email)
         fname = current_data[0][0]
         lname = current_data[0][1]
@@ -94,7 +88,6 @@ def profile(profile_email):
         status = str(request.form['status'])
         db.update_status(current_email,status)
         return redirect(url_for('home',home_email=current_email))
-        # return render_template("profile.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,stats=status)
         
 @app.route('/signup/',methods=["POST","GET"])
 def signup():
