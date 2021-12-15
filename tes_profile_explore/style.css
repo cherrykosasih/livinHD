@@ -1,0 +1,47 @@
+.friends {
+    margin-right: 30px;
+    width: 750px;
+    height: 575px;
+    overflow: scroll;
+    padding: 10px;
+    padding-top: 0;
+}
+
+/* .friend-card {
+    margin-top: 30px;
+    background-color: rgb(245, 245, 245);
+    width: 100%;
+    height: 30%;
+    padding: 10px;
+    border-radius: 50px;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr 1fr;
+} */
+
+.friend-card {
+    margin-top: 30px;
+    background-color: rgb(245, 245, 245);
+    width: 100%;
+    height: 30%;
+    padding: 10px;
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 0.6fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "icon fullname wa-button"
+      "icon status ig-button";
+  }
+  
+  .profile { grid-area: icon; }
+  
+  .fullname { grid-area: fullname; }
+  
+  .status { grid-area: status; }
+  
+  .wa-button { grid-area: wa-button; }
+  
+  .ig-button { grid-area: ig-button; }
+  

@@ -95,7 +95,7 @@ def profile(profile_email):
         db.update_status(current_email,status)
         return redirect(url_for('home',home_email=current_email))
         # return render_template("profile.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,stats=status)
-        
+
 @app.route('/signup/',methods=["POST","GET"])
 def signup():
     if request.method=="GET":
@@ -123,6 +123,13 @@ def signup():
 def find_friends_new():
     current_email = session.get("session_email",None)
     return render_template("find_friend_new.html",user_email=current_email)
+
+@app.route('/find_friends_last',methods=["POST","GET"])
+def find_friends_last():
+    #if GET
+    current_email = session.get("session_email",None)
+    relevant_data =db.data_for_explore()
+    return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email)
 
 @app.route('/find_study_sessions',methods=["POST","GET"])
 def find_study_sessions():

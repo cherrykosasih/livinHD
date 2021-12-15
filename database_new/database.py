@@ -85,6 +85,23 @@ def update_interest(email,new_interest):
     conn.commit()
     conn.close()
 
+def data_for_explore():
+    # [('cherry', 'kosasih', '09138013', 'ck', 'soit', 'f', 'jones'), 
+    # ('lisa', 'lala', '1231233', 'soit', 'jkdjald', None, None), 
+    # ('lalala', 'rcwc', '1231233', 'soit', 'gg', None, None), 
+    # ('cherry', 'kosasih', '08128471240412', 'fajcrpiac', 'cklalala', None, None), 
+    # ('lalala', 'lalala', '666', 'soit', 'lalalalalala', None, None), 
+    # ('jane', 'doe', '0812739130812', 'soit', 'janedoe', None, None), 
+    # ('testes123', '123', '3312', 'gg', '123123', None, None), 
+    # ('a', 'a', '4', 'a', 'a', None, None), 
+    # ('Jessica', 'Lim', '+628119997728', 'SOIT', 'angelicajessicalim', None, None), 
+    # ('cherry', 'kosasih', '0001', 'soit', 'ceri', None, None)]
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    c = conn.cursor()
+    c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user')
+    a = c.fetchall()
+    conn.close()
+    return a
 # insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
 # insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
 # print("jancok")
