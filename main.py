@@ -50,7 +50,7 @@ def home(home_email):
 def signup_details(signup_email):
     current_email = session.get("session_email",None)
     if request.method=="GET":
-        return render_template("sign_up_details.html")
+        return render_template("sign_up_details.html",signup_email=current_email)
     elif request.method=="POST":
         gender = request.form['gender']
         relationship = request.form['relationship']
