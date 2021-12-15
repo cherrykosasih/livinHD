@@ -130,20 +130,29 @@
                             <h1 class="similar">Search by similarities</h1>
                             <div class="row title-smaller">By Units</div>
                             <div class="row">
+                                <!-- <form action="{{url_for('signup') }}" method="POST"></form> -->
+                                <form action="{{url_for('find_friends_last',find_friend_email=user_email)}}" method="POST">
                                 <div class="col btn-row">
-                                    <button class="btn unit">{{unit1}}</button>
+                                    <button type="submit" class="btn unit" name=unit value={{unit1}}>{{unit1}}</button>
                                 </div>
+                                </form>
+                                <form action="{{url_for('find_friends_last',find_friend_email=user_email)}}" method="POST">
                                 <div class="col btn-row">
-                                    <button class="btn unit">{{unit2}}</button>
+                                    <button type="submit" class="btn unit" name=unit value={{unit2}}>{{unit2}}</button>
                                 </div>
+                                </form>
                             </div>
                             <div class="row">
+                                <form action="{{url_for('find_friends_last',find_friend_email=user_email)}}"method="POST">
                                 <div class="col btn-row">
-                                    <button class="btn unit">{{unit3}}</button>
+                                    <button type="submit" class="btn unit" name=unit value={{unit3}}>{{unit3}}</button>
                                 </div>
+                                </form>
+                                <form action="{{url_for('find_friends_last',find_friend_email=user_email)}}"method="POST">
                                 <div class="col btn-row">
-                                    <button class="btn unit">{{unit4}}</button>
+                                    <button type="submit" class="btn unit" name=unit value={{unit4}}>{{unit4}}</button>
                                 </div>
+                                </form>
                             </div>
 
                             <div class="row title-smaller">By Interests</div>

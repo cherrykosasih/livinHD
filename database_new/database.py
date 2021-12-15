@@ -139,6 +139,14 @@ def insert_music(email,genre):
         conn.commit()
     conn.close()
 
+def data_based_on_unit(unitname):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    c = conn.cursor()
+    c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user INNER JOIN enrolment on user.user_email=enrolment.user_email WHERE unit_id=?',(unitname,))
+    a=c.fetchall()
+    conn.close()
+    return a
+
 def data_based_on_movie_interest(movie_genre):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c = conn.cursor()
@@ -196,3 +204,6 @@ def data_for_explore():
 # conn.close()
 
 # update_status('ckos0005@student.monash.edu','3.30 alr wanna sleep :(')
+
+# print(data_based_on_unit('fit1045'))
+# print(data_for_explore())

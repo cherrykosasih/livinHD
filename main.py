@@ -168,6 +168,8 @@ def find_friends_last(find_friend_email):
     if request.method=="GET":
         return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
     elif request.method=="POST":
+        unit_filter=request.form["unit"]
+        relevant_data = db.data_based_on_unit(unit_filter)
         return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
 
 @app.route('/find_study_sessions',methods=["POST","GET"])
