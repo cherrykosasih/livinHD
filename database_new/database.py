@@ -54,6 +54,37 @@ def update_status(email,new_stat):
     conn.execute('UPDATE user SET status=? WHERE user_email=?',(new_stat,email))
     conn.commit()
     conn.close()
+
+def update_gender(email,new_gender):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    conn.execute('UPDATE user SET user_gender=? WHERE user_email=?',(new_gender,email))
+    conn.commit()
+    conn.close()
+
+def update_relationship(email,new_relationship):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    conn.execute('UPDATE user SET user_relationship=? WHERE user_email=?',(new_relationship,email))
+    conn.commit()
+    conn.close()
+
+def update_language(email,new_language):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    conn.execute('UPDATE user SET user_language=? WHERE user_email=?',(new_language,email))
+    conn.commit()
+    conn.close()
+
+def update_unit(email,new_unit):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    conn.execute('UPDATE user SET unit=? WHERE user_email=?',(new_unit,email))
+    conn.commit()
+    conn.close()
+
+def update_interest(email,new_interest):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    conn.execute('UPDATE user SET interest=? WHERE user_email=?',(new_interest,email))
+    conn.commit()
+    conn.close()
+
 # insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
 # insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
 # print("jancok")
