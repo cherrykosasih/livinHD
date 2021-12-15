@@ -99,9 +99,11 @@ def data_for_explore():
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c = conn.cursor()
     c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user')
+    # c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user WHERE user_email!=?',(email,))
     a = c.fetchall()
     conn.close()
     return a
+
 # insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
 # insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
 # print("jancok")
