@@ -70,7 +70,6 @@ def signup_details(signup_email):
         # db.update_unit(current_email,unit)
         # db.update_interest(current_email,interest)
         return redirect(url_for('login'))
-<<<<<<< HEAD
 
 @app.route('/profile/<profile_email>',methods=["POST","GET"])
 def profile(profile_email):
@@ -91,9 +90,6 @@ def profile(profile_email):
         return redirect(url_for('home',home_email=current_email))
         # return render_template("profile.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,stats=status)
 
-=======
-        
->>>>>>> 3a292229c049e1063bb6601b85fdea04c63116df
 @app.route('/signup/',methods=["POST","GET"])
 def signup():
     if request.method=="GET":
