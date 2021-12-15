@@ -62,8 +62,6 @@ body {
     overflow: visible;
     border-radius: 45px;
     margin: 5px;
-    overflow: visible;
-    white-space: pre;
     font-weight: 400;
     font-style: normal;
     font-family: "Just Me Again Down Here", cursive, serif;
@@ -80,6 +78,7 @@ body {
 
 .units {
     height: 400px;
+    overflow: scroll;
 }
 
 .hours {

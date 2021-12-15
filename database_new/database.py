@@ -100,8 +100,6 @@ def get_units(email):
     data = c.fetchall()
     return data
 
-print(get_units("potter@gmail.com"))
-
 def insert_movie(email,genre):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     for i in genre:
