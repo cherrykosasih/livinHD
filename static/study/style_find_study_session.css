@@ -197,3 +197,9 @@ body {
 .session-join a:hover {
     background-color: #4d6d17;
 }
+
+.sessions::-webkit-scrollbar {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
