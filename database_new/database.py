@@ -107,6 +107,22 @@ def insert_music(email,genre):
         conn.commit()
     conn.close()
 
+def data_based_on_movie_interest(movie_genre):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    c = conn.cursor()
+    c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user INNER JOIN movie ON user.user_email=movie.user_email WHERE genre=?',(movie_genre,))
+    a=c.fetchall()
+    conn.close()
+    return a
+
+def data_based_on_music_interest(music_genre):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    c = conn.cursor()
+    c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user INNER JOIN music ON user.user_email=music.user_email WHERE genre=?',(music_genre,))
+    a=c.fetchall()
+    conn.close()
+    return a
+
 def data_for_explore():
     # [('cherry', 'kosasih', '09138013', 'ck', 'soit', 'f', 'jones'), 
     # ('lisa', 'lala', '1231233', 'soit', 'jkdjald', None, None), 
@@ -148,5 +164,3 @@ def data_for_explore():
 # conn.close()
 
 # update_status('ckos0005@student.monash.edu','3.30 alr wanna sleep :(')
-
-conn.close()
