@@ -93,6 +93,13 @@ def insert_unit(email,unit):
         conn.commit()
     conn.close()
 
+def get_units(email):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    c = conn.cursor()
+    c.execute('SELECT * FROM enrolment WHERE user_email==?',(email,))
+    data = c.fetchall()
+    return data
+
 def insert_movie(email,genre):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     for i in genre:
