@@ -14,11 +14,21 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&family=Just+Me+Again+Down+Here&family=Poppins:wght@200&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="{{ url_for('static', filename='find_friend_last/style.css') }}" />
-        <link rel="stylesheet" href="{{ url_for('static',filename='nav/nav.css') }}" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='find_friend_last/style.css') }}"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static',filename='nav/nav.css') }}"
+        />
     </head>
     <body onload="generate_user_cards()">
         <div id="myNav" class="overlay">
@@ -26,11 +36,17 @@
                 ×
             </a>
             <div class="overlay-content">
-                <img src="{{url_for('static',filename='logo/white.png')}}">
+                <img src="{{url_for('static',filename='logo/white.png')}}" />
                 <a href="{{ url_for('find_friends_last') }}">Find Friend</a>
                 <a href="{{ url_for('find_study_sessions') }}">Find Session</a>
-                <a href="{{ url_for ('create_study_session')}}">Create Session</a>
-                <a href="{{url_for('home',home_email= user_email)}}" method="GET">Home</a>
+                <a href="{{ url_for ('create_study_session')}}"
+                    >Create Session</a
+                >
+                <a
+                    href="{{url_for('home',home_email= user_email)}}"
+                    method="GET"
+                    >Home</a
+                >
             </div>
         </div>
 
@@ -47,7 +63,9 @@
                                 >
                                     ≡
                                 </span>
-                                <h1 class="title" id="findfriendd">Find friends</h1>
+                                <h1 class="title" id="findfriendd">
+                                    Find friends
+                                </h1>
                                 <input
                                     id="search-session"
                                     placeholder="Search for a friend"
@@ -55,11 +73,55 @@
                             </div>
 
                             <div class="row friends" id="profile_container">
-                                <!-- <div class="friend-card"></div>
-                                <div class="friend-card"></div>
-                                <div class="friend-card"></div>
-                                <div class="friend-card"></div>
-                                <div class="friend-card"></div> -->
+                                {% for profile in profiles %}
+                                <div class="friend-card row">
+                                    <div class="col">
+                                        {% if profile[5] == "girl" %}
+                                        <div class="profile">
+                                            <i class="bi bi-gender-female"></i
+                                            >{{profile[0] + " " + profile[1]}}
+                                        </div>
+                                        {% elif profile[5] == "boy"%}
+
+                                        <div class="profile">
+                                            <i class="bi bi-gender-male"></i
+                                            >{{profile[0] + " " + profile[1]}}
+                                        </div>
+                                        {% else %}
+                                        <div class="profile">
+                                            <i class="bi bi-question-lg"></i>
+                                            {{profile[0] + " " + profile[1]}}
+                                        </div>
+                                        {% endif%}
+                                        <div class="faculty">
+                                            Faculty: {{profile[4]}}
+                                        </div>
+                                        <div class="relationship">
+                                            Relationship: {{profile[6]}}
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="status">
+                                            Status: {{profile[7]}}
+                                        </div>
+                                        <div class="contact">
+                                            Contact:
+                                            <a
+                                                href="https://wa.me/{{profile[2]}}"
+                                                target="_blank"
+                                            >
+                                                <i class="bi bi-whatsapp"></i>
+                                            </a>
+                                            <a
+                                                href="http://instagram.com/_u/{{profile[3]}}"
+                                                target="_blank"
+                                            >
+                                                <i class="bi bi-instagram"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -267,13 +329,11 @@
         ></script>
         <script>
             function openNav() {
-                document.getElementById(
-                    "myNav").style.height = "100%";
+                document.getElementById("myNav").style.height = "100%";
             }
 
             function closeNav() {
-                document.getElementById(
-                    "myNav").style.height = "0%";
+                document.getElementById("myNav").style.height = "0%";
             }
         </script>
 
@@ -293,50 +353,50 @@
             //     // container.appendChild(tes);
             // }
 
-            function generate_user_cards(){
-                const profile_data = '{{profiles}}';
+            function generate_user_cards() {
+                const profile_data = "{{profiles}}";
                 const data = profile_data[0];
                 data.forEach(create_one_user_profile);
             }
 
-            function create_one_user_profile(lst){
-                const name=lst[0]+" " +lst[1];
-                const phone=lst[2];
-                const ig=lst[3];
-                const faculty=lst[4];
-                const gender=lst[5];
+            function create_one_user_profile(lst) {
+                const name = lst[0] + " " + lst[1];
+                const phone = lst[2];
+                const ig = lst[3];
+                const faculty = lst[4];
+                const gender = lst[5];
                 const relationship = lst[6];
                 const status = lst[7];
 
-                const new_card= document.createElement('div');
-                new_card.setAttribute('class','friend-card');
+                const new_card = document.createElement("div");
+                new_card.setAttribute("class", "friend-card");
 
-                const user_profile=document.createElement('div');
+                const user_profile = document.createElement("div");
                 //set attribute user_profile dikasi icon cowo/cewe
 
-                const fullname = document.createElement('div');
-                fullname.setAttribute('class','fullname');
-                fullname.setAttribute('value',name)
+                const fullname = document.createElement("div");
+                fullname.setAttribute("class", "fullname");
+                fullname.setAttribute("value", name);
 
-                const stat = document.createElement('div');
-                stat.setAttribute('class','status')
-                stat.setAttribute('value',status)
+                const stat = document.createElement("div");
+                stat.setAttribute("class", "status");
+                stat.setAttribute("value", status);
 
-                const wa_button = document.createElement('div');
+                const wa_button = document.createElement("div");
                 //set attribute tombol watsap
                 //on click = buka new tab https://wa.me/notelpon , contoh : https://wa.me/081238120302
 
-                const ig_button = document.createElement('div');
+                const ig_button = document.createElement("div");
                 //set attribute tombol ig
                 // on click = buka new tab instagram.com/username , contoh instagram.com/cherry.kosasih
-                
+
                 new_card.append(user_profile);
                 new_card.append(fullname);
                 new_card.append(status);
                 new_card.append(wa_button);
                 new_card.append(ig_button);
-                
-                const container =document.getElementById('profile_container');
+
+                const container = document.getElementById("profile_container");
                 container.appendChild(new_card);
             }
         </script>

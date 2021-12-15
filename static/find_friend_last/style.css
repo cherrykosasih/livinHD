@@ -122,20 +122,54 @@ body {
     padding-top: 0;
 }
 
-/* .friend-card {
+.friend-card {
     margin-top: 30px;
     background-color: rgb(245, 245, 245);
     width: 100%;
     height: 30%;
     padding: 10px;
     border-radius: 50px;
-} */
-
-#logo{
-    background : url('white.png');
+    display: flex;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
 }
 
-.friend-card {
+#logo {
+    background: url("white.png");
+}
+
+.profile {
+    font-size: 30px;
+    font-family: "Just Me Again Down Here", cursive, serif;
+    color: #1d7e8b;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #1d7e8b;
+}
+
+.faculty,
+.relationship {
+    padding: 5px;
+}
+
+.status {
+    height: 100px;
+    padding: 20px;
+    border-radius: 10px 100px / 120px;
+    background-color: #1d7e8b;
+    color: white;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.contact a {
+    text-decoration: none;
+    color: rgb(29, 126, 139);
+    padding: 5px;
+    margin-left: 10px;
+}
+
+/* .friend-card {
     margin-top: 30px;
     background-color: rgb(245, 245, 245);
     width: 100%;
@@ -148,16 +182,26 @@ body {
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
-      "iconn fullname wa-button"
-      "iconn status ig-button";
-  }
-  
-  .profile { grid-area: iconn; }
-  
-  .fullname { grid-area: fullname; }
-  
-  .status { grid-area: status; }
-  
-  .wa-button { grid-area: wa-button; }
-  
-  .ig-button { grid-area: ig-button; }
+        "iconn fullname wa-button"
+        "iconn status ig-button";
+}
+
+.profile {
+    grid-area: iconn;
+}
+
+.fullname {
+    grid-area: fullname;
+}
+
+.status {
+    grid-area: status;
+}
+
+.wa-button {
+    grid-area: wa-button;
+}
+
+.ig-button {
+    grid-area: ig-button;
+} */

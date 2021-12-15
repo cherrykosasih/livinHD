@@ -142,10 +142,13 @@ def find_friends_new():
 
 @app.route('/find_friends_last',methods=["POST","GET"])
 def find_friends_last():
-    #if GET
     current_email = session.get("session_email",None)
     relevant_data =db.data_for_explore()
-    return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email)
+    # relevant_data =db.data_for_explore(current_email)
+    if request.method=="GET":
+        return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email)
+    elif request.method=="POST":
+        return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email)
 
 @app.route('/find_study_sessions',methods=["POST","GET"])
 def find_study_sessions():
