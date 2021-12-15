@@ -20,8 +20,8 @@ body {
 
 .menu-nav {
     z-index: 20;
-    position: absolute;
-    margin-left: 45%;
+    position: relative;
+    margin-left: 5%;
     margin-top: 0%;
     color: rgb(29, 126, 139);
     font-size: 300px;
@@ -32,7 +32,7 @@ body {
 
 .frame .content {
     width: 100%;
-    min-height: 800px;
+    height: 800px;
     background-color: #dbcfc5;
     overflow: hidden;
     border-radius: 50px;
