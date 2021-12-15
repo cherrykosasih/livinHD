@@ -70,6 +70,30 @@ def signup_details(signup_email):
         # db.update_unit(current_email,unit)
         # db.update_interest(current_email,interest)
         return redirect(url_for('login'))
+        
+@app.route('/signup/',methods=["POST","GET"])
+def signup():
+    if request.method=="GET":
+        return render_template("signup_fix.html")
+    elif request.method=="POST":
+        fname=request.form['fname']
+        lname=request.form['lname']
+        email=request.form['email']
+        phone=request.form['phone']
+        ig   =request.form['ig']
+        faculty = request.form['faculty']
+        password = request.form['password']
+        session["session_email"]=email
+        if su.email_validator(email)==False:
+            msg="Not a valid email"
+            return render_template('signup_fix.html',message=msg)
+        else:
+            try:
+                db.insert_user(fname,lname,email,phone,ig,faculty,password,None,None,None)
+            except sqlite3.IntegrityError:
+                msg="email has been used before"
+                return render_template('signup_fix.html',message=msg)
+        return redirect(url_for('signup_details',signup_email=email))
 
 @app.route('/profile/<profile_email>',methods=["POST","GET"])
 def profile(profile_email):
@@ -89,28 +113,6 @@ def profile(profile_email):
         db.update_status(current_email,status)
         return redirect(url_for('home',home_email=current_email))
         
-@app.route('/signup/',methods=["POST","GET"])
-def signup():
-    if request.method=="GET":
-        return render_template("signup_fix.html")
-    elif request.method=="POST":
-        fname=request.form['fname']
-        lname=request.form['lname']
-        email=request.form['email']
-        phone=request.form['phone']
-        ig   =request.form['ig']
-        faculty = request.form['faculty']
-        password = request.form['password']
-        if su.email_validator(email)==False:
-            msg="Not a valid email"
-            return render_template('signup_fix.html',message=msg)
-        else:
-            try:
-                db.insert_user(fname,lname,email,phone,ig,faculty,password,None,None,None)
-            except sqlite3.IntegrityError:
-                msg="email has been used before"
-                return render_template('signup_fix.html',message=msg)
-        return redirect(url_for('signup_details',signup_email=email))
 
 @app.route('/find_friends_new',methods=["POST","GET"])
 def find_friends_new():
