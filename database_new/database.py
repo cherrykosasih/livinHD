@@ -55,33 +55,36 @@ def retrieve_unit_of_user(email):
     c= conn.cursor()
     c.execute('SELECT unit_id FROM enrolment WHERE user_email=?',(email,))
     a = c.fetchall()
-    conn.close()
     res=[]
     for i in a:
         res.append(i[0])
+    conn.close()
     return res
+
 
 def retrieve_movie_of_user(email):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c= conn.cursor()
     c.execute('SELECT genre FROM movie WHERE user_email=?',(email,))
     a = c.fetchall()
-    conn.close()
     res=[]
     for i in a:
         res.append(i[0])
+    conn.close()
     return res
+
 
 def retrieve_music_of_user(email):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c= conn.cursor()
     c.execute('SELECT genre FROM music WHERE user_email=?',(email,))
     a = c.fetchall()
-    conn.close()
     res=[]
     for i in a:
         res.append(i[0])
+    conn.close()
     return res
+    
 
 def update_status(email,new_stat):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
