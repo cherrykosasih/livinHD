@@ -142,8 +142,8 @@ def find_friends_new():
     current_email = session.get("session_email",None)
     return render_template("find_friend_new.html",user_email=current_email)
 
-@app.route('/find_friends_last',methods=["POST","GET"])
-def find_friends_last():
+@app.route('/find_friends_last/<find_friend_email>',methods=["POST","GET"])
+def find_friends_last(find_friend_email):
     current_email = session.get("session_email",None)
     relevant_data =db.data_for_explore()
     # relevant_data =db.data_for_explore(current_email)
