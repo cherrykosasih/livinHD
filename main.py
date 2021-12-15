@@ -55,6 +55,7 @@ def signup_details(signup_email):
         gender = request.form['gender']
         relationship = request.form['relationship']
         language = request.form['language']
+        unit = request.form['units']
         # unit = request.form['unit'].split(',')
         # club_and_org = request.form['club_and_org'].split(',')
         # movie = request.form.getlist('movie')
@@ -67,6 +68,7 @@ def signup_details(signup_email):
         db.update_gender(current_email,gender)
         db.update_relationship(current_email,relationship)
         db.update_language(current_email,language)
+        db.insert_unit(current_email,unit)
         # db.update_unit(current_email,unit)
         # db.update_interest(current_email,interest)
         return redirect(url_for('login'))

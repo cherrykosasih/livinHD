@@ -7,7 +7,7 @@ conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
 # conn.execute('CREATE TABLE IF NOT EXISTS user(user_id INTEGER PRIMARY KEY AUTOINCREMENT,user_fname TEXT,user_lname TEXT, user_email TEXT,user_phone TEXT, user_ig TEXT, user_faculty TEXT,user_pwd TEXT, user_gender TEXT,user_relationship TEXT,user_language TEXT)')
 # conn.execute('CREATE TABLE IF NOT EXISTS contact(user1_id INTEGER PRIMARY KEY, user2_id INTEGER)')
 # conn.execute(('CREATE TABLE IF NOT EXISTS unit(unit_id TEXT, unit_name TEXT)'))
-# conn.execute(('CREATE TABLE IF NOT EXISTS enrolment(user_id INTEGER, unit_id INTEGER, PRIMARY KEY(user_id,unit_id))'))
+# conn.execute('CREATE TABLE IF NOT EXISTS enrolment(user_email TEXT, unit_id TEXT, PRIMARY KEY(user_email,unit_id))')
 # conn.close()
 
 def insert_user(fname,lname,email,phone,faculty,ig,password,gender,relation,language):
@@ -85,6 +85,14 @@ def update_interest(email,new_interest):
     conn.commit()
     conn.close()
 
+def insert_unit(email,unit):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    units=unit.strip().lower().split(",")
+    for i in units:
+        conn.execute('INSERT into enrolment(user_email,unit_id) VALUES (?,?)',(email,i))
+        conn.commit()
+    conn.close()
+
 def data_for_explore():
     # [('cherry', 'kosasih', '09138013', 'ck', 'soit', 'f', 'jones'), 
     # ('lisa', 'lala', '1231233', 'soit', 'jkdjald', None, None), 
@@ -124,3 +132,5 @@ def data_for_explore():
 # conn.close()
 
 # update_status('ckos0005@student.monash.edu','3.30 alr wanna sleep :(')
+
+conn.close()
