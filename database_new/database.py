@@ -239,4 +239,4 @@ def update_to_do_list(user_email,lst):
 # print(data_based_on_unit('fit1045'))
 # print(data_for_explore())
 
-initialize_to_do_list('potter@gmail.com')
+# initialize_to_do_list('potter@gmail.com')
