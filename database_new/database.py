@@ -189,7 +189,7 @@ def session_based_on_unit(unit):
 def session_based_on_name(name):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c = conn.cursor()
-    c.execute('SELECT * FROM study_session WHERE lower(session_name) LIKE ?',('{}%'.format(name),))
+    c.execute('SELECT * FROM study_session WHERE lower(session_name) LIKE ? or lower(session_description) LIKE ?',('%{}%'.format(name),'%{}%'.format(name),))
     a=c.fetchall()
     conn.close()
     return a
