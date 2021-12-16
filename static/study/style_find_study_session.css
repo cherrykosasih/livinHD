@@ -237,15 +237,14 @@ body {
     align-items: center;
 }
 
-.search-bar img{
+.bi-search{
+    color: #1d7e8b;
+    font-weight: 800;
+    margin-left: 1%;
     position: relative;
-    z-index: 20;
-    margin-top: -10%;
-    width: 90px;
-    float: right;
     opacity: 0.5;
 }
 
-.search-bar img:active{
+.bi-search:active{
     opacity: 1;
 }
