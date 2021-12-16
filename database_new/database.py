@@ -36,9 +36,9 @@ def password_login_validator(email,password):
     c= conn.cursor()
     c.execute("SELECT count(*) FROM user WHERE user_email= ?",(email,))
 
-def insert_study_session(session_name,session_description,meeting_link,meeting_id,meeting_password):
+def insert_study_session(session_name,session_description,meeting_link,meeting_id,meeting_password,unit):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
-    conn.execute('INSERT INTO study_session(session_name,session_description,meeting_link,meeting_id,meeting_password) VALUES (?,?,?,?,?)' ,(session_name,session_description,meeting_link,meeting_id,meeting_password))
+    conn.execute('INSERT INTO study_session(session_name,session_description,meeting_link,meeting_id,meeting_password,unit) VALUES (?,?,?,?,?,?)' ,(session_name,session_description,meeting_link,meeting_id,meeting_password,unit))
     conn.commit()
     conn.close()
 

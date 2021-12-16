@@ -6,12 +6,12 @@ body {
 }
 
 .menu-nav{
-    position: absolute;
-    z-index: 9;
-    margin-left: 80%;
-    margin-top: -62%;
+    position: relative;
+    margin-top: 0%;
     font-weight: 5000;
     font-size: 200px;
+    margin-bottom: -70%;
+    color: #1d7e8b;
 }
 
 .frame {
@@ -50,9 +50,13 @@ body {
     font-size: 5rem;
 }
 
+.title{
+    margin-top: -5%;
+}
+
 .invite {
     width: 400px;
-    height: 500px;
+    height: 350px;
     background-color: rgba(239, 232, 179, 0.74);
     overflow: visible;
     border-radius: 45px;
@@ -86,4 +90,23 @@ body {
     border-radius: 500px;
     background-color: rgb(242, 236, 230);
     border: none;
+}
+
+.open-zoom-btn{
+    width: 400px;
+    height: 50px;
+    position: relative;
+    background-color: #638b1d;
+    border: none;
+    border-radius: 45px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: "Just Me Again Down Here", cursive, serif;
+    font-size: 30px;
+    color: beige;
+}
+
+.open-zoom-btn:hover{
+    background-color: beige;
+    color: #638b1d;
 }
