@@ -451,30 +451,30 @@ input {
     padding: 10px;
     margin: 10px;
     margin-top: 50px;
-}
+  }
 
-.profile img {
+  .profile img {
     height: 125px;
     width: 125px;
     background-color: #c39983;
     border-radius: 25px;
-}
+  }
 
-.profile .profile-content {
+  .profile .profile-content {
     float: right;
     position: relative;
     right: 30px;
     bottom: 25px;
-}
+  }
 
-.profile-content {
+  .profile-content{
     width: 50%;
     height: 125px;
     position: relative;
     padding-left: 8%;
-}
+  }
 
-.profile h1 {
+  .profile h1 {
     font-family: "Andika New Basic", serif;
     color: #c39983;
     height: 70%;
@@ -483,17 +483,17 @@ input {
     margin-bottom: -17%;
     width: 100%;
     overflow: hidden;
-}
+  }
 
-.profile h2 {
+  .profile h2 {
     font-family: "Andika New Basic", serif;
     color: #dbcfc5;
     font-size: 1.5em;
     margin-bottom: 5%;
     overflow: hidden;
-}
+  }
 
-.profile button {
+  .profile button {
     background-color: #c39983;
     border-radius: 70px;
     width: 100%;
