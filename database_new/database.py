@@ -249,9 +249,7 @@ def get_user_to_do(email):
     c.execute('SELECT task1,task2,task3,task4,task5 FROM todo WHERE user_email=?',(email,))
     a = c.fetchall()
     conn.close()
-    res=[]
-    for i in a:
-        res.append(i[0])
+    res=a[0]
     conn.close()
     return res
 
@@ -261,19 +259,16 @@ def get_to_do_check(email):
     c.execute('SELECT c1,c2,c3,c4,c5 FROM todo WHERE user_email=?',(email,))
     a = c.fetchall()
     conn.close()
-    res=[]
-    for i in a[0]:
-        res.append(i)
+    res=a[0]
     conn.close()
-    print(a)
     return res
 
 def update_to_do_check(email,lst):
-    check1= safe_get_list(0,lst)
-    check2= safe_get_list(1,lst)
-    check3= safe_get_list(2,lst)
-    check4= safe_get_list(3,lst)
-    check5= safe_get_list(4,lst)
+    check1= "on" if "c1" in lst else ""
+    check2= "on" if "c2" in lst else ""
+    check3= "on" if "c3" in lst else ""
+    check4= "on" if "c4" in lst else ""
+    check5= "on" if "c5" in lst else ""
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     conn.execute('UPDATE todo SET c1=?,c2=?,c3=?,c4=?,c5=? WHERE user_email=? ',(check1,check2,check3,check4,check5,email))
     conn.commit()

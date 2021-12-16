@@ -40,7 +40,9 @@ def home(home_email):
             return redirect(url_for('profile',profile_email=current_email))
         elif request.form.get("savetodo"):
             todos=request.form.getlist('td')
+            todoschecks=request.form.getlist('c')
             db.update_to_do_list(current_email,todos)
+            db.update_to_do_check(current_email,todoschecks)
             return redirect(url_for('home',home_email=current_email))
     elif request.method=="GET":
         current_data=db.retrieve_user_data(current_email)
@@ -51,13 +53,19 @@ def home(home_email):
         faculty = current_data[0][5]
         fullname= fname+" "+lname
         todos = db.get_user_to_do(current_email)
+        todoschecks = db.get_to_do_check(current_email)
         td1= u.unit_n(0,todos)
         td2= u.unit_n(1,todos)
         td3= u.unit_n(2,todos)
         td4= u.unit_n(3,todos)
         td5= u.unit_n(4,todos)
+        c1=u.unit_n(0,todoschecks)
+        c2=u.unit_n(1,todoschecks)
+        c3=u.unit_n(2,todoschecks)
+        c4=u.unit_n(3,todoschecks)
+        c5=u.unit_n(4,todoschecks)
         
-        return render_template("home_fix_2.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,td1=td1,td2=td2,td3=td3,td4=td4,td5=td5)
+        return render_template("home_fix_2.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,td1=td1,td2=td2,td3=td3,td4=td4,td5=td5,c1=c1,c2=c2,c3=c3,c4=c4,c5=c5)
 
 @app.route('/signup_details/<signup_email>',methods=["POST","GET"])
 def signup_details(signup_email):

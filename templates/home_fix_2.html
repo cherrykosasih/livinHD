@@ -26,120 +26,156 @@
             href="https://fonts.googleapis.com/css2?family=Andika+New+Basic&family=Just+Me+Again+Down+Here&display=swap"
             rel="stylesheet"
         />
-
-        <link rel="stylesheet" href="{{ url_for('static', filename='home_fix/home_fix.css') }}"/>
-        <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.print.min.css' rel='stylesheet' media='print' /><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css'>
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css'>
-
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='home_fix/home_fix.css') }}"
+        />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.print.min.css"
+            rel="stylesheet"
+            media="print"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css"
+        />
     </head>
     <body>
         <div class="content">
             <div class="side-content">
-                <div id="logo"><img src="{{ url_for('static', filename='logo/IMG_1986.png') }}" alt="logo" /></div>
+                <div id="logo">
+                    <img
+                        src="{{ url_for('static', filename='logo/IMG_1986.png') }}"
+                        alt="logo"
+                    />
+                </div>
                 <!-- NAVIGATION -->
                 <div class="navigation">
-                    <form action="{{url_for('home',home_email= user_email)}}" method="GET">
-                    <div class="eachbutton">
-                    <button class="nav-button" type="submit">HOME</button>
-                    </div>
+                    <form
+                        action="{{url_for('home',home_email= user_email)}}"
+                        method="GET"
+                    >
+                        <div class="eachbutton">
+                            <button class="nav-button" type="submit">
+                                HOME
+                            </button>
+                        </div>
                     </form>
-                    <form action="{{url_for('find_friends_last',find_friend_email=user_email)}}" method="GET">
-                    <div class="eachbutton">
-                    <button class="nav-button-other">EXPLORE</button>
-                    </div>
+                    <form
+                        action="{{url_for('find_friends_last',find_friend_email=user_email)}}"
+                        method="GET"
+                    >
+                        <div class="eachbutton">
+                            <button class="nav-button-other">EXPLORE</button>
+                        </div>
                     </form>
-                    <form action="{{url_for('find_study_sessions',find_study_email=user_email)}}" method="GET">
-                    <div class="eachbutton">
-                    <button class="nav-button-other">STUDY</button>
-                    </div>
+                    <form
+                        action="{{url_for('find_study_sessions',find_study_email=user_email)}}"
+                        method="GET"
+                    >
+                        <div class="eachbutton">
+                            <button class="nav-button-other">STUDY</button>
+                        </div>
                     </form>
                     <form action="{{url_for('login')}}" method="GET">
-                    <div class="eachbutton">
-                    <button class="nav-button-other">SIGN OUT</button>
-                    </div>
+                        <div class="eachbutton">
+                            <button class="nav-button-other">SIGN OUT</button>
+                        </div>
                     </form>
                 </div>
 
                 <!-- ADD TASK -->
                 <div class="task">
                     <form>
-                    <h1>Add New Task</h1>
-                    <input
-                        type="text"
-                        id="myInput"
-                        placeholder="Title"
-                        class="task-title"
-                    />
-
-                    <select id="language" onChange="update()">
-                        <option value="en">Do not repeat</option>
-                        <option value="es">every week</option>
-                        <option value="pt">every day</option>
-                    </select>
-
-                    <div class="datetime">
+                        <h1>Add New Task</h1>
                         <input
-                            type="date"
-                            class="littles"
-                            id="startdate"
-                            placeholder="Start Date"          
-                        />
-                        <input
-                            type="time"
-                            class="littles"
-                            id="starttime"
-                            placeholder="Start Time"
+                            type="text"
+                            id="myInput"
+                            placeholder="Title"
+                            class="task-title"
                         />
 
-                        <input
-                            type="date"
-                            class="littles"
-                            id="enddate"
-                            placeholder="End Date"
-                        />
-                        <input
-                            type="time"
-                            class="littles"
-                            id="endtime"
-                            placeholder="End Time"
-                        />
-                    </div>
+                        <select id="language" onChange="update()">
+                            <option value="en">Do not repeat</option>
+                            <option value="es">every week</option>
+                            <option value="pt">every day</option>
+                        </select>
 
-                    <div class="task-type">
-                        <div class="radio-title">Type:</div>
-                        <div class="radio">
+                        <div class="datetime">
                             <input
-                                type="radio"
-                                id="personal"
-                                name="drone"
-                                value="personal"
-                                checked
+                                type="date"
+                                class="littles"
+                                id="startdate"
+                                placeholder="Start Date"
                             />
-                            <label for="personal">personal</label>
-                        </div>
-                        <div class="radio">
                             <input
-                                type="radio"
-                                id="official"
-                                name="drone"
-                                value="official"
+                                type="time"
+                                class="littles"
+                                id="starttime"
+                                placeholder="Start Time"
                             />
-                            <label for="official">official</label>
+
+                            <input
+                                type="date"
+                                class="littles"
+                                id="enddate"
+                                placeholder="End Date"
+                            />
+                            <input
+                                type="time"
+                                class="littles"
+                                id="endtime"
+                                placeholder="End Time"
+                            />
                         </div>
-                    </div>
 
-                    <input
-                        type="text"
-                        class="task-desc"
-                        id="url-note"
-                        placeholder="Add url..."
-                    />
+                        <div class="task-type">
+                            <div class="radio-title">Type:</div>
+                            <div class="radio">
+                                <input
+                                    type="radio"
+                                    id="personal"
+                                    name="drone"
+                                    value="personal"
+                                    checked
+                                />
+                                <label for="personal">personal</label>
+                            </div>
+                            <div class="radio">
+                                <input
+                                    type="radio"
+                                    id="official"
+                                    name="drone"
+                                    value="official"
+                                />
+                                <label for="official">official</label>
+                            </div>
+                        </div>
 
-                    <div class="save-cancel">
-                        <button class="save-button" id="save-btn">Save</button>
-                        <button class="cancel-button" id="cancel-btn">Cancel</button>
-                    </div>
-                </form>
+                        <input
+                            type="text"
+                            class="task-desc"
+                            id="url-note"
+                            placeholder="Add url..."
+                        />
+
+                        <div class="save-cancel">
+                            <button class="save-button" id="save-btn">
+                                Save
+                            </button>
+                            <button class="cancel-button" id="cancel-btn">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="main-content">
@@ -154,42 +190,60 @@
                 </div>
 
                 <!--ANNOUNCEMENT-->
-                <div style="background-color: #FFFDDE; height:30px; border:thin solid #EDDD00">
-                </ul> 
-                    <li style='padding-top:5px;text-align:center;font-family:Verdana'>I M P O R T A N T: SERVER IS STILL IN PROGRESS</li> 
-                </ul> 
+                <div
+                    style="
+                        background-color: #fffdde;
+                        height: 30px;
+                        border: thin solid #eddd00;
+                    "
+                >
+                    <li
+                        style="
+                            padding-top: 5px;
+                            text-align: center;
+                            font-family: Verdana;
+                        "
+                    >
+                        I M P O R T A N T: SERVER IS STILL IN PROGRESS
+                    </li>
                 </div>
-               
+
                 <!--SOCIAL BUTTONS-->
                 <div class="scroll-calender">
                     <div class="frame-calender" id="scrolls">
                         <button
-                        id="social-btn"
-                        onclick="window.open('https://mail.google.com/','_blank')">
-                         Open Your Mail</button>
-                        <button id="social-btn"
-                        onclick="window.open('https://www.instagram.com/','_blank')">
-                        <!-- onclick="window.location.href='https://www.instagram.com/'" -->
-                        Open Instagram</button>
-                        <button id="social-btn"
-                        onlick="window.open('https://lms.monash.edu/my/','_blank')">
-                        <!-- onclick="window.location.href='https://lms.monash.edu/my/'" -->
-                        Open Moodle</button>
+                            id="social-btn"
+                            onclick="window.open('https://mail.google.com/','_blank')"
+                        >
+                            Open Your Mail
+                        </button>
+                        <button
+                            id="social-btn"
+                            onclick="window.open('https://www.instagram.com/','_blank')"
+                        >
+                            <!-- onclick="window.location.href='https://www.instagram.com/'" -->
+                            Open Instagram
+                        </button>
+                        <button
+                            id="social-btn"
+                            onlick="window.open('https://lms.monash.edu/my/','_blank')"
+                        >
+                            <!-- onclick="window.location.href='https://lms.monash.edu/my/'" -->
+                            Open Moodle
+                        </button>
                     </div>
                 </div>
-            
-                
+
                 <!-- TIMETABLE -->
                 <div class="scroll">
                     <div class="frame">
                         <div class="ui container">
                             <div class="ui grid">
-                              <div class="ui sixteen column">
-                                <div id="calendar"></div>
-                              </div>
+                                <div class="ui sixteen column">
+                                    <div id="calendar"></div>
+                                </div>
                             </div>
-                          </div>
-
+                        </div>
                     </div>
                 </div>
             </div>
@@ -202,9 +256,18 @@
                         <h2>{{faculty}}</h2>
                         <!-- em={{user_email}}
                         <form action="{{url_for('profile',profile_email=em)}}" method="GET"> -->
-                            <form action="{{url_for('home',home_email=user_email)}}" method="POST">
-                            <button name="show_profile" value="Show More"type="submit">Show More</button>
-                            </form>
+                        <form
+                            action="{{url_for('home',home_email=user_email)}}"
+                            method="POST"
+                        >
+                            <button
+                                name="show_profile"
+                                value="Show More"
+                                type="submit"
+                            >
+                                Show More
+                            </button>
+                        </form>
                         <!-- </form> -->
                     </div>
                 </div>
@@ -219,64 +282,109 @@
                 <!-- TODO LIST -->
                 <div id="myDIV" class="header">
                     <h1>TODO LIST</h1>
-                    <form action="{{url_for('home',home_email=user_email)}}" method="POST">
-                    <ul id="myUL">
-                        <div class="eachlist">
-                            <input
-                                type="text"
-                                id="myInput"
-                                name="td"
-                                placeholder="Type something..."
-                                value={{td1}}
-
-                            />
-                            <li class="doneBtn"></li>
+                    <form
+                        action="{{url_for('home',home_email=user_email)}}"
+                        method="POST"
+                    >
+                        <ul id="myUL">
+                            <div class="eachlist">
+                                <input
+                                    type="text"
+                                    id="myInput"
+                                    name="td"
+                                    placeholder="Type something..."
+                                    value="{{td1}}"
+                                />
+                                <input type="checkbox" class="btn-check"
+                                id="btn-check1" autocomplete="off" name="c" value="c1"
+                                {{'checked' if c1=="on" else ''}} />
+                                <label
+                                    class="btn btn-primary tick"
+                                    for="btn-check1"
+                                    ><i class="bi bi-check-lg"></i
+                                ></label>
+                            </div>
+                            <div class="eachlist">
+                                <input
+                                    type="text"
+                                    id="myInput"
+                                    name="td"
+                                    placeholder="Type something..."
+                                    value="{{td2}}"
+                                />
+                                <input type="checkbox" class="btn-check"
+                                id="btn-check2" autocomplete="off" name="c" value="c2"
+                                {{'checked' if c2=="on" else ''}} />
+                                <label
+                                    class="btn btn-primary tick"
+                                    for="btn-check2"
+                                    ><i class="bi bi-check-lg"></i
+                                ></label>
+                            </div>
+                            <div class="eachlist">
+                                <input
+                                    type="text"
+                                    id="myInput"
+                                    name="td"
+                                    placeholder="Type something..."
+                                    value="{{td3}}"
+                                />
+                                <input type="checkbox" class="btn-check"
+                                id="btn-check3" autocomplete="off" name="c" value="c3"
+                                {{'checked' if c3=="on" else ''}} />
+                                <label
+                                    class="btn btn-primary tick"
+                                    for="btn-check3"
+                                    ><i class="bi bi-check-lg"></i
+                                ></label>
+                            </div>
+                            <div class="eachlist">
+                                <input
+                                    type="text"
+                                    id="myInput"
+                                    name="td"
+                                    placeholder="Type something..."
+                                    value="{{td4}}"
+                                />
+                                <input type="checkbox" class="btn-check"
+                                id="btn-check4" autocomplete="off" name="c" value="c4"
+                                {{'checked' if c4=="on" else ''}} />
+                                <label
+                                    class="btn btn-primary tick"
+                                    for="btn-check4"
+                                    ><i class="bi bi-check-lg"></i
+                                ></label>
+                            </div>
+                            <div class="eachlist">
+                                <input
+                                    type="text"
+                                    id="myInput"
+                                    name="td"
+                                    placeholder="Type something..."
+                                    value="{{td5}}"
+                                />
+                                <input type="checkbox" class="btn-check"
+                                id="btn-check5" autocomplete="off" name="c" value="c5"
+                                {{'checked' if c5=="on" else ''}} />
+                                <label
+                                    class="btn btn-primary tick"
+                                    for="btn-check5"
+                                    ><i class="bi bi-check-lg"></i
+                                ></label>
+                            </div>
+                        </ul>
+                        <div class="save-cancel">
+                            <button
+                                type="submit"
+                                value="Save"
+                                name="savetodo"
+                                class="save-button"
+                                id="save-btn"
+                            >
+                                Save
+                            </button>
                         </div>
-                        <div class="eachlist">
-                            <input
-                                type="text"
-                                id="myInput"
-                                name="td"
-                                placeholder="Type something..."
-                                value ={{td2}}
-                            />
-                            <li class="doneBtn"></li>
-                        </div>
-                        <div class="eachlist">
-                            <input
-                                type="text"
-                                id="myInput"
-                                name="td"
-                                placeholder="Type something..."
-                                value={{td3}}
-                            />
-                            <li class="doneBtn"></li>
-                        </div>
-                        <div class="eachlist">
-                            <input
-                                type="text"
-                                id="myInput"
-                                name="td"
-                                placeholder="Type something..."
-                                value={{td4}}
-                            />
-                            <li class="doneBtn"></li>
-                        </div>
-                        <div class="eachlist">
-                            <input
-                                type="text"
-                                id="myInput"
-                                name="td"
-                                placeholder="Type something..."
-                                value={{td5}}
-                            />
-                            <li class="doneBtn"></li>
-                        </div>
-                    </ul>
-                    <div class="save-cancel">
-                        <button type="submit" value="Save" name="savetodo" class="save-button" id="save-btn">Save</button>
-                    </div>
-                </form>
+                    </form>
                 </div>
             </div>
         </div>
@@ -382,15 +490,7 @@
             //show simple dates for calender
             function showSimpleDate() {
                 var date = new Date();
-                const days = [
-                    "MON",
-                    "TUE",
-                    "WED",
-                    "THU",
-                    "FRI",
-                    "SAT",
-                    "SUN",
-                ];
+                const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
                 var d = date.getDate();
                 var day = days[date.getDay()];
 
@@ -399,7 +499,7 @@
                 //    var day = days[date.getDay() + i];
                 //}
 
-                var time = day + ' '  + d;
+                var time = day + " " + d;
                 document.getElementById("DigitalSimpleDate").innerText = time;
                 document.getElementById("DigitalSimpleDate").textContent = time;
 
@@ -407,13 +507,12 @@
             }
 
             showSimpleDate();
-
         </script>
 
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
-        <script  src="{{ url_for('static', filename='home_fix/script.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js"></script>
+        <script src="{{ url_for('static', filename='home_fix/script.js') }}"></script>
     </body>
 </html>
