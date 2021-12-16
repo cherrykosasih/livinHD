@@ -1,7 +1,5 @@
 import sqlite3
 
-# from functions.signup import email_validator
-
 conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
 
 # conn.execute('CREATE TABLE IF NOT EXISTS user(user_id INTEGER PRIMARY KEY AUTOINCREMENT,user_fname TEXT,user_lname TEXT, user_email TEXT,user_phone TEXT, user_ig TEXT, user_faculty TEXT,user_pwd TEXT, user_gender TEXT,user_relationship TEXT,user_language TEXT)')
@@ -197,16 +195,6 @@ def session_based_on_name(name):
     return a
 
 def data_for_explore(email):
-    # [('cherry', 'kosasih', '09138013', 'ck', 'soit', 'f', 'jones'), 
-    # ('lisa', 'lala', '1231233', 'soit', 'jkdjald', None, None), 
-    # ('lalala', 'rcwc', '1231233', 'soit', 'gg', None, None), 
-    # ('cherry', 'kosasih', '08128471240412', 'fajcrpiac', 'cklalala', None, None), 
-    # ('lalala', 'lalala', '666', 'soit', 'lalalalalala', None, None), 
-    # ('jane', 'doe', '0812739130812', 'soit', 'janedoe', None, None), 
-    # ('testes123', '123', '3312', 'gg', '123123', None, None), 
-    # ('a', 'a', '4', 'a', 'a', None, None), 
-    # ('Jessica', 'Lim', '+628119997728', 'SOIT', 'angelicajessicalim', None, None), 
-    # ('cherry', 'kosasih', '0001', 'soit', 'ceri', None, None)]
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c = conn.cursor()
     c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user WHERE user_email!=?',(email,))
@@ -273,32 +261,3 @@ def update_to_do_check(email,lst):
     conn.execute('UPDATE todo SET c1=?,c2=?,c3=?,c4=?,c5=? WHERE user_email=? ',(check1,check2,check3,check4,check5,email))
     conn.commit()
     conn.close()
-# insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
-# insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
-# print("jancok")
-
-# conn.execute('DROP TABLE user')
-# conn.execute('CREATE TABLE IF NOT EXISTS user(user_id INTEGER PRIMARY KEY AUTOINCREMENT,user_fname TEXT,user_lname TEXT, user_email TEXT UNIQUE,user_phone TEXT, user_ig TEXT, user_faculty TEXT,user_pwd TEXT, user_gender TEXT,user_relationship TEXT,user_language TEXT)')
-# conn.close()
-
-# conn.execute("ALTER TABLE user ADD viewed INTEGER DEFAULT 0")
-# conn.close()
-# print(login_validator("ckos0005","lala"))
-# print(login_validator("ckos0005","gege"))
-# conn.close()
-
-# conn.execute("UPDATE user SET user_pwd= 'user' WHERE user_fname='jane'")
-# conn.commit()
-# conn.close()
-
-# conn.execute("ALTER TABLE user ADD status TEXT DEFAULT ' ' ")
-# conn.close()
-
-# update_status('ckos0005@student.monash.edu','3.30 alr wanna sleep :(')
-
-# print(data_based_on_unit('fit1045'))
-# print(data_for_explore())
-# print(get_to_do_check('potter@gmail.com'))
-
-# conn.execute("ALTER TABLE study_session ADD unit TEXT DEFAULT ' ' ")
-# conn.close()

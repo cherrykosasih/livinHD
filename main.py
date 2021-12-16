@@ -4,6 +4,7 @@
 #source bin/activate
 #pip3 install flask
 #python3 main.py
+
 from os import stat
 from flask import Flask,render_template,url_for,request,flash,redirect,session
 import database_new.database as db
