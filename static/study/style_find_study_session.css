@@ -83,6 +83,13 @@ body {
 
 .hours {
     height: 200px;
+    display: flex;
+    align-items: center;
+    background-color: #dbcfc5;
+}
+
+.hours img {
+    width: 200px;
 }
 
 .units h4,
@@ -98,10 +105,6 @@ body {
     margin: 10px;
     border-radius: 500px;
     font-size: 20px;
-}
-
-.hours .hour {
-    font-size: 50px;
 }
 
 .create-session {
