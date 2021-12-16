@@ -194,7 +194,7 @@ body {
     height: 575px;
     overflow: scroll;
     padding: 10px;
-    margin-top: -5%;
+    margin-top: -1%;
 }
 
 .session-card {
@@ -237,7 +237,7 @@ body {
     align-items: center;
 }
 
-.bi-search{
+.bi-search {
     color: #1d7e8b;
     font-weight: 800;
     margin-left: 1%;
@@ -245,10 +245,18 @@ body {
     opacity: 0.5;
 }
 
-.bi-search:active{
+.bi-search:active {
     opacity: 1;
 }
 
+.search-bar button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
 .units::-webkit-scrollbar {
     display: none;
 }
