@@ -257,3 +257,6 @@ body {
     overflow: hidden;
     outline: none;
 }
+.units::-webkit-scrollbar {
+    display: none;
+}
