@@ -236,7 +236,7 @@ def create_study_session():
             db.insert_study_session(session_name,session_description,meeting_link,meeting_id,meeting_password,unit)
         except sqlite3.IntegrityError:
             return render_template('create_session.html',user_email=current_email)
-        return redirect(url_for('find_study_sessions'))
+        return redirect(url_for('find_study_sessions',find_study_email=current_email))
 
 if __name__ == '__main__':
     app.run(debug=True)

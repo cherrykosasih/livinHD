@@ -183,7 +183,7 @@ def data_based_on_name(name):
 def session_based_on_unit(unit):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c = conn.cursor()
-    c.execute('SELECT * FROM study_session WHERE unit=?',(unit,))
+    c.execute('SELECT * FROM study_session WHERE lower(unit) LIKE ?',('{}%'.format(unit),))
     a=c.fetchall()
     conn.close()
     return a
@@ -191,7 +191,7 @@ def session_based_on_unit(unit):
 def session_based_on_name(name):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c = conn.cursor()
-    c.execute('SELECT * FROM study_session WHERE session_name LIKE ?',(name,))
+    c.execute('SELECT * FROM study_session WHERE lower(session_name) LIKE ?',('{}%'.format(name),))
     a=c.fetchall()
     conn.close()
     return a
@@ -304,3 +304,6 @@ def update_to_do_check(email,lst):
 # print(data_based_on_unit('fit1045'))
 # print(data_for_explore())
 # print(get_to_do_check('potter@gmail.com'))
+
+# conn.execute("ALTER TABLE study_session ADD unit TEXT DEFAULT ' ' ")
+# conn.close()
