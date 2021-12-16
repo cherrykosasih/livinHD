@@ -172,8 +172,13 @@ def find_friends_last(find_friend_email):
 @app.route('/find_study_sessions',methods=["POST","GET"])
 def find_study_sessions():
     current_email = session.get("session_email",None)
+    units = db.retrieve_unit_of_user(current_email)
+    unit1 = u.unit_n(0,units)
+    unit2 = u.unit_n(1,units)
+    unit3 = u.unit_n(2,units)
+    unit4 = u.unit_n(3,units)
     if request.method=="GET":
-        return render_template("find_study_sessions.html", sessions = db.get_study_session(),units=db.get_units(current_email),user_email=current_email)
+        return render_template("find_study_sessions.html", sessions = db.get_study_session(),unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4,user_email=current_email)
     elif request.method=="POST":
         return render_template("find_study_sessions.html",user_email=current_email)
 
@@ -187,9 +192,10 @@ def create_study_session():
         session_description=request.form['session_description']
         meeting_link=request.form['meeting_link']
         meeting_id=request.form['meeting_id']
-        meeting_password   =request.form['meeting_password']
+        meeting_password =request.form['meeting_password']
+        unit=request.form['unit']
         try:
-            db.insert_study_session(session_name,session_description,meeting_link,meeting_id,meeting_password)
+            db.insert_study_session(session_name,session_description,meeting_link,meeting_id,meeting_password,unit)
         except sqlite3.IntegrityError:
             return render_template('create_session.html',user_email=current_email)
         return redirect(url_for('find_study_sessions'))

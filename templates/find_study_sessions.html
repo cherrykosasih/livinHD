@@ -35,7 +35,11 @@
             </a>
             <div class="overlay-content">
                 <img src="{{url_for('static',filename='logo/white.png')}}" />
-                <a href="{{ url_for('find_friends_last',find_friend_email=user_email) }}" method="GET">Find Friend</a>
+                <a
+                    href="{{ url_for('find_friends_last',find_friend_email=user_email) }}"
+                    method="GET"
+                    >Find Friend</a
+                >
                 <a href="{{ url_for('find_study_sessions') }}">Find Session</a>
                 <a href="{{ url_for ('create_study_session')}}"
                     >Create Session</a
@@ -75,6 +79,7 @@
                                         <div class="session-info col-6">
                                             <h1>{{session[0]}}</h1>
                                             <p>{{session[1]}}</p>
+                                            <p>Unit: {{session[5]}}</p>
                                         </div>
 
                                         <div class="session-join col-6">
@@ -100,14 +105,75 @@
                                 <div class="col-6">
                                     <div class="units">
                                         <h4>Your Units</h4>
-                                        {% for unit in units %}
-                                        <div class="unit">{{unit[0]}}</div>
-                                        {% endfor %}
+                                        <form
+                                            action="{{url_for('find_friends_last',find_friend_email=user_email)}}"
+                                            method="POST"
+                                        >
+                                            <div class="col btn-row">
+                                                <button
+                                                    type="submit"
+                                                    class="btn unit"
+                                                    name="unit"
+                                                    value="{{unit1}}"
+                                                >
+                                                    {{unit1}}
+                                                </button>
+                                            </div>
+                                        </form>
+                                        <form
+                                            action="{{url_for('find_friends_last',find_friend_email=user_email)}}"
+                                            method="POST"
+                                        >
+                                            <div class="col btn-row">
+                                                <button
+                                                    type="submit"
+                                                    class="btn unit"
+                                                    name="unit"
+                                                    value="{{unit2}}"
+                                                >
+                                                    {{unit2}}
+                                                </button>
+                                            </div>
+                                        </form>
+
+                                        <form
+                                            action="{{url_for('find_friends_last',find_friend_email=user_email)}}"
+                                            method="POST"
+                                        >
+                                            <div class="col btn-row">
+                                                <button
+                                                    type="submit"
+                                                    class="btn unit"
+                                                    name="unit"
+                                                    value="{{unit3}}"
+                                                >
+                                                    {{unit3}}
+                                                </button>
+                                            </div>
+                                        </form>
+                                        <form
+                                            action="{{url_for('find_friends_last',find_friend_email=user_email)}}"
+                                            method="POST"
+                                        >
+                                            <div class="col btn-row">
+                                                <button
+                                                    type="submit"
+                                                    class="btn unit"
+                                                    name="unit"
+                                                    value="{{unit4}}"
+                                                >
+                                                    {{unit4}}
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="hours">
-                                        <img src="{{ url_for('static', filename='logo/monash.png') }}" alt="monash" />
+                                        <img
+                                            src="{{ url_for('static', filename='logo/monash.png') }}"
+                                            alt="monash"
+                                        />
                                     </div>
                                 </div>
                             </div>
