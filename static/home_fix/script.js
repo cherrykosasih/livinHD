@@ -1,62 +1,66 @@
 let eventsCalendar = [];
 // example {id:1592304983049, title: 'Deadpool', year: 2015}
-    const addCalendarEvents = (ev)=>{
-        ev.preventDefault();  //to stop the form submitting
-            let newEvent = {
-                id: Date.now(),
-				title: document.getElementById('myInput').value,
-                start: document.getElementById('startdate').value + 'T' + document.getElementById('starttime').value,
-                end: document.getElementById('enddate').value + 'T' + document.getElementById('endtime').value,
-                url: document.getElementById('enddate').value + 'T' + document.getElementById('url-note').value
-            }
-            eventsCalendar.push(newEvent);
-            localStorage.setItem('MynewEventList', JSON.stringify(eventsCalendar) );
-            document.forms[0].reset(); // to clear the form for the next entries
-            location.reload();
-            //document.querySelector('form').reset();
+const addCalendarEvents = (ev) => {
+    ev.preventDefault(); //to stop the form submitting
+    let newEvent = {
+        id: Math.random(),
+        title: document.getElementById("myInput").value,
+        start:
+            document.getElementById("startdate").value +
+            "T" +
+            document.getElementById("starttime").value,
+        end:
+            document.getElementById("enddate").value +
+            "T" +
+            document.getElementById("endtime").value,
+        url: document.getElementById("url-note").value,
+    };
+    eventsCalendar.push(newEvent);
+    localStorage.setItem("MynewEventList", JSON.stringify(eventsCalendar));
+    document.forms[0].reset(); // to clear the form for the next entries
+    location.reload();
+    //document.querySelector('form').reset();
 
-            //for display purposes only
-            // console.warn('added' , {eventsCalendar} );
-            // let pre = document.querySelector('#msg pre');
-            // pre.textContent = '\n' + JSON.stringify(eventsCalendar, '\t', 2);
+    //for display purposes only
+    // console.warn('added' , {eventsCalendar} );
+    // let pre = document.querySelector('#msg pre');
+    // pre.textContent = '\n' + JSON.stringify(eventsCalendar, '\t', 2);
 
-            //saving to localStorage
-            // localStorage.setItem('MynewEventList', JSON.stringify(eventsCalendar) );
-        }
+    //saving to localStorage
+    // localStorage.setItem('MynewEventList', JSON.stringify(eventsCalendar) );
+};
 
-    const cancelAdd= (ev)=>{
-        document.forms[0].reset();
-    }
-            
-    document.addEventListener('DOMContentLoaded', ()=>{
-        document.getElementById('save-btn').addEventListener('click', addCalendarEvents);
-		document.getElementById('cancel-btn').addEventListener('click', cancelAdd);
+const cancelAdd = (ev) => {
+    document.forms[0].reset();
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    document
+        .getElementById("save-btn")
+        .addEventListener("click", addCalendarEvents);
+    document.getElementById("cancel-btn").addEventListener("click", cancelAdd);
+});
+
+$(document).ready(function () {
+    $("#calendar").fullCalendar({
+        header: {
+            left: "prev,next today",
+            center: "title",
+            right: "month,basicWeek,basicDay",
+        },
+        navLinks: true, // can click day/week names to navigate views
+        editable: true,
+        eventLimit: true, // allow "more" link when too many events
+        events: JSON.parse(localStorage.getItem("MynewEventList")),
+        // events: [{
+        //     id: 99,
+        //     title: 'ajsjdj',
+        //     start: '2022-01-28T12:00',
+        //     end: '2022-01-28T12:30'
+        // }
+        // ]
     });
-
-
-$(document).ready(function() {
-		
-		$('#calendar').fullCalendar({
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,basicWeek,basicDay'
-			},
-			navLinks: true, // can click day/week names to navigate views
-			editable: true,
-			eventLimit: true, // allow "more" link when too many events
-			events: JSON.parse(localStorage.getItem('MynewEventList')),
-            // events: [{
-            //     id: 99,
-            //     title: 'ajsjdj',
-            //     start: '2022-01-28T12:00',
-            //     end: '2022-01-28T12:30'
-            // }
-            // ]
-		});
-		
-	});
-
+});
 
 // var calendarEl = document.getElementById("calendar");
 
