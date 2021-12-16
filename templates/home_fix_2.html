@@ -48,7 +48,7 @@
                     <button class="nav-button-other">EXPLORE</button>
                     </div>
                     </form>
-                    <form action="{{url_for('find_study_sessions')}}" method="GET">
+                    <form action="{{url_for('find_study_sessions',find_study_email=user_email)}}" method="GET">
                     <div class="eachbutton">
                     <button class="nav-button-other">STUDY</button>
                     </div>

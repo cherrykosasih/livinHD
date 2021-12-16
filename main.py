@@ -176,21 +176,28 @@ def find_friends_last(find_friend_email):
         else:
             return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
 
-@app.route('/find_study_sessions',methods=["POST","GET"])
-def find_study_sessions():
+@app.route('/find_study_sessions/<find_study_email>',methods=["POST","GET"])
+def find_study_sessions(find_study_email):
     current_email = session.get("session_email",None)
     units = db.retrieve_unit_of_user(current_email)
     unit1 = u.unit_n(0,units)
     unit2 = u.unit_n(1,units)
     unit3 = u.unit_n(2,units)
     unit4 = u.unit_n(3,units)
+    sessions = db.get_study_session()
     if request.method=="GET":
-        return render_template("find_study_sessions.html", sessions = db.get_study_session(),unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4,user_email=current_email)
+        return render_template("find_study_sessions.html", sessions=sessions,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4,user_email=current_email)
     elif request.method=="POST":
         if request.form.get("unit"):
-            return render_template("find_study_sessions.html",sessions = db.get_study_session(),unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4,user_email=current_email)
+            unit_filter=request.form["unit"]
+            sessions = db.session_based_on_unit(unit_filter)
+            return render_template("find_study_sessions.html",sessions=sessions,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4,user_email=current_email)
+        elif request.form.get("name"):
+            name_filter = request.form["name"]
+            sessions = db.session_based_on_name(name_filter)
+            return render_template("find_study_sessions.html",sessions=sessions,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4,user_email=current_email)
         else:
-            return render_template("find_study_sessions.html",sessions = db.get_study_session(),unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4,user_email=current_email)
+            return render_template("find_study_sessions.html",sessions=sessions,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4,user_email=current_email)
 
 @app.route('/create_study_session',methods=["POST","GET"])
 def create_study_session():

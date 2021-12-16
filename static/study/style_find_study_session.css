@@ -97,7 +97,7 @@ body {
     font-size: 40px;
 }
 
-.units .unit {
+.unit {
     width: 80%;
     background-color: #dbcfc5;
     color: black;
@@ -105,6 +105,10 @@ body {
     margin: 10px;
     border-radius: 500px;
     font-size: 20px;
+}
+
+.unit:hover {
+    background-color: #a79d95;
 }
 
 .create-session {
@@ -221,7 +225,8 @@ body {
     font-size: 25px;
 }
 
-.session-join a:hover {
+.session-join a:hover,
+.session-join a:active {
     background-color: #4d6d17;
 }
 

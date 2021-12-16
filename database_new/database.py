@@ -172,6 +172,22 @@ def data_based_on_name(name):
     conn.close()
     return a
 
+def session_based_on_unit(unit):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    c = conn.cursor()
+    c.execute('SELECT * FROM study_session WHERE unit=?',(unit,))
+    a=c.fetchall()
+    conn.close()
+    return a
+
+def session_based_on_name(name):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    c = conn.cursor()
+    c.execute('SELECT * FROM study_session WHERE session_name LIKE ?',(name,))
+    a=c.fetchall()
+    conn.close()
+    return a
+
 def data_for_explore(email):
     # [('cherry', 'kosasih', '09138013', 'ck', 'soit', 'f', 'jones'), 
     # ('lisa', 'lala', '1231233', 'soit', 'jkdjald', None, None), 

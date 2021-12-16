@@ -36,11 +36,11 @@
             <div class="overlay-content">
                 <img src="{{url_for('static',filename='logo/white.png')}}" />
                 <a
-                    href="{{ url_for('find_friends_last',find_friend_email=user_email) }}"
+                    href="{{ url_for('find_study_sessions',find_study_email=user_email) }}"
                     method="GET"
                     >Find Friend</a
                 >
-                <a href="{{ url_for('find_study_sessions') }}">Find Session</a>
+                <a href="{{ url_for('find_study_sessions',find_study_email=user_email) }}">Find Session</a>
                 <a href="{{ url_for ('create_study_session')}}"
                     >Create Session</a
                 >
@@ -69,17 +69,18 @@
                                 <h1 class="title">Find study session</h1>
                                 <div class="row">
                                     <form
-                                        action="{{url_for('find_friends_last',find_friend_email=user_email)}}"
+                                        action="{{url_for('find_study_sessions',find_study_email=user_email)}}"
                                         method="POST"
                                         class="col-10"
                                     >
                                         <input
                                             id="search-session"
                                             placeholder="Search for a study session"
+                                            name="name"
                                         />
                                     </form>
                                     <form
-                                        action="{{url_for('find_friends_last',find_friend_email=user_email)}}"
+                                        action="{{url_for('find_study_sessions',find_study_email=user_email)}}"
                                         method="POST"
                                         class="col-1"
                                     >
@@ -124,7 +125,7 @@
                                     <div class="units">
                                         <h4>Your Units</h4>
                                         <form
-                                            action="{{url_for('find_friends_last',find_friend_email=user_email)}}"
+                                            action="{{url_for('find_study_sessions',find_study_email=user_email)}}"
                                             method="POST"
                                         >
                                             <div class="col btn-row">
@@ -139,7 +140,7 @@
                                             </div>
                                         </form>
                                         <form
-                                            action="{{url_for('find_friends_last',find_friend_email=user_email)}}"
+                                            action="{{url_for('find_study_sessions',find_study_email=user_email)}}"
                                             method="POST"
                                         >
                                             <div class="col btn-row">
@@ -155,7 +156,7 @@
                                         </form>
 
                                         <form
-                                            action="{{url_for('find_friends_last',find_friend_email=user_email)}}"
+                                            action="{{url_for('find_study_sessions',find_study_email=user_email)}}"
                                             method="POST"
                                         >
                                             <div class="col btn-row">
@@ -170,7 +171,7 @@
                                             </div>
                                         </form>
                                         <form
-                                            action="{{url_for('find_friends_last',find_friend_email=user_email)}}"
+                                            action="{{url_for('find_study_sessions',find_study_email=user_email)}}"
                                             method="POST"
                                         >
                                             <div class="col btn-row">
