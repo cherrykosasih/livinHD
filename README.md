@@ -55,3 +55,7 @@ To ease communication between users without heavily depending on third party app
 - source bin/activate
 - pip3 install flask
 - python3 main.py
+
+## Our website
+You can find our web app here
+Link: http://172.105.126.97:5000/
