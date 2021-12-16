@@ -1,16 +1,16 @@
 /* Include the padding and border in an element's total width and height */
 * {
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: "Inter-Bold", "Inter", sans-serif;
-  }
-  
-  #social-btn{
+}
+
+#social-btn {
     border-radius: 50px;
     width: 30%;
     height: 70%;
@@ -23,14 +23,14 @@
     font-family: "Andika New Basic", serif;
     font-size: larger;
     border: none;
-  }
-  
-  #social-btn:hover{
+}
+
+#social-btn:hover {
     background-color: #f2ece6;
     color: #685145;
-  }
-  
-  .content {
+}
+
+.content {
     width: 1500px;
     height: 1000px;
     box-shadow: 5px 5px 4px 6px rgba(0, 0, 0, 0.55);
@@ -41,39 +41,39 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .main-content {
+}
+
+.main-content {
     height: 1000px;
     width: 800px;
     margin: auto;
     background-color: #dbcfc5;
-  }
-  
-  .side-content {
+}
+
+.side-content {
     height: 1000px;
     width: 500px;
-  }
-  
-  #logo {
+}
+
+#logo {
     width: 80%;
     padding: 10px;
     float: right;
-  }
-  
-  #logo img {
+}
+
+#logo img {
     max-width: 100%;
     max-height: 100%;
-  }
-  
-  /* Remove margins and padding from the list */
-  ul {
+}
+
+/* Remove margins and padding from the list */
+ul {
     margin: 0;
     padding: 0;
-  }
-  
-  /* Style the list items */
-  ul li {
+}
+
+/* Style the list items */
+ul li {
     cursor: pointer;
     position: relative;
     padding: 12px 8px 12px 40px;
@@ -81,21 +81,21 @@
     background: #eee;
     font-size: 18px;
     transition: 0.2s;
-  
+
     /* make the list items unselectable */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
-  
-  /* Darker background-color on hover */
-  ul li:hover {
+}
+
+/* Darker background-color on hover */
+ul li:hover {
     background: #ddd;
-  }
-  
-  /* Add a "checked" mark when clicked on */
-  ul li.checked::before {
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
     content: "";
     position: absolute;
     border-color: #c39983;
@@ -106,10 +106,10 @@
     transform: rotate(45deg);
     height: 15px;
     width: 7px;
-  }
-  
-  /* Style the header */
-  .header {
+}
+
+/* Style the header */
+.header {
     background-color: #c39983;
     padding: 10px;
     color: white;
@@ -121,14 +121,14 @@
     top: 310px;
     margin-left: 20px;
     margin-top: 50px;
-  }
-  
-  .header h1 {
+}
+
+.header h1 {
     font-family: "Andika New Basic", serif;
     color: #f2ece6;
-  }
-  
-  .eachlist {
+}
+
+.eachlist {
     background-color: #c39983;
     padding: 10px;
     color: white;
@@ -136,10 +136,10 @@
     border-radius: 25px;
     height: 56px;
     width: 280px;
-  }
-  
-  /* Style the input */
-  input {
+}
+
+/* Style the input */
+input {
     margin: 0;
     border: none;
     border-radius: 70px;
@@ -148,10 +148,10 @@
     float: left;
     font-size: 16px;
     background-color: #f2ece6;
-  }
-  
-  /* Style the "Add" button */
-  .doneBtn {
+}
+
+/* Style the "Add" button */
+.doneBtn {
     padding: 10px;
     width: 35px;
     height: 35px;
@@ -165,13 +165,13 @@
     cursor: pointer;
     transition: 0.3s;
     border-radius: 70px;
-  }
-  
-  .doneBtn:hover {
+}
+
+.doneBtn:hover {
     background-color: #f2ece6;
-  }
-  
-  .frame {
+}
+
+.frame {
     margin-left: 5%;
     z-index: 4;
     margin-right: 5%;
@@ -181,11 +181,11 @@
     overflow-y: scroll;
     position: relative;
     top: 0%;
-  }
-  .frame::-webkit-scrollbar {
+}
+.frame::-webkit-scrollbar {
     display: none;
-  }
-  .scroll {
+}
+.scroll {
     background-color: white;
     padding: 10px 10px 10px 10px;
     border-radius: 50px;
@@ -195,8 +195,8 @@
     justify-content: center;
     left: 5%;
     top: 10%;
-  }
-  .timetable {
+}
+.timetable {
     width: auto; /* 523px */
     height: auto; /* 120px */
     overflow: visible;
@@ -209,8 +209,8 @@
     letter-spacing: 0px;
     line-height: 1.2;
     text-align: center;
-  }
-  .unit {
+}
+.unit {
     width: auto; /* 699px */
     height: auto; /* 94px */
     overflow: visible;
@@ -222,8 +222,8 @@
     font-size: 40px;
     letter-spacing: 0px;
     line-height: 1.2;
-  }
-  .teacher {
+}
+.teacher {
     width: auto; /* 298px */
     height: auto; /* 76px */
     overflow: visible;
@@ -235,8 +235,8 @@
     font-size: 25px;
     letter-spacing: 0px;
     line-height: 1.2;
-  }
-  .zoom-link {
+}
+.zoom-link {
     width: auto; /* 233px */
     height: auto; /* 58px */
     overflow: visible;
@@ -248,8 +248,8 @@
     font-size: 20px;
     letter-spacing: 0px;
     line-height: 1.2;
-  }
-  .time {
+}
+.time {
     width: auto; /* 223px */
     height: auto; /* 120px */
     overflow: visible;
@@ -261,9 +261,9 @@
     font-size: 100px;
     letter-spacing: 0px;
     line-height: 1.2;
-  }
-  
-  .timetable-frame {
+}
+
+.timetable-frame {
     margin-left: 1%;
     margin-right: 1%;
     margin-top: 3%;
@@ -272,8 +272,8 @@
     overflow: visible;
     border-radius: 70px;
     padding-bottom: 3%;
-  }
-  .unit-frame {
+}
+.unit-frame {
     margin-left: 1%;
     margin-right: 1%;
     margin-top: 5%;
@@ -285,15 +285,15 @@
     padding-top: 4%;
     padding-left: 10%;
     z-index: 9;
-  }
-  .time-frame {
+}
+.time-frame {
     width: 332px;
     height: 332px;
     background-color: #ffffff;
     overflow: visible;
-  }
-  
-  .clock-frame {
+}
+
+.clock-frame {
     background-color: #685145;
     padding: 20px;
     text-align: center;
@@ -303,15 +303,15 @@
     margin: 10px;
     margin-left: 20px;
     margin-top: 50px;
-  }
-  .clock {
+}
+.clock {
     color: #f2ece6;
     font-size: 25px;
     font-family: "Righteous", cursive;
     letter-spacing: 7px;
-  }
-  
-  .date-frame {
+}
+
+.date-frame {
     padding: 10px;
     margin: 10px;
     border-radius: 25px;
@@ -320,9 +320,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-  }
-  
-  .date {
+}
+
+.date {
     color: #685145;
     background-color: #f2ece6;
     border-radius: 25px;
@@ -330,9 +330,9 @@
     text-align: center;
     align-self: center;
     padding: 10px;
-  }
-  
-  .frame-calender {
+}
+
+.frame-calender {
     z-index: 4;
     height: 100%;
     width: 90%;
@@ -341,13 +341,13 @@
     justify-content: space-between;
     top: 3%;
     left: 7%;
-  }
-  .frame-calender::-webkit-scrollbar {
+}
+.frame-calender::-webkit-scrollbar {
     display: none;
     justify-content: center;
     align-items: center;
-  }
-  .scroll-calender {
+}
+.scroll-calender {
     background-color: white;
     border-radius: 50px;
     height: 6%;
@@ -356,14 +356,14 @@
     left: 5%;
     top: 2%;
     margin-bottom: -7%;
-  }
-  .grid {
+}
+.grid {
     display: grid;
     grid-template-rows: repeat(var(--bs-rows, 1), 1fr);
     grid-template-columns: repeat(var(--bs-columns, 14), 1fr);
     gap: var(--bs-gap, 0.1rem);
-  }
-  .calender {
+}
+.calender {
     width: 160px;
     height: 100px;
     font-style: normal;
@@ -372,9 +372,9 @@
     font-size: 55px;
     text-align: center;
     position: relative;
-    top: 25%
-  }
-  #slideLeft {
+    top: 25%;
+}
+#slideLeft {
     position: relative;
     top: 0%;
     left: 0%;
@@ -387,9 +387,9 @@
     font-size: 30px;
     color: White;
     transition: 0.2s;
-  }
-  
-  #slideRight {
+}
+
+#slideRight {
     position: relative;
     top: 0%;
     left: 90%;
@@ -402,15 +402,15 @@
     font-size: 30px;
     color: White;
     transition: 0.2s;
-  }
-  #slideRight:hover {
+}
+#slideRight:hover {
     background: lightblue;
-  }
-  #slideLeft:hover {
+}
+#slideLeft:hover {
     background: lightblue;
-  }
-  
-  .navigation {
+}
+
+.navigation {
     text-align: center;
     border-radius: 25px;
     display: flex;
@@ -418,13 +418,13 @@
     align-items: flex-end;
     padding: 20px 0;
     float: right;
-  }
-  .eachbutton {
+}
+.eachbutton {
     text-align: center;
     border-radius: 25px;
-  }
-  .nav-button,
-  .nav-button-other {
+}
+.nav-button,
+.nav-button-other {
     border: none;
     border-top-left-radius: 70px;
     border-bottom-left-radius: 70px;
@@ -435,74 +435,87 @@
     margin: 5px 0;
     padding: 10px;
     width: 300px;
-  }
-  .nav-button-other {
+}
+.nav-button-other {
     color: #dbcfc5;
     background-color: white;
-  }
-  .nav-button-other:hover {
+}
+.nav-button-other:hover {
     background: lightblue;
-  }
-  .nav-button:hover {
+}
+.nav-button:hover {
     background: lightblue;
-  }
-  
-  .profile {
+}
+
+.profile {
     padding: 10px;
     margin: 10px;
     margin-top: 50px;
-  }
-  
-  .profile img {
+}
+
+.profile img {
     height: 125px;
     width: 125px;
     background-color: #c39983;
     border-radius: 25px;
-  }
-  
-  .profile .profile-content {
+}
+
+.profile .profile-content {
     float: right;
     position: relative;
     right: 30px;
     bottom: 25px;
-  }
-  
-  .profile h1 {
+}
+
+.profile-content {
+    width: 50%;
+    height: 125px;
+    position: relative;
+    padding-left: 8%;
+}
+
+.profile h1 {
     font-family: "Andika New Basic", serif;
     color: #c39983;
+    height: 70%;
     font-size: 2em;
-  }
-  
-  .profile h2 {
+    padding-top: 15%;
+    margin-bottom: -17%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.profile h2 {
     font-family: "Andika New Basic", serif;
     color: #dbcfc5;
     font-size: 1.5em;
-  }
-  
-  .profile button {
+    margin-bottom: 5%;
+    overflow: hidden;
+}
+
+.profile button {
     background-color: #c39983;
     border-radius: 70px;
     width: 100%;
     font-size: 16px;
-    margin-top: 10px;
     border: none;
-  }
-  
-  .profile button:hover {
+}
+
+.profile button:hover {
     background: lightblue;
-  }
-  
-  .task {
+}
+
+.task {
     margin: 30px;
-  }
-  
-  .task h1 {
+}
+
+.task h1 {
     font-family: "Andika New Basic", serif;
     color: #b38a75;
     font-weight: 800;
-  }
-  
-  .task-title {
+}
+
+.task-title {
     margin: 0;
     border: none;
     padding: 10px;
@@ -513,8 +526,8 @@
     color: White;
     background-color: #c39983;
     margin-bottom: 5%;
-  }
-  .task select {
+}
+.task select {
     margin-bottom: 5%;
     border: none;
     padding: 10px;
@@ -524,15 +537,15 @@
     font-size: 25px;
     color: White;
     background-color: #c39983;
-  }
-  
-  .datetime {
+}
+
+.datetime {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-  }
-  
-  .littles {
+}
+
+.littles {
     border: none;
     border-radius: 70px;
     width: 45%;
@@ -541,34 +554,34 @@
     font-size: 20px;
     color: White;
     background-color: #c39983;
-  }
-  
-  .task-type {
+}
+
+.task-type {
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
-  }
-  
-  .radio-title {
+}
+
+.radio-title {
     padding: 5px;
     margin-right: 10px;
     font-size: 30px;
     color: #c39983;
-  }
-  
-  .radio {
+}
+
+.radio {
     font-size: 20px;
     color: #c39983;
     display: flex;
     flex-direction: row;
     align-items: center;
-  }
-  
-  .radio input {
+}
+
+.radio input {
     margin-right: 20px;
-  }
-  
-  .task-desc {
+}
+
+.task-desc {
     border: none;
     border-radius: 25px;
     padding: 10px;
@@ -577,16 +590,16 @@
     font-size: 30px;
     color: White;
     background-color: #c39983;
-  }
-  
-  .save-cancel {
+}
+
+.save-cancel {
     padding: 5px 0;
     margin-top: 100px;
     display: flex;
     justify-content: space-around;
-  }
-  
-  .save-button {
+}
+
+.save-button {
     border: none;
     border-radius: 70px;
     width: 45%;
@@ -595,8 +608,8 @@
     color: White;
     background-color: #c39983;
     transition: 0.2s;
-  }
-  .cancel-button {
+}
+.cancel-button {
     border: none;
     border-radius: 70px;
     width: 45%;
@@ -605,10 +618,9 @@
     color: #c39983;
     background-color: white;
     transition: 0.2s;
-  }
-  
-  .save-button:hover,
-  .cancel-button:hover {
+}
+
+.save-button:hover,
+.cancel-button:hover {
     background: #ddd;
-  }
-  
+}
