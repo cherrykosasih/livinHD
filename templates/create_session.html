@@ -43,19 +43,18 @@
                 >
 
                 <a href="{{url_for('home',home_email= user_email)}}" method="GET">Home</a>
-                <a href="{{url_for('login')}}" method="GET"}>SignOut</a>
             </div>
         </div>
 
         <div class="frame">
-            <span
+            <div class="content">
+                <span
                 style="font-size: 35px; cursor: pointer"
                 onclick="openNav()"
                 class="menu-nav"
             >
                 ≡
             </span>
-            <div class="content">
                 <h1 class="title">Create Your Own Session</h1>
                 <div class="container">
                     <form
@@ -115,16 +114,6 @@
                                     />
                                 </div>
                                 <div class="row">
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        aria-label="lang"
-                                        aria-describedby="addon-wrapping"
-                                        placeholder="Unit related to this meeting"
-                                        name="unit"
-                                    />
-                                </div>
-                                <div class="row">
                                     <button
                                         type="submit"
                                         class="btn btn-primary btn-lg"
@@ -134,6 +123,8 @@
                                 </div>
                             </div>
                             <div class="col">
+                                <button class="open-zoom-btn"
+                                onclick="window.open('https://zoom.us/signin','_blank')">Open Zoom</button>
                                 <div class="invite text-center">
                                     Invite Friends
                                     <div class="friends"></div>
