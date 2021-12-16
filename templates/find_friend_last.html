@@ -66,10 +66,13 @@
                                 <h1 class="title-find-friend" id="findfriendd">
                                     Find friends
                                 </h1>
+                                <form action="{{url_for('find_friends_last',find_friend_email=user_email)}}" method="POST">
                                 <input
                                     id="search-session"
                                     placeholder="Search for a friend"
+                                    name ="name"
                                 />
+                                </form>
                             </div>
 
                             <div class="row friends" id="profile_container">

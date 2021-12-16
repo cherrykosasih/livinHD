@@ -163,6 +163,15 @@ def data_based_on_music_interest(music_genre):
     conn.close()
     return a
 
+def data_based_on_name(name):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    c = conn.cursor()
+    c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user WHERE user_fname LIKE ? OR user_lname LIKE ? ',
+    ('{}%'.format(name),'{}%'.format(name)))
+    a=c.fetchall()
+    conn.close()
+    return a
+
 def data_for_explore():
     # [('cherry', 'kosasih', '09138013', 'ck', 'soit', 'f', 'jones'), 
     # ('lisa', 'lala', '1231233', 'soit', 'jkdjald', None, None), 
