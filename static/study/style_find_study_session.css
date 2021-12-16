@@ -248,3 +248,7 @@ body {
 .bi-search:active{
     opacity: 1;
 }
+
+.units::-webkit-scrollbar {
+    display: none;
+}
