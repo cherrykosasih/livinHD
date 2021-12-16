@@ -192,7 +192,15 @@ def find_friends_last(find_friend_email):
             return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
         elif request.form.get("unit"):
             unit_filter=request.form["unit"]
-            relevant_data = db.data_based_on_unit(unit_filter)
+            relevant_data = db.data_based_on_unit(unit_filter,current_email)
+            return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
+        elif request.form.get("movie"):
+            movie_filter=request.form["movie"]
+            relevant_data=db.data_based_on_movie_interest(movie_filter,current_email)
+            return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
+        elif request.form.get("music"):
+            music_filter=request.form["music"]
+            relevant_data=db.data_based_on_music_interest(music_filter,current_email)
             return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
         else:
             return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
@@ -236,7 +244,7 @@ def create_study_session():
             db.insert_study_session(session_name,session_description,meeting_link,meeting_id,meeting_password,unit)
         except sqlite3.IntegrityError:
             return render_template('create_session.html',user_email=current_email)
-        return redirect(url_for('find_study_sessions'))
+        return redirect(url_for('find_study_sessions',find_study_email=current_email))
 
 if __name__ == '__main__':
     app.run(debug=True)

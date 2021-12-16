@@ -147,26 +147,26 @@ def insert_music(email,genre):
         conn.commit()
     conn.close()
 
-def data_based_on_unit(unitname):
+def data_based_on_unit(unitname,email):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c = conn.cursor()
-    c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user INNER JOIN enrolment on user.user_email=enrolment.user_email WHERE unit_id=?',(unitname,))
+    c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user INNER JOIN enrolment on user.user_email=enrolment.user_email WHERE unit_id=? and user.user_email!=?',(unitname,email))
     a=c.fetchall()
     conn.close()
     return a
 
-def data_based_on_movie_interest(movie_genre):
+def data_based_on_movie_interest(movie_genre,email):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c = conn.cursor()
-    c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user INNER JOIN movie ON user.user_email=movie.user_email WHERE genre=?',(movie_genre,))
+    c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user INNER JOIN movie ON user.user_email=movie.user_email WHERE genre=? AND user.user_email!=?',(movie_genre,email))
     a=c.fetchall()
     conn.close()
     return a
 
-def data_based_on_music_interest(music_genre):
+def data_based_on_music_interest(music_genre,email):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c = conn.cursor()
-    c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user INNER JOIN music ON user.user_email=music.user_email WHERE genre=?',(music_genre,))
+    c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user INNER JOIN music ON user.user_email=music.user_email WHERE genre=? AND user.user_email!=?',(music_genre,email))
     a=c.fetchall()
     conn.close()
     return a
@@ -183,7 +183,7 @@ def data_based_on_name(name):
 def session_based_on_unit(unit):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c = conn.cursor()
-    c.execute('SELECT * FROM study_session WHERE unit=?',(unit,))
+    c.execute('SELECT * FROM study_session WHERE lower(unit) LIKE ?',('{}%'.format(unit),))
     a=c.fetchall()
     conn.close()
     return a
@@ -191,7 +191,7 @@ def session_based_on_unit(unit):
 def session_based_on_name(name):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c = conn.cursor()
-    c.execute('SELECT * FROM study_session WHERE session_name LIKE ?',(name,))
+    c.execute('SELECT * FROM study_session WHERE lower(session_name) LIKE ?',('{}%'.format(name),))
     a=c.fetchall()
     conn.close()
     return a
@@ -299,3 +299,6 @@ def update_to_do_check(email,lst):
 # print(data_based_on_unit('fit1045'))
 # print(data_for_explore())
 # print(get_to_do_check('potter@gmail.com'))
+
+# conn.execute("ALTER TABLE study_session ADD unit TEXT DEFAULT ' ' ")
+# conn.close()
