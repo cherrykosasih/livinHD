@@ -36,7 +36,12 @@ def login():
 def home(home_email):
     current_email=session.get("session_email",None)
     if request.method=="POST":
-        return redirect(url_for('profile',profile_email=current_email))
+        if request.form.get("show_profile"):
+            return redirect(url_for('profile',profile_email=current_email))
+        elif request.form.get("savetodo"):
+            todos=request.form.getlist('td')
+            db.update_to_do_list(current_email,todos)
+            return redirect(url_for('home',home_email=current_email))
     elif request.method=="GET":
         current_data=db.retrieve_user_data(current_email)
         fname = current_data[0][0]
@@ -45,7 +50,14 @@ def home(home_email):
         ig = current_data[0][4]
         faculty = current_data[0][5]
         fullname= fname+" "+lname
-        return render_template("home_fix_2.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty)
+        todos = db.get_user_to_do(current_email)
+        td1= u.unit_n(0,todos)
+        td2= u.unit_n(1,todos)
+        td3= u.unit_n(2,todos)
+        td4= u.unit_n(3,todos)
+        td5= u.unit_n(4,todos)
+        
+        return render_template("home_fix_2.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,td1=td1,td2=td2,td3=td3,td4=td4,td5=td5)
 
 @app.route('/signup_details/<signup_email>',methods=["POST","GET"])
 def signup_details(signup_email):
@@ -72,6 +84,7 @@ def signup_details(signup_email):
         db.insert_unit(current_email,unit)
         db.insert_movie(current_email,movie)
         db.insert_music(current_email,music)
+        db.initialize_to_do_list(current_email)
         # db.update_unit(current_email,unit)
         # db.update_interest(current_email,interest)
         return redirect(url_for('login'))
