@@ -92,12 +92,10 @@ def profile(profile_email):
     relationship=current_data[0][9]
     fullname= fname+" "+lname
 
-    units = db.retrieve_unit_of_user(current_email)
-    user_units=",".join(units)
+    user_units = db.retrieve_unit_of_user(current_email)
     movies = db.retrieve_movie_of_user(current_email)
     musics = db.retrieve_music_of_user(current_email)
-    interest = movies+musics
-    user_interest = ",".join(interest)
+    user_interest = movies+musics
     if request.method=="GET":
         return render_template("profile.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,stats=status,lang=language,gender=gender,relationship=relationship,interest=user_interest,units=user_units)
     elif request.method=="POST":
@@ -158,13 +156,12 @@ def find_friends_new():
 @app.route('/find_friends_last/<find_friend_email>',methods=["POST","GET"])
 def find_friends_last(find_friend_email):
     current_email = session.get("session_email",None)
-    relevant_data =db.data_for_explore()
     units = db.retrieve_unit_of_user(current_email)
     unit1 = u.unit_n(0,units)
     unit2 = u.unit_n(1,units)
     unit3 = u.unit_n(2,units)
     unit4 = u.unit_n(3,units)
-    # relevant_data =db.data_for_explore(current_email)
+    relevant_data =db.data_for_explore(current_email)
     if request.method=="GET":
         return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
     elif request.method=="POST":

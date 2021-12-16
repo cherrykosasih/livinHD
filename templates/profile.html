@@ -59,13 +59,21 @@
                             <div class="row">
                                 <div class="part col">
                                     <h2>Unit taken this semester</h2>
-                                    <div class="sect sect-more"></div>
+                                    <div class="sect-more">
+                                        {% for unit in units %}
+                                        <div class="sect-more-content">{{unit}}</div>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="part col">
                                     <h2>Interests</h2>
-                                    <div class="sect sect-more"></div>
+                                    <div class="sect-more">
+                                        {% for int in interest %}
+                                        <div class="sect-more-content">{{int}}</div>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -107,30 +115,15 @@
                                             </div>
                                             <div class="row pinfo-row">
                                                 <div class="row">
-                                                    <div class="col-4">
-                                                        <h6>Age</h6>
-                                                    </div>
-                                                    <div class="col-4" >
+                                                    <div class="col-6" >
                                                         <h6>Gender</h6>
                                                     </div>
-                                                    <div class="col-4" >
+                                                    <div class="col-6" >
                                                         <h6>Relationship</h6>
                                                     </div>
                                                 </div>
-                                                <div class="row pinfo-row">
-                                                    <div class="col">
-                                                        <input
-                                                            type="text"
-                                                            class="
-                                                                form-control
-                                                                sect-mini
-                                                            "
-                                                            aria-label="lang"
-                                                            aria-describedby="addon-wrapping"
-                                                            placeholder="Age"
-                                                        />
-                                                    </div>
-                                                    <div class="col">
+                                                <div class="row pinfo-row">    
+                                                    <div class="col-6">
                                                         <input
                                                             type="text"
                                                             class="
@@ -143,7 +136,7 @@
                                                             value={{gender}}
                                                         />
                                                     </div>
-                                                    <div class="col">
+                                                    <div class="col-6">
                                                         <input
                                                             type="text"
                                                             class="

@@ -172,7 +172,7 @@ def data_based_on_name(name):
     conn.close()
     return a
 
-def data_for_explore():
+def data_for_explore(email):
     # [('cherry', 'kosasih', '09138013', 'ck', 'soit', 'f', 'jones'), 
     # ('lisa', 'lala', '1231233', 'soit', 'jkdjald', None, None), 
     # ('lalala', 'rcwc', '1231233', 'soit', 'gg', None, None), 
@@ -185,8 +185,7 @@ def data_for_explore():
     # ('cherry', 'kosasih', '0001', 'soit', 'ceri', None, None)]
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     c = conn.cursor()
-    c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user')
-    # c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user WHERE user_email!=?',(email,))
+    c.execute('SELECT user_fname,user_lname,user_phone,user_ig,user_faculty,user_gender,user_relationship,status FROM user WHERE user_email!=?',(email,))
     a = c.fetchall()
     conn.close()
     return a
