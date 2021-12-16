@@ -92,12 +92,10 @@ def profile(profile_email):
     relationship=current_data[0][9]
     fullname= fname+" "+lname
 
-    units = db.retrieve_unit_of_user(current_email)
-    user_units=",".join(units)
+    user_units = db.retrieve_unit_of_user(current_email)
     movies = db.retrieve_movie_of_user(current_email)
     musics = db.retrieve_music_of_user(current_email)
-    interest = movies+musics
-    user_interest = ",".join(interest)
+    user_interest = movies+musics
     if request.method=="GET":
         return render_template("profile.html",fullname=fullname,user_email=current_email,phone=phone,ig=ig,faculty=faculty,stats=status,lang=language,gender=gender,relationship=relationship,interest=user_interest,units=user_units)
     elif request.method=="POST":
