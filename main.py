@@ -186,6 +186,14 @@ def find_friends_last(find_friend_email):
             unit_filter=request.form["unit"]
             relevant_data = db.data_based_on_unit(unit_filter)
             return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
+        elif request.form.get("movie"):
+            movie_filter=request.form["movie"]
+            relevant_data=db.data_based_on_movie_interest(movie_filter)
+            return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
+        elif request.form.get("music"):
+            music_filter=request.form["music"]
+            relevant_data=db.data_based_on_music_interest(music_filter)
+            return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
         else:
             return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
 
