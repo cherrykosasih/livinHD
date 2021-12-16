@@ -219,12 +219,16 @@
                 <!-- TODO LIST -->
                 <div id="myDIV" class="header">
                     <h1>TODO LIST</h1>
+                    <form action="{{url_for('home',home_email=user_email)}}" method="POST">
                     <ul id="myUL">
                         <div class="eachlist">
                             <input
                                 type="text"
                                 id="myInput"
+                                name="td"
                                 placeholder="Type something..."
+                                value={{td1}}
+
                             />
                             <li class="doneBtn"></li>
                         </div>
@@ -232,7 +236,9 @@
                             <input
                                 type="text"
                                 id="myInput"
+                                name="td"
                                 placeholder="Type something..."
+                                value ={{td2}}
                             />
                             <li class="doneBtn"></li>
                         </div>
@@ -240,7 +246,9 @@
                             <input
                                 type="text"
                                 id="myInput"
+                                name="td"
                                 placeholder="Type something..."
+                                value={{td3}}
                             />
                             <li class="doneBtn"></li>
                         </div>
@@ -248,7 +256,9 @@
                             <input
                                 type="text"
                                 id="myInput"
+                                name="td"
                                 placeholder="Type something..."
+                                value={{td4}}
                             />
                             <li class="doneBtn"></li>
                         </div>
@@ -256,11 +266,17 @@
                             <input
                                 type="text"
                                 id="myInput"
+                                name="td"
                                 placeholder="Type something..."
+                                value={{td5}}
                             />
                             <li class="doneBtn"></li>
                         </div>
                     </ul>
+                    <div class="save-cancel">
+                        <button type="submit" value="Save" name="savetodo" class="save-button" id="save-btn">Save</button>
+                    </div>
+                </form>
                 </div>
             </div>
         </div>

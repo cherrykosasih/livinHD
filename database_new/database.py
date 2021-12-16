@@ -8,8 +8,16 @@ conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
 # conn.execute('CREATE TABLE IF NOT EXISTS contact(user1_id INTEGER PRIMARY KEY, user2_id INTEGER)')
 # conn.execute(('CREATE TABLE IF NOT EXISTS unit(unit_id TEXT, unit_name TEXT)'))
 # conn.execute('CREATE TABLE IF NOT EXISTS enrolment(user_email TEXT, unit_id TEXT, PRIMARY KEY(user_email,unit_id))')
+# conn.execute('DROP TABLE todo')
+# conn.execute('CREATE TABLE IF NOT EXISTS todo(user_email TEXT,task1 TEXT,task2 TEXT,task3 TEXT,task4 TEXT,task5 TEXT)')
 # conn.close()
 
+def safe_get_list(n,lst):
+    try:
+        return lst[n]
+    except IndexError:
+        return None
+        
 def insert_user(fname,lname,email,phone,ig,faculty,password,gender,relation,language):
     conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
     conn.execute('INSERT INTO user(user_fname,user_lname,user_email,user_phone,user_ig,user_faculty,user_pwd,user_gender,user_relationship,user_language) VALUES (?,?,?,?,?,?,?,?,?,?)' ,
@@ -206,6 +214,46 @@ def data_for_explore(email):
     conn.close()
     return a
 
+def initialize_to_do_list(user_email):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    conn.execute('INSERT INTO todo(user_email,task1,task2,task3,task4,task5) VALUES(?,?,?,?,?,?)',(user_email,None,None,None,None,None))
+    conn.commit()
+    conn.close()
+
+def update_to_do_list(user_email,lst):
+    task1= safe_get_list(0,lst)
+    task2= safe_get_list(1,lst)
+    task3= safe_get_list(2,lst)
+    task4= safe_get_list(3,lst)
+    task5= safe_get_list(4,lst)
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    conn.execute('UPDATE todo SET task1=?,task2=?,task3=?,task4=?,task5=? WHERE user_email=? ',(task1,task2,task3,task4,task5,user_email))
+    conn.commit()
+    conn.close()
+
+def get_all_emails():
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    c = conn.cursor()
+    c.execute('SELECT user_email FROM user')
+    a = c.fetchall()
+    conn.close()
+    res=[]
+    for i in a:
+        res.append(i[0])
+    conn.close()
+    return res
+
+def get_user_to_do(email):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    c = conn.cursor()
+    c.execute('SELECT task1,task2,task3,task4,task5 FROM todo WHERE user_email=?',(email,))
+    a = c.fetchall()
+    conn.close()
+    res=[]
+    for i in a:
+        res.append(i[0])
+    conn.close()
+    return res
 # insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
 # insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
 # print("jancok")

@@ -139,7 +139,8 @@ body {
     border-radius: 20px;
     color: #fff;
     height: 35px;
-    width: 110px;
+    width: 90px;
+    margin-left: 30px;
 }
 
 #show-all:active {
@@ -193,7 +194,7 @@ body {
     height: 575px;
     overflow: scroll;
     padding: 10px;
-    padding-top: 0;
+    margin-top: -5%;
 }
 
 .session-card {
@@ -234,4 +235,17 @@ body {
     display: none;
     justify-content: center;
     align-items: center;
+}
+
+.search-bar img{
+    position: relative;
+    z-index: 20;
+    margin-top: -10%;
+    width: 90px;
+    float: right;
+    opacity: 0.5;
+}
+
+.search-bar img:active{
+    opacity: 1;
 }

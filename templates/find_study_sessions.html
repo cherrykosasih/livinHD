@@ -73,11 +73,17 @@
                                         method="POST"
                                         class="col-10"
                                     >
+                                    <div class="search-bar">
                                         <input
                                             id="search-session"
                                             placeholder="Search for a study session"
                                             name="name"
                                         />
+                                        <img
+                                        src="{{url_for('static',filename='study/search.png')}}"
+                                        alt=""
+                                        />
+                                    </div>
                                     </form>
                                     <form
                                         action="{{url_for('find_study_sessions',find_study_email=user_email)}}"
