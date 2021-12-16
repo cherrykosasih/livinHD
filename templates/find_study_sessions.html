@@ -67,10 +67,27 @@
                                     ≡
                                 </span>
                                 <h1 class="title">Find study session</h1>
-                                <input
-                                    id="search-session"
-                                    placeholder="Search for a study session"
-                                />
+                                <div class="row">
+                                    <form
+                                        action="{{url_for('find_friends_last',find_friend_email=user_email)}}"
+                                        method="POST"
+                                        class="col-10"
+                                    >
+                                        <input
+                                            id="search-session"
+                                            placeholder="Search for a study session"
+                                        />
+                                    </form>
+                                    <form
+                                        action="{{url_for('find_friends_last',find_friend_email=user_email)}}"
+                                        method="POST"
+                                        class="col-1"
+                                    >
+                                        <button class="btn" id="show-all" type="submit">
+                                            Show all
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
 
                             <div class="sessions">

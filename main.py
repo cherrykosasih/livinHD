@@ -173,6 +173,8 @@ def find_friends_last(find_friend_email):
             unit_filter=request.form["unit"]
             relevant_data = db.data_based_on_unit(unit_filter)
             return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
+        else:
+            return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
 
 @app.route('/find_study_sessions',methods=["POST","GET"])
 def find_study_sessions():
@@ -185,7 +187,10 @@ def find_study_sessions():
     if request.method=="GET":
         return render_template("find_study_sessions.html", sessions = db.get_study_session(),unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4,user_email=current_email)
     elif request.method=="POST":
-        return render_template("find_study_sessions.html",user_email=current_email)
+        if request.form.get("unit"):
+            return render_template("find_study_sessions.html",sessions = db.get_study_session(),unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4,user_email=current_email)
+        else:
+            return render_template("find_study_sessions.html",sessions = db.get_study_session(),unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4,user_email=current_email)
 
 @app.route('/create_study_session',methods=["POST","GET"])
 def create_study_session():

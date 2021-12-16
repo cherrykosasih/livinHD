@@ -125,6 +125,24 @@ body {
     top: 100px;
 }
 
+#show-all {
+    margin: 5px;
+    justify-self: right;
+    box-shadow: 1px;
+    font-size: 36;
+    background-color: rgb(29, 126, 139);
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    height: 35px;
+    width: 110px;
+}
+
+#show-all:active {
+    background-color: #fff;
+    color: rgb(29, 126, 139);
+}
+
 #create-btn {
     width: 80px;
     height: 80px;
@@ -150,13 +168,19 @@ body {
     border: none;
     position: cover;
     z-index: 2;
-    width: 90%;
+    width: 80%;
     height: 50px;
     text-align: center;
     text-size-adjust: 100px;
     font-size: large;
-    margin: 10px;
     margin-bottom: 20px;
+    margin-left: 5%;
+}
+
+#show-all {
+    position: relative;
+    right: 100px;
+    border-radius: 10px;
 }
 
 .sessions {

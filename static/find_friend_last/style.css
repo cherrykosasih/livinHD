@@ -109,6 +109,12 @@ body {
     margin-left: 5%;
 }
 
+#show-all {
+    position: relative;
+    right: 50px;
+    border-radius: 10px;
+}
+
 .interests {
     height: 390px;
     overflow: scroll;
