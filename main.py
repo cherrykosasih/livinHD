@@ -156,13 +156,12 @@ def find_friends_new():
 @app.route('/find_friends_last/<find_friend_email>',methods=["POST","GET"])
 def find_friends_last(find_friend_email):
     current_email = session.get("session_email",None)
-    relevant_data =db.data_for_explore()
     units = db.retrieve_unit_of_user(current_email)
     unit1 = u.unit_n(0,units)
     unit2 = u.unit_n(1,units)
     unit3 = u.unit_n(2,units)
     unit4 = u.unit_n(3,units)
-    # relevant_data =db.data_for_explore(current_email)
+    relevant_data =db.data_for_explore(current_email)
     if request.method=="GET":
         return render_template("find_friend_last.html",profiles=relevant_data,user_email=current_email,unit1=unit1,unit2=unit2,unit3=unit3,unit4=unit4)
     elif request.method=="POST":
