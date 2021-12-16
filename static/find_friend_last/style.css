@@ -100,7 +100,7 @@ body {
     border: none;
     position: cover;
     z-index: 2;
-    width: 90%;
+    width: 85%;
     height: 50px;
     text-align: center;
     text-size-adjust: 100px;
@@ -113,6 +113,8 @@ body {
     position: relative;
     right: 50px;
     border-radius: 10px;
+    width: 90px;
+    margin-left: 20px;
 }
 
 .interests {
@@ -196,4 +198,16 @@ body {
     display: none;
     justify-content: center;
     align-items: center;
+}
+
+.bi-search{
+    color: #1d7e8b;
+    font-weight: 800;
+    margin-left: 2%;
+    position: relative;
+    opacity: 0.5;
+}
+
+.bi-search:active{
+    opacity: 1;
 }
