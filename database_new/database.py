@@ -254,6 +254,30 @@ def get_user_to_do(email):
         res.append(i[0])
     conn.close()
     return res
+
+def get_to_do_check(email):
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    c = conn.cursor()
+    c.execute('SELECT c1,c2,c3,c4,c5 FROM todo WHERE user_email=?',(email,))
+    a = c.fetchall()
+    conn.close()
+    res=[]
+    for i in a[0]:
+        res.append(i)
+    conn.close()
+    print(a)
+    return res
+
+def update_to_do_check(email,lst):
+    check1= safe_get_list(0,lst)
+    check2= safe_get_list(1,lst)
+    check3= safe_get_list(2,lst)
+    check4= safe_get_list(3,lst)
+    check5= safe_get_list(4,lst)
+    conn = sqlite3.connect('database_new/database.db',check_same_thread=False)
+    conn.execute('UPDATE todo SET c1=?,c2=?,c3=?,c4=?,c5=? WHERE user_email=? ',(check1,check2,check3,check4,check5,email))
+    conn.commit()
+    conn.close()
 # insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
 # insert_user('cherry','kosasih','ckos0005','09138013','soit','ck','lala','f','jones','indo')
 # print("jancok")
@@ -279,3 +303,4 @@ def get_user_to_do(email):
 
 # print(data_based_on_unit('fit1045'))
 # print(data_for_explore())
+# print(get_to_do_check('potter@gmail.com'))
