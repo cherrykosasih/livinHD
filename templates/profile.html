@@ -174,8 +174,12 @@
                                 type="submit"
                                 class="btn btn-lg btn-primary"
                             >
-                                Update profile
+                                Update changes
                             </button>
+                            <button
+                            action="{{url_for('home',home_email= user_email)}}"
+                            class="btn btn-lg btn-primary"
+                            >Discard changes</button>
                             </form>
                             </div>
                         </div>
